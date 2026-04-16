@@ -244,3 +244,79 @@ footer .container {
     font-size: 1.5rem;
   }
 }
+/* ===== LOGO Y MASCOTA EN TOP BAR ===== */
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mascota-img {
+  height: 45px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.mascota-img:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  transition: var(--transition);
+}
+
+.logo-img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+.contact-info {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.social-badge {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Ajuste responsive para imágenes */
+@media (max-width: 768px) {
+  .mascota-img {
+    height: 35px;
+  }
+  
+  .logo-img {
+    height: 30px;
+  }
+  
+  .top-left, .top-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .contact-info {
+    font-size: 0.75rem;
+    gap: 12px;
+  }
+}
