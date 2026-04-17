@@ -46,7 +46,7 @@ body {
   padding: 0 32px;
 }
 
-/* ===== TOP BAR CON LOGO Y MASCOTA INTERCAMBIADOS ===== */
+/* ===== TOP BAR ===== */
 .top-bar {
   background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-principal) 100%);
   padding: 12px 0;
@@ -62,22 +62,21 @@ body {
   gap: 16px;
 }
 
-/* INTERCAMBIO DE POSICIÓN: LOGO A LA IZQUIERDA, MASCOTA A LA DERECHA */
 .top-left {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .top-right {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-/* IMÁGENES - TRIPLE TAMAÑO (96px y 84px) */
+/* IMÁGENES - TRIPLE TAMAÑO */
 .logo-img {
   height: 84px;
   width: auto;
@@ -104,26 +103,28 @@ body {
 
 .contact-info {
   display: flex;
-  gap: 28px;
+  gap: 16px;
   flex-wrap: wrap;
+  max-width: 500px;
 }
 
 .contact-info span {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.2px;
+  line-height: 1.4;
 }
 
 .social-badge {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
 .social-badge a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: var(--transition);
 }
@@ -134,14 +135,14 @@ body {
 
 /* ===== BRAND ===== */
 .brand {
-  padding: 40px 0 32px;
+  padding: 32px 0 24px;
   text-align: center;
   background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-100) 100%);
   border-bottom: 1px solid var(--gris-200);
 }
 
 .logo-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--verde-oscuro);
   letter-spacing: -0.5px;
@@ -153,24 +154,24 @@ body {
 }
 
 .lema-principal {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--verde-claro);
-  margin-top: 16px;
+  margin-top: 12px;
   letter-spacing: 0.3px;
 }
 
 .lema-autor {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--gris-500);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 /* ===== NAVEGACIÓN ===== */
 .nav-buttons {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  padding: 16px 0;
+  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -182,14 +183,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .btn-ciij {
-  padding: 10px 24px;
+  padding: 8px 20px;
   border-radius: 40px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--gris-700);
   text-decoration: none;
   transition: var(--transition);
@@ -218,7 +219,7 @@ body {
 /* ===== HERO CON BANNER ROTATORIO ===== */
 .hero {
   background: linear-gradient(135deg, var(--verde-muy-claro) 0%, var(--blanco) 100%);
-  padding: 70px 0;
+  padding: 60px 0;
   position: relative;
   overflow: hidden;
 }
@@ -239,7 +240,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+  gap: 40px;
   position: relative;
   z-index: 2;
 }
@@ -249,34 +250,34 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--verde-oscuro);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .hero-text p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--gris-700);
-  margin-bottom: 28px;
   line-height: 1.6;
 }
 
-/* BANNER ROTATORIO MODERNO */
+/* BANNER ROTATORIO SIN CONTADOR GIGANTE */
 .banner-rotatorio {
   flex: 0.9;
   background: var(--blanco);
   border-radius: var(--border-radius);
-  padding: 48px 36px;
+  padding: 36px 32px;
   box-shadow: var(--sombra-xl);
   border: 1px solid rgba(27, 94, 63, 0.15);
   transition: var(--transition);
-  min-height: 380px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .banner-rotatorio:hover {
@@ -286,82 +287,72 @@ body {
 }
 
 .banner-icono {
-  font-size: 3rem;
-  margin-bottom: 24px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
   color: var(--verde-principal);
 }
 
 .frase-actual {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--gris-900);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-style: italic;
 }
 
 .frase-autor-actual {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--verde-principal);
   font-weight: 600;
   letter-spacing: 0.3px;
 }
 
-/* Timer circular */
-.timer-container {
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
+/* BARRA DE PROGRESO ELEGANTE (reemplaza el contador gigante) */
+.progress-bar-container {
+  margin-top: 28px;
+  width: 100%;
 }
 
-.timer-circle {
-  width: 50px;
-  height: 50px;
+.progress-bar-bg {
+  width: 100%;
+  height: 3px;
+  background: var(--gris-200);
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-.timer-bg {
-  fill: none;
-  stroke: var(--gris-200);
-  stroke-width: 3;
-}
-
-.timer-progress {
-  fill: none;
-  stroke: var(--verde-principal);
-  stroke-width: 3;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 1s linear;
-}
-
-.timer-text {
-  font-size: 0.75rem;
-  fill: var(--gris-700);
-  font-weight: 500;
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde-principal), var(--verde-claro));
+  border-radius: 3px;
+  transition: width 0.1s linear;
 }
 
 /* ===== SECCIONES ===== */
 .section-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--verde-oscuro);
-  margin: 56px 0 32px;
-  border-left: 5px solid var(--verde-principal);
-  padding-left: 24px;
+  margin: 48px 0 28px;
+  border-left: 4px solid var(--verde-principal);
+  padding-left: 20px;
   letter-spacing: -0.3px;
 }
 
 /* ===== CARDS MODERNAS ===== */
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 32px;
-  margin: 48px 0;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin: 40px 0;
 }
 
 .card {
   background: var(--blanco);
   border-radius: var(--border-radius-sm);
-  padding: 32px;
+  padding: 28px;
   transition: var(--transition);
   border: 1px solid var(--gris-200);
   position: relative;
@@ -374,7 +365,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--verde-principal), var(--verde-claro));
   transform: scaleX(0);
   transition: transform 0.4s;
@@ -386,42 +377,42 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   box-shadow: var(--sombra-lg);
   border-color: var(--verde-sutil);
 }
 
 .card h3 {
   color: var(--verde-oscuro);
-  margin-bottom: 14px;
-  font-size: 1.25rem;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .card p {
   color: var(--gris-500);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
-/* ===== TESTIMONIOS ===== */
+/* ===== HISTORIA / TESTIMONIOS ===== */
 .testimonials {
   background: var(--verde-muy-claro);
-  padding: 70px 0;
-  margin: 50px 0;
-  border-radius: 40px;
+  padding: 60px 0;
+  margin: 40px 0;
+  border-radius: 32px;
 }
 
 .testi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
 }
 
 .testi-card {
   background: var(--blanco);
-  padding: 32px;
+  padding: 28px;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--sombra-md);
   transition: var(--transition);
@@ -435,27 +426,27 @@ body {
 
 .testi-card p {
   font-style: italic;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--gris-700);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
 .testi-card h4 {
   color: var(--verde-principal);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* ===== AFILIACIONES ===== */
 .afiliaciones {
   background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-principal) 100%);
   color: var(--blanco);
-  padding: 28px 40px;
-  border-radius: 60px;
+  padding: 24px 32px;
+  border-radius: 50px;
   text-align: center;
-  margin: 56px 0;
-  font-size: 0.9rem;
+  margin: 48px 0;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.3px;
 }
@@ -464,34 +455,34 @@ body {
 footer {
   background: var(--verde-oscuro);
   color: var(--gris-200);
-  padding: 56px 0 32px;
-  margin-top: 70px;
+  padding: 48px 0 28px;
+  margin-top: 60px;
 }
 
 footer .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 48px;
+  gap: 40px;
 }
 
 .footer-col h3 {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  margin-bottom: 16px;
   color: var(--blanco);
   font-weight: 600;
 }
 
 .footer-col p {
-  margin-bottom: 10px;
-  font-size: 0.85rem;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
   opacity: 0.8;
 }
 
 .footer-col a {
   color: var(--gris-200);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: var(--transition);
   opacity: 0.8;
 }
@@ -504,34 +495,38 @@ footer .container {
 
 .social-links {
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 16px;
   flex-wrap: wrap;
 }
 
 .social-links a {
   color: var(--gris-200);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .copy {
   text-align: center;
-  padding-top: 40px;
-  margin-top: 40px;
+  padding-top: 32px;
+  margin-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   opacity: 0.6;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero-text h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .frase-actual {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  .contact-info span {
+    font-size: 0.7rem;
   }
 }
 
@@ -541,7 +536,7 @@ footer .container {
   }
   
   .hero-text h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .hero-content {
@@ -551,38 +546,41 @@ footer .container {
   .banner-rotatorio {
     width: 100%;
     min-height: auto;
-    padding: 32px 24px;
+    padding: 28px 24px;
   }
   
   .btn-ciij {
-    padding: 6px 16px;
-    font-size: 0.75rem;
+    padding: 6px 14px;
+    font-size: 0.7rem;
   }
   
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     padding-left: 16px;
   }
   
   .logo-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   
   .lema-principal {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .logo-img {
-    height: 65px;
+    height: 60px;
   }
   
   .mascota-img {
-    height: 75px;
+    height: 70px;
   }
   
   .contact-info {
-    font-size: 0.7rem;
-    gap: 12px;
+    max-width: 100%;
+  }
+  
+  .contact-info span {
+    font-size: 0.65rem;
   }
   
   .top-left, .top-right {
@@ -591,13 +589,13 @@ footer .container {
   }
   
   .testimonials {
-    border-radius: 24px;
-    padding: 50px 0;
+    border-radius: 20px;
+    padding: 40px 0;
   }
   
   footer .container {
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
     text-align: center;
   }
   
@@ -608,23 +606,23 @@ footer .container {
 
 @media (max-width: 480px) {
   .logo-img {
-    height: 52px;
+    height: 48px;
   }
   
   .mascota-img {
-    height: 60px;
+    height: 55px;
   }
   
   .hero-text h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .frase-actual {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .btn-ciij {
-    padding: 5px 12px;
-    font-size: 0.7rem;
+    padding: 4px 10px;
+    font-size: 0.65rem;
   }
 }
