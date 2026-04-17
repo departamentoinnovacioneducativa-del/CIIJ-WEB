@@ -9,11 +9,11 @@
 </head>
 <body>
 
-<!-- TOP BAR CON LOGO Y MASCOTA (TRIPLE TAMAÑO) -->
+<!-- TOP BAR CON LOGO Y MASCOTA INTERCAMBIADOS (LOGO IZQUIERDA, MASCOTA DERECHA) -->
 <div class="top-bar">
   <div class="container">
     <div class="top-left">
-      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
+      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
       <div class="contact-info">
         <span>Blvd. Juventud 123, CDMX</span>
         <span>(55) 1234 5678</span>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="top-right">
-      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
+      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
       <div class="social-badge">
         <a href="#">IG</a>
         <a href="#">FB</a>
@@ -66,13 +66,17 @@
       <p>En el Centro de innovación e investigación Juventud CIIJ impulsamos el talento joven, la investigación aplicada y la tecnología social. Nuestro lema nos recuerda que la imaginación es el primer paso para transformar el mundo.</p>
     </div>
     
-    <!-- BANNER ROTATORIO - REEMPLAZA EL LABORATORIO DE IDEAS -->
+    <!-- BANNER ROTATORIO - 1 MINUTO POR FRASE -->
     <div class="banner-rotatorio">
       <div class="banner-icono">💡</div>
       <div class="frase-actual" id="fraseRotante">"La mejor manera de predecir el futuro es creándolo"</div>
       <div class="frase-autor-actual" id="autorRotante">— Peter Drucker</div>
-      <div class="barra-progreso">
-        <div class="barra-progreso-inner" id="barraProgreso"></div>
+      <div class="timer-container">
+        <svg class="timer-circle" viewBox="0 0 60 60">
+          <circle class="timer-bg" cx="30" cy="30" r="27" fill="none" stroke="#E8ECF0" stroke-width="3"/>
+          <circle class="timer-progress" id="timerProgress" cx="30" cy="30" r="27" fill="none" stroke="#1B5E3F" stroke-width="3" stroke-linecap="round" stroke-dasharray="169.646" stroke-dashoffset="0"/>
+          <text class="timer-text" x="30" y="35" text-anchor="middle" dominant-baseline="middle" fill="#2C3E35" font-size="10" font-weight="600" id="timerText">60</text>
+        </svg>
       </div>
     </div>
   </div>
