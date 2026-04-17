@@ -1,9 +1,90 @@
 // ============================================
-// CENTRO CIIJ - DETECCIÓN DE DISPOSITIVO
-// Responsive + Interacciones
+// CENTRO CIIJ - BANNER ROTATORIO DE FRASES
+// Detección de dispositivo + Animaciones
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // ===== BANNER ROTATORIO DE FRASES =====
+  const frases = [
+    { texto: '"La mejor manera de predecir el futuro es creándolo"', autor: "Peter Drucker" },
+    { texto: '"No tengas miedo de renunciar a lo bueno para ir por lo grandioso"', autor: "John D. Rockefeller" },
+    { texto: '"La creatividad es la inteligencia divirtiéndose"', autor: "Albert Einstein" },
+    { texto: '"La tecnología es solo una herramienta. Lo importante es tener fe en las personas"', autor: "Steve Jobs" },
+    { texto: '"El futuro pertenece a quienes creen en la belleza de sus sueños"', autor: "Eleanor Roosevelt" },
+    { texto: '"La imaginación es el principio de la creación"', autor: "George Bernard Shaw" },
+    { texto: '"No hay personas con y sin creatividad, solo personas con diferentes tipos de mentes"', autor: "Ken Robinson" },
+    { texto: '"El único límite para tus logros es tu propia imaginación"', autor: "Pablo Adrián Rivera Juvenal" },
+    { texto: '"La innovación distingue entre un líder y un seguidor"', autor: "Steve Jobs" },
+    { texto: '"Si puedes soñarlo, puedes hacerlo"', autor: "Walt Disney" },
+    { texto: '"La creatividad requiere tomar riesgos"', autor: "Mihaly Csikszentmihalyi" },
+    { texto: '"El arte de la innovación es encontrar lo que otros no ven"', autor: "Thomas Edison" }
+  ];
+  
+  let indiceActual = 0;
+  let tiempoRestante = 8; // 8 segundos por frase
+  let intervalo;
+  let barraIntervalo;
+  
+  const fraseElemento = document.getElementById('fraseRotante');
+  const autorElemento = document.getElementById('autorRotante');
+  const barraProgreso = document.getElementById('barraProgreso');
+  
+  function actualizarFrase() {
+    // Animación de fade out/in
+    if (fraseElemento && autorElemento) {
+      fraseElemento.style.opacity = '0';
+      autorElemento.style.opacity = '0';
+      
+      setTimeout(() => {
+        const fraseActual = frases[indiceActual];
+        fraseElemento.textContent = fraseActual.texto;
+        autorElemento.textContent = `— ${fraseActual.autor}`;
+        
+        fraseElemento.style.opacity = '1';
+        autorElemento.style.opacity = '1';
+      }, 200);
+    }
+    
+    // Reiniciar barra de progreso
+    tiempoRestante = 8;
+    actualizarBarra();
+  }
+  
+  function actualizarBarra() {
+    if (barraProgreso) {
+      const porcentaje = (tiempoRestante / 8) * 100;
+      barraProgreso.style.width = `${porcentaje}%`;
+    }
+  }
+  
+  function iniciarRotacion() {
+    // Limpiar intervalos existentes
+    if (intervalo) clearInterval(intervalo);
+    if (barraIntervalo) clearInterval(barraIntervalo);
+    
+    // Intervalo para cambiar de frase
+    intervalo = setInterval(() => {
+      indiceActual = (indiceActual + 1) % frases.length;
+      actualizarFrase();
+    }, 8000);
+    
+    // Intervalo para la barra de progreso
+    barraIntervalo = setInterval(() => {
+      if (tiempoRestante > 0) {
+        tiempoRestante -= 0.1;
+        actualizarBarra();
+      }
+    }, 100);
+  }
+  
+  // Iniciar rotación
+  if (fraseElemento && autorElemento) {
+    fraseElemento.style.transition = 'opacity 0.2s ease';
+    autorElemento.style.transition = 'opacity 0.2s ease';
+    actualizarFrase();
+    iniciarRotacion();
+  }
   
   // ===== DETECCIÓN DE DISPOSITIVO =====
   const detectDevice = () => {
@@ -13,19 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let device = 'desktop';
     let os = 'unknown';
     
-    // Detectar sistema operativo
     if (userAgent.indexOf('win') > -1) os = 'Windows';
     else if (userAgent.indexOf('mac') > -1) os = 'MacOS';
     else if (userAgent.indexOf('linux') > -1) os = 'Linux';
     else if (userAgent.indexOf('android') > -1) os = 'Android';
     else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) os = 'iOS';
     
-    // Detectar tipo de dispositivo por ancho
     if (width <= 480) device = 'mobile';
     else if (width <= 1024) device = 'tablet';
     else device = 'desktop';
     
-    // Detectar touch
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     return { device, os, isTouch, width };
@@ -33,22 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const deviceInfo = detectDevice();
   
-  // Mostrar en consola (útil para debugging)
-  console.log(`📱 Dispositivo detectado: ${deviceInfo.device.toUpperCase()}`);
-  console.log(`💻 Sistema operativo: ${deviceInfo.os}`);
-  console.log(`📏 Ancho de pantalla: ${deviceInfo.width}px`);
-  console.log(`👆 Touch soportado: ${deviceInfo.isTouch ? 'Sí' : 'No'}`);
   console.log(`🚀 Centro CIIJ - "Si puedes imaginarlo, puedes construirlo"`);
+  console.log(`📱 Dispositivo: ${deviceInfo.device.toUpperCase()}`);
+  console.log(`💻 OS: ${deviceInfo.os}`);
+  console.log(`📏 Ancho: ${deviceInfo.width}px`);
+  console.log(`👆 Touch: ${deviceInfo.isTouch ? 'Sí' : 'No'}`);
   
-  // Ajustes específicos por dispositivo (opcional)
-  if (deviceInfo.device === 'mobile') {
-    document.body.classList.add('is-mobile');
-    // Puedes agregar comportamientos específicos para móvil aquí
-  } else if (deviceInfo.device === 'tablet') {
-    document.body.classList.add('is-tablet');
-  } else {
-    document.body.classList.add('is-desktop');
-  }
+  // Añadir clase al body según dispositivo
+  document.body.classList.add(`device-${deviceInfo.device}`);
   
   // ===== RESALTAR BOTÓN ACTIVO =====
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -92,14 +162,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, observerOptions);
   
-  document.querySelectorAll('.card, .testi-card, .frase-card').forEach(el => {
+  document.querySelectorAll('.card, .testi-card, .banner-rotatorio').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.style.transform = 'translateY(25px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
   
-  // ===== REDIMENSIÓN: actualizar detección =====
+  // ===== REDIMENSIÓN =====
   let resizeTimeout;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
@@ -107,11 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const newDeviceInfo = detectDevice();
       console.log(`🔄 Dispositivo actualizado: ${newDeviceInfo.device} (${newDeviceInfo.width}px)`);
       
-      // Actualizar clases del body
-      document.body.classList.remove('is-mobile', 'is-tablet', 'is-desktop');
-      if (newDeviceInfo.device === 'mobile') document.body.classList.add('is-mobile');
-      else if (newDeviceInfo.device === 'tablet') document.body.classList.add('is-tablet');
-      else document.body.classList.add('is-desktop');
+      document.body.classList.remove('device-desktop', 'device-tablet', 'device-mobile');
+      document.body.classList.add(`device-${newDeviceInfo.device}`);
     }, 250);
   });
 });
