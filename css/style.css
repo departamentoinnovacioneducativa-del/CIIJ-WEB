@@ -1,6 +1,6 @@
 /* ============================================
-   CENTRO CIIJ - ESTILO CORPORATIVO
-   Inspirado en CITEC | Colores verdes
+   CENTRO CIIJ - DISEÑO CORPORATIVO VERDE
+   Lema: "Si puedes imaginarlo, puedes construirlo"
    Per aspera ad astra
    ============================================ */
 
@@ -66,18 +66,28 @@ body {
   gap: 24px;
 }
 
-/* IMÁGENES REDUCIDAS - TAMAÑO LOGO PROFESIONAL */
+/* IMÁGENES - TRIPLE TAMAÑO (antes 32px ahora 96px) */
 .mascota-img {
-  height: 32px;
+  height: 96px;
   width: auto;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 0.95;
+  transition: var(--transition);
+}
+
+.mascota-img:hover {
+  transform: scale(1.02);
 }
 
 .logo-img {
-  height: 28px;
+  height: 84px;
   width: auto;
   object-fit: contain;
+  transition: var(--transition);
+}
+
+.logo-img:hover {
+  transform: scale(1.02);
 }
 
 .contact-info {
@@ -90,11 +100,6 @@ body {
 .contact-info span {
   color: var(--gris-200);
   font-weight: 400;
-}
-
-.contact-info span i {
-  margin-right: 6px;
-  font-style: normal;
 }
 
 .social-badge {
@@ -134,10 +139,17 @@ body {
 }
 
 .lema {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  color: var(--verde-principal);
+  margin-top: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.lema-autor {
+  font-size: 0.85rem;
   color: var(--gris-600);
-  margin-top: 8px;
-  letter-spacing: 0.5px;
+  margin-top: 4px;
 }
 
 /* ===== NAVEGACIÓN ===== */
@@ -196,9 +208,9 @@ body {
 .hero-content {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  gap: 50px;
+  gap: 40px;
 }
 
 .hero-text {
@@ -219,25 +231,49 @@ body {
   margin-bottom: 24px;
 }
 
-.hero-card {
-  flex: 0.8;
+/* CARDS DE FRASES - REEMPLAZA LABORATORIO */
+.frases-container {
+  flex: 1;
   background: var(--blanco);
   border-radius: 16px;
-  padding: 32px;
-  text-align: center;
+  padding: 28px;
   box-shadow: var(--sombra-md);
   border: 1px solid var(--gris-200);
 }
 
-.hero-card h3 {
+.frases-container h3 {
   color: var(--verde-oscuro);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   font-size: 1.3rem;
+  font-weight: 600;
+  border-left: 3px solid var(--verde-principal);
+  padding-left: 12px;
 }
 
-.hero-card p {
-  color: var(--gris-600);
-  font-size: 0.9rem;
+.frase-card {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--gris-200);
+}
+
+.frase-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.frase-texto {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gris-800);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.frase-autor {
+  font-size: 0.8rem;
+  color: var(--verde-principal);
+  font-weight: 500;
 }
 
 /* ===== SECCIONES ===== */
@@ -375,6 +411,7 @@ footer .container {
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  flex-wrap: wrap;
 }
 
 .social-links a {
@@ -392,39 +429,100 @@ footer .container {
   opacity: 0.6;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== DETECCIÓN DE DISPOSITIVO (visible en consola) ===== */
+.device-badge {
+  display: none;
+}
+
+/* ===== RESPONSIVE PC / MÓVIL / TABLET ===== */
+@media (max-width: 1024px) {
+  .hero-text h2 {
+    font-size: 2.3rem;
+  }
+  
+  .frases-container {
+    flex: 0.9;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
   }
   
   .hero-text h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+  }
+  
+  .frases-container {
+    width: 100%;
   }
   
   .btn-ciij {
     padding: 6px 14px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .logo-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
+  /* Imágenes en móvil - siguen siendo grandes pero proporcionales */
   .mascota-img {
-    height: 28px;
+    height: 70px;
   }
   
   .logo-img {
-    height: 24px;
+    height: 60px;
   }
   
   .contact-info {
-    font-size: 0.7rem;
-    gap: 12px;
+    font-size: 0.65rem;
+    gap: 10px;
+  }
+  
+  .top-left, .top-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .testimonials {
+    padding: 40px 0;
+  }
+  
+  footer .container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mascota-img {
+    height: 55px;
+  }
+  
+  .logo-img {
+    height: 48px;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .frase-texto {
+    font-size: 0.85rem;
   }
 }
