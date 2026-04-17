@@ -1,11 +1,11 @@
 // ============================================
-// CENTRO CIIJ - BANNER ROTATORIO DE FRASES
-// Detección de dispositivo + Animaciones
+// CENTRO CIIJ - BANNER ROTATORIO
+// 50+ frases | 1 minuto por frase | Timer circular
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
   
-  // ===== BANNER ROTATORIO DE FRASES =====
+  // ===== 50+ FRASES DE INNOVADORES, GENIOS, CIENTÍFICOS, FILÓSOFOS, ARTISTAS =====
   const frases = [
     { texto: '"La mejor manera de predecir el futuro es creándolo"', autor: "Peter Drucker" },
     { texto: '"No tengas miedo de renunciar a lo bueno para ir por lo grandioso"', autor: "John D. Rockefeller" },
@@ -18,17 +18,61 @@ document.addEventListener('DOMContentLoaded', function() {
     { texto: '"La innovación distingue entre un líder y un seguidor"', autor: "Steve Jobs" },
     { texto: '"Si puedes soñarlo, puedes hacerlo"', autor: "Walt Disney" },
     { texto: '"La creatividad requiere tomar riesgos"', autor: "Mihaly Csikszentmihalyi" },
-    { texto: '"El arte de la innovación es encontrar lo que otros no ven"', autor: "Thomas Edison" }
+    { texto: '"El arte de la innovación es encontrar lo que otros no ven"', autor: "Thomas Edison" },
+    { texto: '"La curiosidad es el motor de la innovación"', autor: "Marie Curie" },
+    { texto: '"El progreso es imposible sin cambio"', autor: "George Bernard Shaw" },
+    { texto: '"La mejor forma de crear el futuro es diseñarlo"', autor: "Buckminster Fuller" },
+    { texto: '"La innovación es ver lo que todos han visto y pensar lo que nadie ha pensado"', autor: "Albert Szent-Györgyi" },
+    { texto: '"El genio es 1% inspiración y 99% transpiración"', autor: "Thomas Edison" },
+    { texto: '"No sigas el camino, ve por donde no hay camino y deja huella"', autor: "Ralph Waldo Emerson" },
+    { texto: '"La creatividad es contagiosa, pásala"', autor: "Albert Einstein" },
+    { texto: '"El secreto de la innovación es empezar antes de estar listo"', autor: "Reid Hoffman" },
+    { texto: '"La imaginación nos permite volar sin alas"', autor: "Albert Einstein" },
+    { texto: '"El conocimiento es poder, la creatividad es superpoder"', autor: "Anónimo" },
+    { texto: '"La mejor forma de predecir el futuro es inventarlo"', autor: "Alan Kay" },
+    { texto: '"No tengas miedo de ser excéntrico en tus ideas"', autor: "Charles Darwin" },
+    { texto: '"La creatividad es la inteligencia pasándolo bien"', autor: "Anónimo" },
+    { texto: '"La pasión por crear es más importante que el talento"', autor: "Stephen King" },
+    { texto: '"El arte de la sabiduría es el arte de saber qué pasar por alto"', autor: "William James" },
+    { texto: '"La curiosidad mató al gato, pero la satisfacción lo trajo de vuelta"', autor: "Proverbio irlandés" },
+    { texto: '"La creatividad requiere la valentía de soltar las certezas"', autor: "Erich Fromm" },
+    { texto: '"La innovación es un cambio que añade valor"', autor: "Peter Drucker" },
+    { texto: '"Piensa diferente, actúa diferente, sé diferente"', autor: "Steve Jobs" },
+    { texto: '"La creatividad es la capacidad de ver conexiones donde otros no las ven"', autor: "Anónimo" },
+    { texto: '"El éxito nace del deseo de crear, no del miedo a fallar"', autor: "Anónimo" },
+    { texto: '"La imaginación es más importante que el conocimiento"', autor: "Albert Einstein" },
+    { texto: '"Cada gran sueño comienza con un soñador"', autor: "Harriet Tubman" },
+    { texto: '"La creatividad es la inteligencia tomando riesgos"', autor: "Anónimo" },
+    { texto: '"El cambio es la ley de la vida"', autor: "John F. Kennedy" },
+    { texto: '"La innovación surge de la insatisfacción creativa"', autor: "Anónimo" },
+    { texto: '"El talento gana partidos, pero el trabajo en equipo y la inteligencia ganan campeonatos"', autor: "Michael Jordan" },
+    { texto: '"La creatividad es la capacidad de ver las cosas desde una nueva perspectiva"', autor: "Anónimo" },
+    { texto: '"El futuro no está escrito, hay que escribirlo"', autor: "Anónimo" },
+    { texto: '"La innovación es el corazón del progreso"', autor: "Anónimo" },
+    { texto: '"La creatividad es la clave para la supervivencia en un mundo cambiante"', autor: "Anónimo" },
+    { texto: '"El pensamiento creativo no es un talento, es una habilidad que se puede aprender"', autor: "Edward de Bono" },
+    { texto: '"La mejor inversión es en ideas"', autor: "Anónimo" },
+    { texto: '"La creatividad es la mayor expresión de libertad"', autor: "Anónimo" },
+    { texto: '"El arte de crear es el arte de vivir"', autor: "Anónimo" },
+    { texto: '"La imaginación no tiene límites, solo los que nosotros ponemos"', autor: "Anónimo" },
+    { texto: '"Cada creación comienza con una chispa de locura"', autor: "Anónimo" }
   ];
   
+  // ===== CONFIGURACIÓN: 1 MINUTO = 60 SEGUNDOS =====
+  const TIEMPO_POR_FRASE = 60; // segundos
+  
   let indiceActual = 0;
-  let tiempoRestante = 8; // 8 segundos por frase
+  let tiempoRestante = TIEMPO_POR_FRASE;
   let intervalo;
-  let barraIntervalo;
+  let timerIntervalo;
   
   const fraseElemento = document.getElementById('fraseRotante');
   const autorElemento = document.getElementById('autorRotante');
-  const barraProgreso = document.getElementById('barraProgreso');
+  const timerProgress = document.getElementById('timerProgress');
+  const timerText = document.getElementById('timerText');
+  
+  // Circunferencia del círculo (2 * pi * r) con r=27
+  const circunferencia = 2 * Math.PI * 27; // ≈ 169.646
   
   function actualizarFrase() {
     // Animación de fade out/in
@@ -46,139 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 200);
     }
     
-    // Reiniciar barra de progreso
-    tiempoRestante = 8;
-    actualizarBarra();
+    // Reiniciar timer
+    tiempoRestante = TIEMPO_POR_FRASE;
+    actualizarTimerVisual();
   }
   
-  function actualizarBarra() {
-    if (barraProgreso) {
-      const porcentaje = (tiempoRestante / 8) * 100;
-      barraProgreso.style.width = `${porcentaje}%`;
-    }
-  }
-  
-  function iniciarRotacion() {
-    // Limpiar intervalos existentes
-    if (intervalo) clearInterval(intervalo);
-    if (barraIntervalo) clearInterval(barraIntervalo);
-    
-    // Intervalo para cambiar de frase
-    intervalo = setInterval(() => {
-      indiceActual = (indiceActual + 1) % frases.length;
-      actualizarFrase();
-    }, 8000);
-    
-    // Intervalo para la barra de progreso
-    barraIntervalo = setInterval(() => {
-      if (tiempoRestante > 0) {
-        tiempoRestante -= 0.1;
-        actualizarBarra();
-      }
-    }, 100);
-  }
-  
-  // Iniciar rotación
-  if (fraseElemento && autorElemento) {
-    fraseElemento.style.transition = 'opacity 0.2s ease';
-    autorElemento.style.transition = 'opacity 0.2s ease';
-    actualizarFrase();
-    iniciarRotacion();
-  }
-  
-  // ===== DETECCIÓN DE DISPOSITIVO =====
-  const detectDevice = () => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const width = window.innerWidth;
-    
-    let device = 'desktop';
-    let os = 'unknown';
-    
-    if (userAgent.indexOf('win') > -1) os = 'Windows';
-    else if (userAgent.indexOf('mac') > -1) os = 'MacOS';
-    else if (userAgent.indexOf('linux') > -1) os = 'Linux';
-    else if (userAgent.indexOf('android') > -1) os = 'Android';
-    else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) os = 'iOS';
-    
-    if (width <= 480) device = 'mobile';
-    else if (width <= 1024) device = 'tablet';
-    else device = 'desktop';
-    
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    return { device, os, isTouch, width };
-  };
-  
-  const deviceInfo = detectDevice();
-  
-  console.log(`🚀 Centro CIIJ - "Si puedes imaginarlo, puedes construirlo"`);
-  console.log(`📱 Dispositivo: ${deviceInfo.device.toUpperCase()}`);
-  console.log(`💻 OS: ${deviceInfo.os}`);
-  console.log(`📏 Ancho: ${deviceInfo.width}px`);
-  console.log(`👆 Touch: ${deviceInfo.isTouch ? 'Sí' : 'No'}`);
-  
-  // Añadir clase al body según dispositivo
-  document.body.classList.add(`device-${deviceInfo.device}`);
-  
-  // ===== RESALTAR BOTÓN ACTIVO =====
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  
-  const pageMapping = {
-    'index.html': 'Inicio',
-    'quienes-somos.html': 'Quienes somos',
-    'blog.html': 'Blog',
-    'revista-digital.html': 'Revista digital',
-    'herramientas-digitales.html': 'Herramientas digitales',
-    'aplicaciones-apoyo.html': 'Aplicaciones de apoyo',
-    'Cursos de capacitación.html': 'Cursos de capacitación',
-    'canal-CREA.html': 'Canal CREA',
-    'podcast.html': 'Podcast',
-    'IASapoyo.html': 'IAs de apoyo',
-    'Entrena-mente.html': 'Entrena tu mente'
-  };
-  
-  const buttons = document.querySelectorAll('.btn-ciij');
-  buttons.forEach(btn => {
-    const btnText = btn.innerText.trim();
-    const expectedText = pageMapping[currentPage];
-    if (expectedText && btnText === expectedText) {
-      btn.classList.add('btn-active');
-    }
-  });
-  
-  // ===== ANIMACIONES AL HACER SCROLL =====
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-  
-  document.querySelectorAll('.card, .testi-card, .banner-rotatorio').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(25px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-  
-  // ===== REDIMENSIÓN =====
-  let resizeTimeout;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-      const newDeviceInfo = detectDevice();
-      console.log(`🔄 Dispositivo actualizado: ${newDeviceInfo.device} (${newDeviceInfo.width}px)`);
-      
-      document.body.classList.remove('device-desktop', 'device-tablet', 'device-mobile');
-      document.body.classList.add(`device-${newDeviceInfo.device}`);
-    }, 250);
-  });
-});
+  function actualizarTimerVisual() {
+    if (timerProgress) {
+      const porcentaje = tiempoRestante
