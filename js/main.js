@@ -1,6 +1,6 @@
 // ============================================
 // CENTRO CIIJ - BANNER ROTATORIO
-// 50+ frases | 1 minuto por frase | Timer circular
+// 50+ frases | 1 minuto por frase | Barra de progreso elegante
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     { texto: '"La creatividad es la mayor expresión de libertad"', autor: "Anónimo" },
     { texto: '"El arte de crear es el arte de vivir"', autor: "Anónimo" },
     { texto: '"La imaginación no tiene límites, solo los que nosotros ponemos"', autor: "Anónimo" },
-    { texto: '"Cada creación comienza con una chispa de locura"', autor: "Anónimo" }
+    { texto: '"Cada creación comienza con una chispa de locura"', autor: "Anónimo" },
+    { texto: '"La ciencia es la poesía de la realidad"', autor: "Richard Dawkins" }
   ];
   
   // ===== CONFIGURACIÓN: 1 MINUTO = 60 SEGUNDOS =====
@@ -63,16 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let indiceActual = 0;
   let tiempoRestante = TIEMPO_POR_FRASE;
-  let intervalo;
-  let timerIntervalo;
+  let intervaloCambioFrase;
+  let intervaloBarra;
   
   const fraseElemento = document.getElementById('fraseRotante');
   const autorElemento = document.getElementById('autorRotante');
-  const timerProgress = document.getElementById('timerProgress');
-  const timerText = document.getElementById('timerText');
-  
-  // Circunferencia del círculo (2 * pi * r) con r=27
-  const circunferencia = 2 * Math.PI * 27; // ≈ 169.646
+  const progressBarFill = document.getElementById('progressBarFill');
   
   function actualizarFrase() {
     // Animación de fade out/in
@@ -92,9 +89,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Reiniciar timer
     tiempoRestante = TIEMPO_POR_FRASE;
-    actualizarTimerVisual();
+    actualizarBarra();
   }
   
-  function actualizarTimerVisual() {
-    if (timerProgress) {
-      const porcentaje = tiempoRestante
+  function actualizarBarra() {
+    if (progressBarFill) {
+      const porcentaje = (tiempoRestante / TIEMPO_POR_FRASE) * 100;
+      progressBarFill.style.width = `${porcentaje}%`;
+    }
+  }
+  
+  function iniciarRotacion() {
+    // Limpiar intervalos existentes
+    if (intervaloCambioFrase) clearInterval(intervaloCambioFrase);
+    if (intervaloBarra) clearInterval(intervaloBarra);
+    
+    // Intervalo para cambiar de frase (cada 60 segundos)
+    intervaloCambioFrase = setInterval(() => {
+      indiceActual = (indiceActual + 1) % frases.length;
+      actualizarFrase();
+    }, TIEMPO_POR_FRASE * 1000);
+    
+    // Intervalo
