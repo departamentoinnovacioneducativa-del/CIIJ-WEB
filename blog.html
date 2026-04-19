@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>CIIJ | Blog de noticias y curiosidades</title>
+  <title>CIIJ | La pluma del águila - Blog</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     .blog-header {
@@ -17,6 +17,11 @@
       font-size: 2.2rem;
       color: #0A2E25;
       margin-bottom: 12px;
+    }
+    
+    .blog-header h1 span {
+      color: #1B5E3F;
+      font-size: 1.8rem;
     }
     
     .blog-header p {
@@ -46,6 +51,13 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
     
+    .noticia-imagen {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #E6F3EF;
+    }
+    
     .noticia-categoria {
       display: inline-block;
       padding: 5px 12px;
@@ -55,10 +67,10 @@
       margin: 20px 20px 0 20px;
     }
     
-    /* 10 CATEGORÍAS PERSONALIZADAS */
+    /* CATEGORÍAS */
+    .categoria-filosofia { background: #EDE7F6; color: #4527A0; }
     .categoria-ciencia { background: #E3F2FD; color: #1565C0; }
     .categoria-tecnologia { background: #E0F2F1; color: #00695C; }
-    .categoria-filosofia { background: #EDE7F6; color: #4527A0; }
     .categoria-josefinos { background: #0A2E25; color: #FFFFFF; }
     .categoria-educacion { background: #FFF8E1; color: #F9A825; }
     .categoria-arte { background: #FCE4EC; color: #C2185B; }
@@ -80,6 +92,13 @@
       color: #0A2E25;
       margin: 15px 20px 10px;
       line-height: 1.4;
+    }
+    
+    .noticia-autor {
+      font-size: 0.7rem;
+      color: #1B5E3F;
+      margin: 0 20px 8px;
+      font-weight: 500;
     }
     
     .noticia-resumen {
@@ -106,6 +125,21 @@
     .btn-leer-mas:hover {
       background: #1B5E3F;
       color: #FFFFFF;
+    }
+    
+    /* Ficha en blanco (modelo) */
+    .ficha-modelo {
+      background: #F8F9FA;
+      border: 2px dashed #C8D6E5;
+    }
+    
+    .ficha-modelo .noticia-imagen {
+      background: #E9ECEF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C757D;
+      font-size: 0.8rem;
     }
     
     .blog-sidebar {
@@ -189,7 +223,7 @@
   <div class="container buttons-grid">
     <a href="index.html" class="btn-ciij">Inicio</a>
     <a href="quienes-somos.html" class="btn-ciij">Quienes somos</a>
-    <a href="blog.html" class="btn-ciij btn-active">Blog</a>
+    <a href="blog.html" class="btn-ciij btn-active">La pluma del águila</a>
     <a href="revista-digital.html" class="btn-ciij">Revista digital</a>
     <a href="herramientas-digitales.html" class="btn-ciij">Herramientas digitales</a>
     <a href="aplicaciones-apoyo.html" class="btn-ciij">Aplicaciones de apoyo</a>
@@ -204,8 +238,8 @@
 <!-- HEADER DEL BLOG -->
 <div class="blog-header">
   <div class="container">
-    <h1>📝 Blog CIIJ</h1>
-    <p>Noticias, curiosidades y novedades sobre innovación, tecnología y educación</p>
+    <h1>🪶 La pluma del <span>águila</span></h1>
+    <p>Artículos, reflexiones y conocimientos para volar más alto</p>
   </div>
 </div>
 
@@ -213,164 +247,50 @@
   <!-- GRID DE NOTICIAS -->
   <div class="blog-grid">
     
-    <!-- 1. CIENCIA -->
+    <!-- ============================================ -->
+    <!-- NOTICIA 1: FILOSOFÍA - ¿Qué leemos cuando leemos? -->
+    <!-- ============================================ -->
     <div class="noticia-card">
-      <span class="noticia-categoria categoria-ciencia">🔬 Ciencia</span>
-      <span class="noticia-fecha">📅 18/04/2025</span>
-      <div class="noticia-titulo">Descubren nueva molécula que mejora la memoria</div>
-      <div class="noticia-resumen">Científicos identificaron una molécula que podría revolucionar el tratamiento de enfermedades neurodegenerativas.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 2. TECNOLOGÍA -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-tecnologia">🤖 Tecnología</span>
-      <span class="noticia-fecha">📅 17/04/2025</span>
-      <div class="noticia-titulo">La IA que aprende emociones humanas</div>
-      <div class="noticia-resumen">Nuevos modelos de inteligencia artificial pueden reconocer y responder a las emociones con precisión sorprendente.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 3. FILOSOFÍA -->
-    <div class="noticia-card">
+      <img src="leer.png" alt="Leer" class="noticia-imagen" style="object-fit: cover; object-position: center;">
       <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
-      <span class="noticia-fecha">📅 16/04/2025</span>
-      <div class="noticia-titulo">¿Puede una máquina tener conciencia?</div>
-      <div class="noticia-resumen">Filósofos y tecnólogos debaten los límites éticos de la inteligencia artificial y la conciencia artificial.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
+      <span class="noticia-fecha">📅 Abril 2025</span>
+      <div class="noticia-titulo">¿Qué leemos cuando leemos?</div>
+      <div class="noticia-autor">✍️ Por: Pablo Adrián Rivera Juvenal</div>
+      <div class="noticia-resumen">Una exploración sobre los diferentes tipos de conocimientos que se pueden encontrar en un texto y cómo la lectura transforma nuestra manera de entender el mundo.</div>
+      <a href="Noticias-blog/Filosofia/Queleemos.html" class="btn-leer-mas" target="_blank">Leer artículo →</a>
     </div>
     
-    <!-- 4. JOSEFINOS -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-josefinos">⭐ Josefinos</span>
-      <span class="noticia-fecha">📅 15/04/2025</span>
-      <div class="noticia-titulo">Hacer siempre y en todo lo mejor</div>
-      <div class="noticia-resumen">El legado del Padre José María Vilaseca sigue inspirando a nuevas generaciones en el Instituto Juventud.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
+    <!-- ============================================ -->
+    <!-- FICHA EN BLANCO - MODELO PARA FUTURAS NOTICIAS -->
+    <!-- ============================================ -->
+    <div class="noticia-card ficha-modelo">
+      <div class="noticia-imagen" style="display: flex; align-items: center; justify-content: center; background: #E9ECEF; color: #6C757D;">
+        📷 [Tu imagen aquí]
+      </div>
+      <span class="noticia-categoria" style="background: #E9ECEF; color: #6C757D;">📂 Categoría</span>
+      <span class="noticia-fecha" style="color: #ADB5BD;">📅 Fecha</span>
+      <div class="noticia-titulo" style="color: #ADB5BD;">Título de la noticia</div>
+      <div class="noticia-autor" style="color: #ADB5BD;">✍️ Por: Autor</div>
+      <div class="noticia-resumen" style="color: #ADB5BD;">Breve resumen de la noticia o artículo. Aquí puedes escribir 2-3 líneas que describan el contenido de la publicación.</div>
+      <a href="#" class="btn-leer-mas" style="border-color: #CED4DA; color: #ADB5BD; pointer-events: none;">Próximamente →</a>
     </div>
     
-    <!-- 5. EDUCACIÓN -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-educacion">📚 Educación</span>
-      <span class="noticia-fecha">📅 14/04/2025</span>
-      <div class="noticia-titulo">Aprendizaje multimodal: el futuro de la educación</div>
-      <div class="noticia-resumen">Combinar texto, audio, video y experiencias prácticas mejora significativamente la retención del conocimiento.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 6. ARTE -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-arte">🎨 Arte</span>
-      <span class="noticia-fecha">📅 13/04/2025</span>
-      <div class="noticia-titulo">El renacimiento del arte digital con IA</div>
-      <div class="noticia-resumen">Artistas de todo el mundo utilizan inteligencia artificial como herramienta creativa, no como reemplazo.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 7. CULTURA POP -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-cultura-pop">🎬 Cultura Pop</span>
-      <span class="noticia-fecha">📅 12/04/2025</span>
-      <div class="noticia-titulo">Las series que están cambiando la forma de pensar</div>
-      <div class="noticia-resumen">Producciones como "Black Mirror" y "The Last of Us" provocan reflexiones profundas sobre tecnología y humanidad.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 8. CURIOSIDADES -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-curiosidades">💡 Curiosidades</span>
-      <span class="noticia-fecha">📅 11/04/2025</span>
-      <div class="noticia-titulo">El cerebro humano genera electricidad</div>
-      <div class="noticia-resumen">Tu cerebro produce suficiente energía para encender un foco de 12 watts. ¡Eres increíble!</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 9. MUNDO DIGITAL -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-mundo-digital">🌐 Mundo Digital</span>
-      <span class="noticia-fecha">📅 10/04/2025</span>
-      <div class="noticia-titulo">El metaverso: ¿moda o futuro real?</div>
-      <div class="noticia-resumen">Grandes empresas invierten millones en el metaverso, pero ¿realmente será parte de nuestra vida cotidiana?</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-    
-    <!-- 10. RECOMENDACIÓN EN FAMILIA -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-recomendacion-familia">👨‍👩‍👧‍👦 Recomendación en familia</span>
-      <span class="noticia-fecha">📅 09/04/2025</span>
-      <div class="noticia-titulo">5 juegos de mesa para aprender en familia</div>
-      <div class="noticia-resumen">Diversión asegurada mientras desarrollan habilidades lógicas, creativas y de trabajo en equipo.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-
-    <!-- 11. CIENCIA - segunda noticia -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-ciencia">🔬 Ciencia</span>
-      <span class="noticia-fecha">📅 08/04/2025</span>
-      <div class="noticia-titulo">Logran regenerar tejido nervioso en ratones</div>
-      <div class="noticia-resumen">Un avance científico prometedor para tratar lesiones medulares en humanos en el futuro.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-
-    <!-- 12. FILOSOFÍA - segunda noticia -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
-      <span class="noticia-fecha">📅 07/04/2025</span>
-      <div class="noticia-titulo">Estoicismo para jóvenes: lecciones de Seneca</div>
-      <div class="noticia-resumen">Cómo la filosofía antigua puede ayudar a manejar el estrés y la ansiedad en el mundo moderno.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-
-    <!-- 13. JOSEFINOS -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-josefinos">⭐ Josefinos</span>
-      <span class="noticia-fecha">📅 06/04/2025</span>
-      <div class="noticia-titulo">Testimonios: exalumnos que cambiaron el mundo</div>
-      <div class="noticia-resumen">Conoce historias de egresados del Instituto Juventud que aplican los valores josefinos en su vida profesional.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-
-    <!-- 14. EDUCACIÓN -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-educacion">📚 Educación</span>
-      <span class="noticia-fecha">📅 05/04/2025</span>
-      <div class="noticia-titulo">Técnicas de estudio respaldadas por la neurociencia</div>
-      <div class="noticia-resumen">El espaciado, la recuperación activa y la intercalación son métodos probados para aprender mejor.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
-
-    <!-- 15. MUNDO DIGITAL -->
-    <div class="noticia-card">
-      <span class="noticia-categoria categoria-mundo-digital">🌐 Mundo Digital</span>
-      <span class="noticia-fecha">📅 04/04/2025</span>
-      <div class="noticia-titulo">Ciberseguridad: cómo proteger tus datos</div>
-      <div class="noticia-resumen">Consejos prácticos para navegar seguro en internet y evitar fraudes digitales.</div>
-      <a href="#" class="btn-leer-mas">Leer más →</a>
-    </div>
   </div>
   
   <!-- SIDEBAR DE CURIOSIDADES RÁPIDAS -->
   <div class="blog-sidebar">
-    <h3>⚡ Datos curiosos para tu mente</h3>
+    <h3>⚡ Sabías que...</h3>
     <div class="curiosidad-rapida">
-      <div class="curiosidad-texto">🧠 El cerebro humano genera suficiente electricidad para encender un foco de 12 watts.</div>
+      <div class="curiosidad-texto">📖 Leer activa más áreas cerebrales que ver televisión, mejorando la empatía y la creatividad.</div>
       <div class="curiosidad-fuente">— Neurociencia</div>
     </div>
     <div class="curiosidad-rapida">
-      <div class="curiosidad-texto">📚 La lectura activa más áreas cerebrales que ver televisión, mejorando la empatía y la creatividad.</div>
-      <div class="curiosidad-fuente">— Estudio Universidad de Stanford</div>
+      <div class="curiosidad-texto">🦅 El águila simboliza la visión clara y la capacidad de volar a grandes alturas.</div>
+      <div class="curiosidad-fuente">— Simbolismo</div>
     </div>
     <div class="curiosidad-rapida">
-      <div class="curiosidad-texto">🤖 La primera IA que ganó a un humano en ajedrez fue Deep Blue de IBM en 1997.</div>
-      <div class="curiosidad-fuente">— Historia de la IA</div>
-    </div>
-    <div class="curiosidad-rapida">
-      <div class="curiosidad-texto">💡 Thomas Edison falló más de 10,000 veces antes de inventar el foco funcional.</div>
-      <div class="curiosidad-fuente">— Perseverancia e innovación</div>
-    </div>
-    <div class="curiosidad-rapida">
-      <div class="curiosidad-texto">🎓 El 85% de los trabajos que existirán en 2030 aún no se han inventado.</div>
-      <div class="curiosidad-fuente">— Foro Económico Mundial</div>
+      <div class="curiosidad-texto">💡 "La lectura es para la mente lo que el ejercicio es para el cuerpo" — Joseph Addison</div>
+      <div class="curiosidad-fuente">— Frase célebre</div>
     </div>
     <div class="curiosidad-rapida">
       <div class="curiosidad-texto">⭐ "Hacer siempre y en todo lo mejor" — legado del Padre Vilaseca a los josefinos.</div>
