@@ -1,1 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CIIJ | Blog de noticias y curiosidades</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .blog-header {
+      text-align: center;
+      padding: 40px 0 20px;
+      background: linear-gradient(135deg, #E6F3EF 0%, #FFFFFF 100%);
+      margin-bottom: 40px;
+    }
+    
+    .blog-header h1 {
+      font-size: 2.2rem;
+      color: #0A2E25;
+      margin-bottom: 12px;
+    }
+    
+    .blog-header p {
+      color: #6B8A7A;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .noticia-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #EDF2F0;
+    }
+    
+    .noticia-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .noticia-categoria {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin: 20px 20px 0 20px;
+    }
+    
+    /* 10 CATEGORÍAS PERSONALIZADAS */
+    .categoria-ciencia { background: #E3F2FD; color: #1565C0; }
+    .categoria-tecnologia { background: #E0F2F1; color: #00695C; }
+    .categoria-filosofia { background: #EDE7F6; color: #4527A0; }
+    .categoria-josefinos { background: #0A2E25; color: #FFFFFF; }
+    .categoria-educacion { background: #FFF8E1; color: #F9A825; }
+    .categoria-arte { background: #FCE4EC; color: #C2185B; }
+    .categoria-cultura-pop { background: #FFE0B2; color: #E65100; }
+    .categoria-curiosidades { background: #E8F5E9; color: #2E7D32; }
+    .categoria-mundo-digital { background: #E1F5FE; color: #0277BD; }
+    .categoria-recomendacion-familia { background: #FFF3E0; color: #BF360C; }
+    
+    .noticia-fecha {
+      float: right;
+      font-size: 0.7rem;
+      color: #6B8A7A;
+      margin: 20px 20px 0 0;
+    }
+    
+    .noticia-titulo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0A2E25;
+      margin: 15px 20px 10px;
+      line-height: 1.4;
+    }
+    
+    .noticia-resumen {
+      font-size: 0.85rem;
+      color: #2C3E35;
+      margin: 0 20px 20px;
+      line-height: 1.5;
+    }
+    
+    .btn-leer-mas {
+      display: inline-block;
+      margin: 0 20px 20px;
+      padding: 8px 20px;
+      background: transparent;
+      border: 1px solid #1B5E3F;
+      color: #1B5E3F;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-leer-mas:hover {
+      background: #1B5E3F;
+      color: #FFFFFF;
+    }
+    
+    .blog-sidebar {
+      background: #E6F3EF;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 40px 0;
+    }
+    
+    .blog-sidebar h3 {
+      color: #0A2E25;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .curiosidad-rapida {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .curiosidad-rapida:last-child {
+      border-bottom: none;
+    }
+    
+    .curiosidad-texto {
+      font-size: 0.85rem;
+      color: #2C3E35;
+      font-style: italic;
+    }
+    
+    .curiosidad-fuente {
+      font-size: 0.7rem;
+      color: #1B5E3F;
+      margin-top: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-left">
+      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
+      <div class="contact-info">
+        <span>Calzada San Agustín 61, Rincón Echegaray</span>
+        <span>Naucalpan de Juárez, Estado de México, C.P. 53309</span>
+        <span>Tel: (55) 1234 5678</span>
+        <span>departamentodeinnovacioneducativa@juventud.edu.mx</span>
+      </div>
+    </div>
+    <div class="top-right">
+      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
+      <div class="social-badge">
+        <a href="#">IG</a>
+        <a href="#">FB</a>
+        <a href="#">X</a>
+        <a href="#">LI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND -->
+<div class="brand">
+  <div class="container">
+    <div class="logo-text">Centro de innovación e investigación <span>Juventud CIIJ</span></div>
+    <div class="lema-principal">"Si puedes imaginarlo, puedes construirlo"</div>
+    <div class="lema-autor">— Pablo Adrián Rivera Juvenal</div>
+  </div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="nav-buttons">
+  <div class="container buttons-grid">
+    <a href="index.html" class="btn-ciij">Inicio</a>
+    <a href="quienes-somos.html" class="btn-ciij">Quienes somos</a>
+    <a href="blog.html" class="btn-ciij btn-active">Blog</a>
+    <a href="revista-digital.html" class="btn-ciij">Revista digital</a>
+    <a href="herramientas-digitales.html" class="btn-ciij">Herramientas digitales</a>
+    <a href="aplicaciones-apoyo.html" class="btn-ciij">Aplicaciones de apoyo</a>
+    <a href="Cursos de capacitación.html" class="btn-ciij">Cursos de capacitación</a>
+    <a href="canal-CREA.html" class="btn-ciij">Canal CREA</a>
+    <a href="podcast.html" class="btn-ciij">Podcast</a>
+    <a href="IASapoyo.html" class="btn-ciij">IAs de apoyo</a>
+    <a href="Entrena-mente.html" class="btn-ciij">Entrena tu mente</a>
+  </div>
+</div>
+
+<!-- HEADER DEL BLOG -->
+<div class="blog-header">
+  <div class="container">
+    <h1>📝 Blog CIIJ</h1>
+    <p>Noticias, curiosidades y novedades sobre innovación, tecnología y educación</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- GRID DE NOTICIAS -->
+  <div class="blog-grid">
+    
+    <!-- 1. CIENCIA -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-ciencia">🔬 Ciencia</span>
+      <span class="noticia-fecha">📅 18/04/2025</span>
+      <div class="noticia-titulo">Descubren nueva molécula que mejora la memoria</div>
+      <div class="noticia-resumen">Científicos identificaron una molécula que podría revolucionar el tratamiento de enfermedades neurodegenerativas.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 2. TECNOLOGÍA -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-tecnologia">🤖 Tecnología</span>
+      <span class="noticia-fecha">📅 17/04/2025</span>
+      <div class="noticia-titulo">La IA que aprende emociones humanas</div>
+      <div class="noticia-resumen">Nuevos modelos de inteligencia artificial pueden reconocer y responder a las emociones con precisión sorprendente.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 3. FILOSOFÍA -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
+      <span class="noticia-fecha">📅 16/04/2025</span>
+      <div class="noticia-titulo">¿Puede una máquina tener conciencia?</div>
+      <div class="noticia-resumen">Filósofos y tecnólogos debaten los límites éticos de la inteligencia artificial y la conciencia artificial.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 4. JOSEFINOS -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-josefinos">⭐ Josefinos</span>
+      <span class="noticia-fecha">📅 15/04/2025</span>
+      <div class="noticia-titulo">Hacer siempre y en todo lo mejor</div>
+      <div class="noticia-resumen">El legado del Padre José María Vilaseca sigue inspirando a nuevas generaciones en el Instituto Juventud.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 5. EDUCACIÓN -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-educacion">📚 Educación</span>
+      <span class="noticia-fecha">📅 14/04/2025</span>
+      <div class="noticia-titulo">Aprendizaje multimodal: el futuro de la educación</div>
+      <div class="noticia-resumen">Combinar texto, audio, video y experiencias prácticas mejora significativamente la retención del conocimiento.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 6. ARTE -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-arte">🎨 Arte</span>
+      <span class="noticia-fecha">📅 13/04/2025</span>
+      <div class="noticia-titulo">El renacimiento del arte digital con IA</div>
+      <div class="noticia-resumen">Artistas de todo el mundo utilizan inteligencia artificial como herramienta creativa, no como reemplazo.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 7. CULTURA POP -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-cultura-pop">🎬 Cultura Pop</span>
+      <span class="noticia-fecha">📅 12/04/2025</span>
+      <div class="noticia-titulo">Las series que están cambiando la forma de pensar</div>
+      <div class="noticia-resumen">Producciones como "Black Mirror" y "The Last of Us" provocan reflexiones profundas sobre tecnología y humanidad.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 8. CURIOSIDADES -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-curiosidades">💡 Curiosidades</span>
+      <span class="noticia-fecha">📅 11/04/2025</span>
+      <div class="noticia-titulo">El cerebro humano genera electricidad</div>
+      <div class="noticia-resumen">Tu cerebro produce suficiente energía para encender un foco de 12 watts. ¡Eres increíble!</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 9. MUNDO DIGITAL -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-mundo-digital">🌐 Mundo Digital</span>
+      <span class="noticia-fecha">📅 10/04/2025</span>
+      <div class="noticia-titulo">El metaverso: ¿moda o futuro real?</div>
+      <div class="noticia-resumen">Grandes empresas invierten millones en el metaverso, pero ¿realmente será parte de nuestra vida cotidiana?</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+    
+    <!-- 10. RECOMENDACIÓN EN FAMILIA -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-recomendacion-familia">👨‍👩‍👧‍👦 Recomendación en familia</span>
+      <span class="noticia-fecha">📅 09/04/2025</span>
+      <div class="noticia-titulo">5 juegos de mesa para aprender en familia</div>
+      <div class="noticia-resumen">Diversión asegurada mientras desarrollan habilidades lógicas, creativas y de trabajo en equipo.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+
+    <!-- 11. CIENCIA - segunda noticia -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-ciencia">🔬 Ciencia</span>
+      <span class="noticia-fecha">📅 08/04/2025</span>
+      <div class="noticia-titulo">Logran regenerar tejido nervioso en ratones</div>
+      <div class="noticia-resumen">Un avance científico prometedor para tratar lesiones medulares en humanos en el futuro.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+
+    <!-- 12. FILOSOFÍA - segunda noticia -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
+      <span class="noticia-fecha">📅 07/04/2025</span>
+      <div class="noticia-titulo">Estoicismo para jóvenes: lecciones de Seneca</div>
+      <div class="noticia-resumen">Cómo la filosofía antigua puede ayudar a manejar el estrés y la ansiedad en el mundo moderno.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+
+    <!-- 13. JOSEFINOS -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-josefinos">⭐ Josefinos</span>
+      <span class="noticia-fecha">📅 06/04/2025</span>
+      <div class="noticia-titulo">Testimonios: exalumnos que cambiaron el mundo</div>
+      <div class="noticia-resumen">Conoce historias de egresados del Instituto Juventud que aplican los valores josefinos en su vida profesional.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+
+    <!-- 14. EDUCACIÓN -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-educacion">📚 Educación</span>
+      <span class="noticia-fecha">📅 05/04/2025</span>
+      <div class="noticia-titulo">Técnicas de estudio respaldadas por la neurociencia</div>
+      <div class="noticia-resumen">El espaciado, la recuperación activa y la intercalación son métodos probados para aprender mejor.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+
+    <!-- 15. MUNDO DIGITAL -->
+    <div class="noticia-card">
+      <span class="noticia-categoria categoria-mundo-digital">🌐 Mundo Digital</span>
+      <span class="noticia-fecha">📅 04/04/2025</span>
+      <div class="noticia-titulo">Ciberseguridad: cómo proteger tus datos</div>
+      <div class="noticia-resumen">Consejos prácticos para navegar seguro en internet y evitar fraudes digitales.</div>
+      <a href="#" class="btn-leer-mas">Leer más →</a>
+    </div>
+  </div>
+  
+  <!-- SIDEBAR DE CURIOSIDADES RÁPIDAS -->
+  <div class="blog-sidebar">
+    <h3>⚡ Datos curiosos para tu mente</h3>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">🧠 El cerebro humano genera suficiente electricidad para encender un foco de 12 watts.</div>
+      <div class="curiosidad-fuente">— Neurociencia</div>
+    </div>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">📚 La lectura activa más áreas cerebrales que ver televisión, mejorando la empatía y la creatividad.</div>
+      <div class="curiosidad-fuente">— Estudio Universidad de Stanford</div>
+    </div>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">🤖 La primera IA que ganó a un humano en ajedrez fue Deep Blue de IBM en 1997.</div>
+      <div class="curiosidad-fuente">— Historia de la IA</div>
+    </div>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">💡 Thomas Edison falló más de 10,000 veces antes de inventar el foco funcional.</div>
+      <div class="curiosidad-fuente">— Perseverancia e innovación</div>
+    </div>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">🎓 El 85% de los trabajos que existirán en 2030 aún no se han inventado.</div>
+      <div class="curiosidad-fuente">— Foro Económico Mundial</div>
+    </div>
+    <div class="curiosidad-rapida">
+      <div class="curiosidad-texto">⭐ "Hacer siempre y en todo lo mejor" — legado del Padre Vilaseca a los josefinos.</div>
+      <div class="curiosidad-fuente">— Instituto Juventud</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTÓN DE REGRESAR -->
+<div class="container" style="text-align: center; margin: 40px 0;">
+  <a href="index.html" class="btn-regresar" style="display: inline-flex; align-items: center; gap: 10px; background: #1B5E3F; color: white; padding: 12px 32px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
+    ← Regresar al inicio
+  </a>
+</div>
+
+<style>
+  .btn-regresar:hover {
+    background: #0A2E25;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+</style>
+
+<!-- AFILIACIONES -->
+<div class="container">
+  <div class="afiliaciones">
+    Afiliaciones: Red Nacional de Innovación Juvenil | Observatorio de Tecnología Educativa | Alianza por el Conocimiento Abierto
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-col">
+      <h3>CIIJ</h3>
+      <p>Centro de innovación e investigación Juventud</p>
+      <p>"Si puedes imaginarlo, puedes construirlo"</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p>Calzada San Agustín 61</p>
+      <p>Rincón Echegaray, Naucalpan</p>
+      <p>Estado de México, C.P. 53309</p>
+      <p>contacto@ciij.mx</p>
+    </div>
+    <div class="footer-col">
+      <h3>Accesos rápidos</h3>
+      <p><a href="revista-digital.html">Revista digital</a></p>
+      <p><a href="podcast.html">Podcast</a></p>
+      <p><a href="IASapoyo.html">IAs de apoyo</a></p>
+      <p><a href="canal-CREA.html">Canal CREA</a></p>
+    </div>
+  </div>
+  <div class="container copy">
+    2025 Centro de innovación e investigación Juventud CIIJ — "Si puedes imaginarlo, puedes construirlo"
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
