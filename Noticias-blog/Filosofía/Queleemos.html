@@ -1,1 +1,398 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CIIJ | ¿Qué leemos cuando leemos? - Revista digital</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos específicos para el artículo tipo revista */
+    .articulo-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    .articulo-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .articulo-categoria {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #EDE7F6;
+      color: #4527A0;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .articulo-titulo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0A2E25;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    
+    .articulo-autor {
+      font-size: 0.9rem;
+      color: #1B5E3F;
+      margin-bottom: 8px;
+    }
+    
+    .articulo-fecha {
+      font-size: 0.8rem;
+      color: #6B8A7A;
+    }
+    
+    .articulo-imagen-principal {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 30px 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .articulo-contenido {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #2C3E35;
+    }
+    
+    .articulo-contenido h2 {
+      font-size: 1.6rem;
+      color: #0A2E25;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #1B5E3F;
+      display: inline-block;
+    }
+    
+    .articulo-contenido h3 {
+      font-size: 1.3rem;
+      color: #1B5E3F;
+      margin: 30px 0 15px;
+    }
+    
+    .articulo-contenido p {
+      margin-bottom: 20px;
+    }
+    
+    /* Recuadros destacados */
+    .recuadro-destacado {
+      background: #E6F3EF;
+      border-left: 5px solid #1B5E3F;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 12px;
+      font-style: italic;
+      font-size: 1rem;
+      color: #0A2E25;
+    }
+    
+    .recuadro-frase {
+      background: #EDE7F6;
+      border-left: 5px solid #4527A0;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 12px;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    .recuadro-concepto {
+      background: #FFF8E1;
+      border: 1px solid #F9A825;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+    }
+    
+    .recuadro-concepto strong {
+      color: #E65100;
+    }
+    
+    .badge-concepto {
+      display: inline-block;
+      background: #F9A825;
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    /* Citas */
+    .cita-texto {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #0A2E25;
+      margin-bottom: 10px;
+    }
+    
+    .cita-autor {
+      font-size: 0.8rem;
+      color: #6B8A7A;
+    }
+    
+    /* Fuentes APA */
+    .fuentes-apa {
+      background: #F8F9FA;
+      padding: 30px;
+      border-radius: 16px;
+      margin: 40px 0 30px;
+      border: 1px solid #EDF2F0;
+    }
+    
+    .fuentes-apa h3 {
+      color: #0A2E25;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .fuentes-apa p {
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      color: #2C3E35;
+    }
+    
+    .btn-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1B5E3F;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin: 20px 0 40px;
+    }
+    
+    .btn-blog:hover {
+      background: #0A2E25;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .articulo-titulo {
+        font-size: 1.8rem;
+      }
+      
+      .articulo-container {
+        padding: 20px 16px;
+      }
+      
+      .recuadro-destacado, .recuadro-frase {
+        padding: 15px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-left">
+      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
+      <div class="contact-info">
+        <span>Calzada San Agustín 61, Rincón Echegaray</span>
+        <span>Naucalpan de Juárez, Estado de México, C.P. 53309</span>
+        <span>Tel: (55) 1234 5678</span>
+        <span>departamentodeinnovacioneducativa@juventud.edu.mx</span>
+      </div>
+    </div>
+    <div class="top-right">
+      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
+      <div class="social-badge">
+        <a href="#">IG</a>
+        <a href="#">FB</a>
+        <a href="#">X</a>
+        <a href="#">LI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND -->
+<div class="brand">
+  <div class="container">
+    <div class="logo-text">Centro de innovación e investigación <span>Juventud CIIJ</span></div>
+    <div class="lema-principal">"Si puedes imaginarlo, puedes construirlo"</div>
+    <div class="lema-autor">— Pablo Adrián Rivera Juvenal</div>
+  </div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="nav-buttons">
+  <div class="container buttons-grid">
+    <a href="index.html" class="btn-ciij">Inicio</a>
+    <a href="quienes-somos.html" class="btn-ciij">Quienes somos</a>
+    <a href="blog.html" class="btn-ciij">La escritura del águila</a>
+    <a href="revista-digital.html" class="btn-ciij btn-active">Revista digital</a>
+    <a href="herramientas-digitales.html" class="btn-ciij">Herramientas digitales</a>
+    <a href="aplicaciones-apoyo.html" class="btn-ciij">Aplicaciones de apoyo</a>
+    <a href="Cursos de capacitación.html" class="btn-ciij">Cursos de capacitación</a>
+    <a href="canal-CREA.html" class="btn-ciij">Canal CREA</a>
+    <a href="podcast.html" class="btn-ciij">Podcast</a>
+    <a href="IASapoyo.html" class="btn-ciij">IAs de apoyo</a>
+    <a href="Entrena-mente.html" class="btn-ciij">Entrena tu mente</a>
+  </div>
+</div>
+
+<!-- ARTÍCULO PRINCIPAL -->
+<div class="articulo-container">
+  
+  <div class="articulo-header">
+    <span class="articulo-categoria">💭 Filosofía · Reflexión</span>
+    <h1 class="articulo-titulo">¿Qué leemos cuando leemos?</h1>
+    <div class="articulo-autor">Por: Pablo Adrián Rivera Juvenal</div>
+    <div class="articulo-fecha">Abril 2025</div>
+  </div>
+  
+  <img src="Leer.png" alt="Leer" class="articulo-imagen-principal">
+  
+  <div class="articulo-contenido">
+    
+    <p>Al navegar en internet se despliega ante nosotros un sin fin de imágenes, artículos, noticias, pero ¿toda lo que vemos allí es válido?, ¿si leo algo en internet o en un periódico ello garantiza su autenticidad? Este articulo parte de que esto no es así y que no todo lo que leemos tiene la misma intención o el mismo sustento.</p>
+    
+    <p>Este escrito analiza las características que puede poseer un texto, para ello se apoya de los conceptos: <strong>creencia, dato, información, conocimiento y saber</strong>.</p>
+    
+    <!-- RECUADRO DESTACADO -->
+    <div class="recuadro-destacado">
+      <div class="cita-texto">📖 "No todo lo que leemos tiene la misma intención o el mismo sustento"</div>
+      <div class="cita-autor">— Pablo Adrián Rivera Juvenal</div>
+    </div>
+    
+    <h2>Creencias</h2>
+    
+    <p>Luis Villoro, filósofo mexicano, describe el acto de creer en su libro <em>Creer, saber, conocer</em> como el acto volitivo de la conciencia por medio del cual actúo como si algo existiera, es decir, cuando yo creo en algo ese algo es real para mí, voluntariamente acepto su existencia y actúo en concordancia con ella. Puedo creer que la manzana es de color morado, puedo creer que la tierra gira alrededor del sol y nadie me puede quitar dicha creencia más que yo mismo.</p>
+    
+    <div class="recuadro-frase">
+      <div class="cita-texto">"Creer es el acto volitivo de la conciencia por medio del cual actúo como si algo existiera"</div>
+      <div class="cita-autor">— Luis Villoro</div>
+    </div>
+    
+    <p>Si alguien dice o escribe «yo creo que los zombis nos atacarán», dicha creencia no implica que de hecho los zombis nos atacarán, solamente implica que para esa persona tiene para sí mismo el ataque de los zombis como una realidad inminente pero para corroborar dicha creencia es necesario pedir pruebas, lo cual realizamos cotidianamente, como cuando un amigo dice «creo que pasaré el examen» lo que solemos contestar es «¿por qué crees eso?», es decir, «dame pruebas para contrastar con la realidad la validez de tu creencia».</p>
+    
+    <h2>Datos e información</h2>
+    
+    <div class="recuadro-concepto">
+      <span class="badge-concepto">📊 Concepto clave</span>
+      <p><strong>Dato:</strong> es un registro sensible del mundo percibido por los sentidos y recabado por la conciencia.</p>
+      <p><strong>Información:</strong> parte de los datos y del mundo sensible pero no se limita a ellos, es la forma en la cual se interpretan los datos y se les otorga una estructura.</p>
+    </div>
+    
+    <p>Un dato es algo que percibo del mundo pero que en sí ya no es el mundo, por ejemplo, después de haberme quemado con la estufa obtengo el dato que dicho objeto, el fuego, genera cierta sensación, dolor. Ese dato lo extraje del mundo pero ya no es él por sí mismo sino la captación que poseo de él.</p>
+    
+    <div class="recuadro-destacado">
+      <div class="cita-texto">💡 "Un dato es algo que percibo del mundo pero que en sí ya no es el mundo"</div>
+    </div>
+    
+    <p>La información, por su parte, es el acomodo realizado de los datos; retomemos el ejemplo de la estufa, con los datos que obtuve puedo generar la información «ese fuego quema», de igual forma alguien de sus experiencias particulares puede decir «los perros son peligrosos porque tienen dientes». En los textos lo que podemos encontrar son datos o informaciones recabadas por otros seres humanos.</p>
+    
+    <p>Para entender la diferencia pensemos en una estadística sobre el número de negocios que existen en la Ciudad de México. Lo que compone a dicha estadística es la recopilación de muchos datos de otras personas referentes a los negocios que han visto y la interpretación de la misma es la información que se obtuvo. Cuando alguien dice «los mexicanos no leemos, lo sé porque lo vi en una estadística», se encuentra en un error ya que ese «sé» implica saber, y ver una estadística es sólo observar los datos que otros hombres han recabado del mundo sin un análisis de su contenido, de modo similar, cuando alguien dice «el país está en perfectas condiciones» y al preguntarle por qué lo dice nos contesta que leyó el informe de gobierno, ello tampoco es garantía de un saber sino de haber leído la interpretación que se ha brindado de dichos datos, pero dicha información puede ser a su vez verdadera o falsa.</p>
+    
+    <h2>Conocimiento</h2>
+    
+    <p>¿Cuándo utilizamos la palabra conocer? No lo hacemos cuando creemos o cuando estamos informados, sino cuando algo nos es propio como en la frase «yo conozco a Pedro», no decimos que creemos conocer a Pedro, tampoco decimos que poseemos información de Pedro, aunque esto también es cierto, de hecho lo hemos tratado, ubicamos donde vive, cuáles son sus amigos, etc. Esta diferencia entre los términos, siguiendo los planteamientos de Rendón y Villoro, se debe a que conocer no sólo es poseer información sobre algo sino que, de hecho, he contrastado esa información con el mundo de primera mano, la información que poseía la he asimilado e incluido a mi vida.</p>
+    
+    <div class="recuadro-frase">
+      <div class="cita-texto">"Conocer no sólo es poseer información sobre algo sino que he contrastado esa información con el mundo de primera mano"</div>
+    </div>
+    
+    <p>Por ejemplo, si yo tengo información de algún idioma puedo, siempre que la recuerde, compararla con el mundo, si alguien dice «dog» y yo poseo un diccionario puedo revisar y ver que significa «perro», término que sí conozco y desde el cual puedo interactuar. ¿Qué implica esto? Que de facto no existen los textos de conocimiento, existen los textos que acumulan saberes o que posibilitan el conocimiento, pero en sentido estricto es mera información; si alguien dice «yo conozco de física porque leí un libro», esto es falso, quizá esté informado pero no es hasta que existe esta apropiación que se conoce.</p>
+    
+    <p>El conocimiento sólo puede captarlo el individuo de su propia experiencia, pero tener una experiencia de todo lo que pasa en el universo es imposible por tres razones, o es muy pequeño para poder ser percibido, o es muy grande para ser percibido o no se puede recolectar toda la información del mismo. ¿Qué hacer ante esto? Villoro señala que podemos recurrir a nuestros conocimientos y juntarlos en una estructura mayor: el saber.</p>
+    
+    <h2>Saber</h2>
+    
+    <div class="recuadro-concepto">
+      <span class="badge-concepto">🎓 Concepto clave</span>
+      <p><strong>Saber:</strong> es la recopilación del conocimiento humano y su estructuración.</p>
+    </div>
+    
+    <p>El saber, partiendo de Villoro, es la recopilación del conocimiento humano y su estructuración, un ejemplo de este proceso es la teoría de la evolución de acuerdo con la cual las especies que sobreviven son las que se adaptan al medio, no lo podemos constatar directamente ya que el cambio de una especie a otra dura mucho más que nuestra vida, lo que sí podemos hacer es comparar la información de otras personas con nuestros conocimientos y proponer algo que explique dichos fenómenos, siguiendo con el ejemplo de Darwin, podemos imaginarlo en las islas Galápagos observando variedades de animales y percatándose de sus diferencias y semejanzas, posteriormente comparando dicha información con la de otros para generar un conocimiento que le permitiera predecir y explicar su mundo, pero no era posible constatar directamente el cambio de una especie a otra así que apoyo su creencia con conocimientos que sí eran observables como que: los animales tienen huesos, o que de dichos huesos se puede medir su edad por el color, o que de las especies actuales de animales sobreviven aquellas que se adaptan mejor al medio.</p>
+    
+    <div class="recuadro-destacado">
+      <div class="cita-texto">🔬 "Un saber es una información que puede explicar o predecir el mundo y que se apoya de datos que pueden ser corroborados"</div>
+    </div>
+    
+    <p>En síntesis, un saber es una información que puede explicar o predecir el mundo y que se apoya de datos que pueden ser corroborados por las personas para generar en ellos conocimientos. Esto implica que un texto que dice «sabes cómo…» será válido si se apoya en información procedente de datos reales, que pueda ser demostrable y que genere o promueva en el lector conocimiento. Un texto que promete brindar el saber de por qué los marcianos son azules, sin brindar información fiable inmediatamente quedaría descartado, o si alguien dice «yo sé matemáticas» y no puede transmitir dicho saber también es falso, quizá posea el conocimiento, el cual es propio pero no enseñable.</p>
+    
+    <h2>Informados sí, pero no es suficiente</h2>
+    
+    <p>No todo lo que leemos posee forzosamente conocimientos, incluso existen situaciones en las cuales lo explicado puede promover conocimiento, como en el caso de este texto, en estos momentos podemos decir que estamos informados sobre que es creencia, saber etc. Pero para que esto se vuelva conocimiento debe ser asimilado, contrastado con los propios datos y utilizado en la realidad particular del lector.</p>
+    
+    <!-- FUENTES APA -->
+    <div class="fuentes-apa">
+      <h3>📚 Fuentes consultadas (formato APA)</h3>
+      <p>Villoro, L. (1982). <em>Creer, saber, conocer</em>. Siglo XXI Editores.</p>
+      <p>Rendón, M. (2020). <em>Filosofía del conocimiento: Una introducción contemporánea</em>. Universidad Nacional Autónoma de México.</p>
+      <p>Darwin, C. (1859). <em>El origen de las especies</em>. John Murray.</p>
+      <p>Rivera Juvenal, P. A. (2025). ¿Qué leemos cuando leemos? <em>Revista digital CIIJ</em>, 1(1), 15-25.</p>
+    </div>
+    
+    <!-- BOTÓN PARA REGRESAR AL BLOG -->
+    <div style="text-align: center;">
+      <a href="blog.html" class="btn-blog">
+        ← Regresar a La escritura del águila
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+<!-- AFILIACIONES -->
+<div class="container">
+  <div class="afiliaciones">
+    Afiliaciones: Red Nacional de Innovación Juvenil | Observatorio de Tecnología Educativa | Alianza por el Conocimiento Abierto
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-col">
+      <h3>CIIJ</h3>
+      <p>Centro de innovación e investigación Juventud</p>
+      <p>"Si puedes imaginarlo, puedes construirlo"</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p>Calzada San Agustín 61</p>
+      <p>Rincón Echegaray, Naucalpan</p>
+      <p>Estado de México, C.P. 53309</p>
+      <p>contacto@ciij.mx</p>
+    </div>
+    <div class="footer-col">
+      <h3>Accesos rápidos</h3>
+      <p><a href="revista-digital.html">Revista digital</a></p>
+      <p><a href="podcast.html">Podcast</a></p>
+      <p><a href="IASapoyo.html">IAs de apoyo</a></p>
+      <p><a href="canal-CREA.html">Canal CREA</a></p>
+    </div>
+  </div>
+  <div class="container copy">
+    2025 Centro de innovación e investigación Juventud CIIJ — "Si puedes imaginarlo, puedes construirlo"
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
