@@ -1,1 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CIIJ | Canal CREA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .canal-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    .canal-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .canal-header h1 {
+      font-size: 2.5rem;
+      color: #0A2E25;
+      margin-bottom: 16px;
+    }
+    
+    .canal-header h1 span {
+      color: #1B5E3F;
+    }
+    
+    .canal-header p {
+      color: #6B8A7A;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      background: #000;
+    }
+    
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: none;
+    }
+    
+    .mensaje-container {
+      text-align: center;
+      background: #E6F3EF;
+      border-radius: 20px;
+      padding: 40px;
+      margin: 40px 0;
+    }
+    
+    .mensaje-container h2 {
+      color: #0A2E25;
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+    
+    .mensaje-container p {
+      color: #2C3E35;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .btn-canal {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FF0000;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin: 20px 0;
+    }
+    
+    .btn-canal:hover {
+      background: #CC0000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1B5E3F;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin: 20px 0;
+    }
+    
+    .btn-volver:hover {
+      background: #0A2E25;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .botones-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .canal-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .mensaje-container {
+        padding: 25px;
+      }
+      
+      .mensaje-container h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
 
+<div class="top-bar">
+  <div class="container">
+    <div class="top-left">
+      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
+      <div class="contact-info">
+        <span>Calzada San Agustín 61, Rincón Echegaray</span>
+        <span>Naucalpan de Juárez, Estado de México, C.P. 53309</span>
+        <span>Tel: (55) 1234 5678</span>
+        <span>departamentodeinnovacioneducativa@juventud.edu.mx</span>
+      </div>
+    </div>
+    <div class="top-right">
+      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
+      <div class="social-badge">
+        <a href="#">IG</a>
+        <a href="#">FB</a>
+        <a href="#">X</a>
+        <a href="#">LI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="brand">
+  <div class="container">
+    <div class="logo-text">Centro de innovación e investigación <span>Juventud CIIJ</span></div>
+    <div class="lema-principal">"Si puedes imaginarlo, puedes construirlo"</div>
+    <div class="lema-autor">— Pablo Adrián Rivera Juvenal</div>
+  </div>
+</div>
+
+<div class="nav-buttons">
+  <div class="container buttons-grid">
+    <a href="index.html" class="btn-ciij">Inicio</a>
+    <a href="quienes-somos.html" class="btn-ciij">Quienes somos</a>
+    <a href="blog.html" class="btn-ciij">La escritura del águila</a>
+    <a href="revista.html" class="btn-ciij">Revista digital</a>
+    <a href="herramientas-digitales.html" class="btn-ciij">Herramientas digitales</a>
+    <a href="aplicaciones-apoyo.html" class="btn-ciij">Aplicaciones de apoyo</a>
+    <a href="Cursos de capacitación.html" class="btn-ciij">Cursos de capacitación</a>
+    <a href="canal-CREA.html" class="btn-ciij btn-active">Canal CREA</a>
+    <a href="podcast.html" class="btn-ciij">Podcast</a>
+    <a href="IASapoyo.html" class="btn-ciij">IAs de apoyo</a>
+    <a href="Entrena-mente.html" class="btn-ciij">Entrena tu mente</a>
+  </div>
+</div>
+
+<div class="canal-container">
+  
+  <div class="canal-header">
+    <h1>Canal <span>CREA</span></h1>
+    <p>Innovación, tecnología y creatividad en video</p>
+  </div>
+  
+  <div class="video-container">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/9Wmc7t7ufsY" 
+        title="Video Canal CREA" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  
+  <div class="mensaje-container">
+    <h2>🎬 Explora más contenido</h2>
+    <p>Visita nuestro canal de YouTube para descubrir más videos sobre innovación educativa, tecnología y creatividad.</p>
+  </div>
+  
+  <div class="botones-container">
+    <a href="https://www.youtube.com/watch?v=9Wmc7t7ufsY" class="btn-canal" target="_blank">
+      📺 Ver en YouTube
+    </a>
+    <a href="index.html" class="btn-volver">
+      ← Regresar al inicio
+    </a>
+  </div>
+  
+</div>
+
+<div class="container">
+  <div class="afiliaciones">
+    Afiliaciones: Red Nacional de Innovación Juvenil | Observatorio de Tecnología Educativa | Alianza por el Conocimiento Abierto
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-col">
+      <h3>CIIJ</h3>
+      <p>Centro de innovación e investigación Juventud</p>
+      <p>"Si puedes imaginarlo, puedes construirlo"</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">X</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p>Calzada San Agustín 61</p>
+      <p>Rincón Echegaray, Naucalpan</p>
+      <p>Estado de México, C.P. 53309</p>
+      <p>contacto@ciij.mx</p>
+    </div>
+    <div class="footer-col">
+      <h3>Accesos rápidos</h3>
+      <p><a href="revista.html">Revista digital</a></p>
+      <p><a href="podcast.html">Podcast</a></p>
+      <p><a href="IASapoyo.html">IAs de apoyo</a></p>
+      <p><a href="canal-CREA.html">Canal CREA</a></p>
+    </div>
+  </div>
+  <div class="container copy">
+    2025 Centro de innovación e investigación Juventud CIIJ — "Si puedes imaginarlo, puedes construirlo"
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
