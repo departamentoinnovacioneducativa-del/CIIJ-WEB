@@ -17,11 +17,20 @@
       font-size: 2.2rem;
       color: #0A2E25;
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .blog-header h1 img {
+      height: 48px;
+      width: auto;
+      vertical-align: middle;
     }
     
     .blog-header h1 span {
       color: #1B5E3F;
-      font-size: 1.8rem;
     }
     
     .blog-header p {
@@ -31,9 +40,8 @@
     }
     
     .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
+      display: flex;
+      justify-content: center;
       margin: 40px 0;
     }
     
@@ -44,6 +52,8 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       border: 1px solid #EDF2F0;
+      max-width: 500px;
+      width: 100%;
     }
     
     .noticia-card:hover {
@@ -53,7 +63,7 @@
     
     .noticia-imagen {
       width: 100%;
-      height: 200px;
+      height: 250px;
       object-fit: cover;
       background: #E6F3EF;
     }
@@ -67,17 +77,7 @@
       margin: 20px 20px 0 20px;
     }
     
-    /* CATEGORÍAS */
     .categoria-filosofia { background: #EDE7F6; color: #4527A0; }
-    .categoria-ciencia { background: #E3F2FD; color: #1565C0; }
-    .categoria-tecnologia { background: #E0F2F1; color: #00695C; }
-    .categoria-josefinos { background: #0A2E25; color: #FFFFFF; }
-    .categoria-educacion { background: #FFF8E1; color: #F9A825; }
-    .categoria-arte { background: #FCE4EC; color: #C2185B; }
-    .categoria-cultura-pop { background: #FFE0B2; color: #E65100; }
-    .categoria-curiosidades { background: #E8F5E9; color: #2E7D32; }
-    .categoria-mundo-digital { background: #E1F5FE; color: #0277BD; }
-    .categoria-recomendacion-familia { background: #FFF3E0; color: #BF360C; }
     
     .noticia-fecha {
       float: right;
@@ -127,24 +127,21 @@
       color: #FFFFFF;
     }
     
-    /* Ficha en blanco (modelo) */
-    .ficha-modelo {
-      background: #F8F9FA;
-      border: 2px dashed #C8D6E5;
-    }
-    
-    .ficha-modelo .noticia-imagen {
-      background: #E9ECEF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6C757D;
-      font-size: 0.8rem;
-    }
-    
     @media (max-width: 768px) {
       .blog-grid {
-        grid-template-columns: 1fr;
+        margin: 20px;
+      }
+      
+      .noticia-card {
+        max-width: 100%;
+      }
+      
+      .blog-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      .blog-header h1 img {
+        height: 36px;
       }
     }
   </style>
@@ -204,64 +201,31 @@
 <!-- HEADER DEL BLOG -->
 <div class="blog-header">
   <div class="container">
-    <h1>✍️ La escritura del <span>águila</span></h1>
+    <h1>
+      <img src="escribir.png" alt="Escribir">
+      La escritura del <span>águila</span>
+    </h1>
     <p>Artículos, reflexiones y conocimientos para volar más alto</p>
   </div>
 </div>
 
 <div class="container">
-  <!-- GRID DE NOTICIAS -->
+  <!-- GRID DE NOTICIAS - SOLO EL ARTÍCULO PUBLICADO -->
   <div class="blog-grid">
     
-    <!-- ============================================ -->
-    <!-- NOTICIA 1: FILOSOFÍA - ¿Qué leemos cuando leemos? -->
-    <!-- ============================================ -->
+    <!-- NOTICIA: FILOSOFÍA - ¿Qué leemos cuando leemos? -->
     <div class="noticia-card">
       <img src="leer.png" alt="Leer" class="noticia-imagen">
       <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
       <span class="noticia-fecha">📅 Abril 2025</span>
       <div class="noticia-titulo">¿Qué leemos cuando leemos?</div>
-      <div class="noticia-autor">✍️ Por: Pablo Adrián Rivera Juvenal</div>
+      <div class="noticia-autor">Por: Pablo Adrián Rivera Juvenal</div>
       <div class="noticia-resumen">Una exploración sobre los diferentes tipos de conocimientos que se pueden encontrar en un texto y cómo la lectura transforma nuestra manera de entender el mundo.</div>
       <a href="Noticias-blog/Filosofia/Queleemos.html" class="btn-leer-mas" target="_blank">Leer artículo →</a>
     </div>
     
-    <!-- ============================================ -->
-    <!-- FICHA EN BLANCO - MODELO PARA FUTURAS NOTICIAS -->
-    <!-- ============================================ -->
-    <div class="noticia-card ficha-modelo">
-      <div class="noticia-imagen" style="display: flex; align-items: center; justify-content: center; background: #E9ECEF; color: #6C757D;">
-        📷 [Tu imagen aquí]
-      </div>
-      <span class="noticia-categoria" style="background: #E9ECEF; color: #6C757D;">📂 Categoría</span>
-      <span class="noticia-fecha" style="color: #ADB5BD;">📅 Fecha</span>
-      <div class="noticia-titulo" style="color: #ADB5BD;">Título de la noticia</div>
-      <div class="noticia-autor" style="color: #ADB5BD;">✍️ Por: Autor</div>
-      <div class="noticia-resumen" style="color: #ADB5BD;">Breve resumen de la noticia o artículo. Aquí puedes escribir 2-3 líneas que describan el contenido de la publicación.</div>
-      <a href="#" class="btn-leer-mas" style="border-color: #CED4DA; color: #ADB5BD; pointer-events: none;">Próximamente →</a>
-    </div>
-    
   </div>
 </div>
-
-<!-- ============================================ -->
-<!-- ARTÍCULO NO PUBLICADO - ESCONDIDO COMO COMENTARIO -->
-<!-- ============================================ -->
-<!--
-  <div class="container">
-    <div class="blog-grid">
-      <div class="noticia-card">
-        <img src="ruta-de-imagen.png" alt="..." class="noticia-imagen">
-        <span class="noticia-categoria categoria-ejemplo">📂 Categoría</span>
-        <span class="noticia-fecha">📅 Fecha</span>
-        <div class="noticia-titulo">Título del artículo no publicado</div>
-        <div class="noticia-autor">✍️ Por: Autor</div>
-        <div class="noticia-resumen">Resumen del artículo que aún no está disponible.</div>
-        <a href="#" class="btn-leer-mas">Próximamente →</a>
-      </div>
-    </div>
-  </div>
--->
 
 <!-- BOTÓN DE REGRESAR -->
 <div class="container" style="text-align: center; margin: 40px 0;">
