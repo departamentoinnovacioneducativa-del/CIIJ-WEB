@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital | CIIJ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="top-brand-banner">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="logo-side left">
+                    <img src="logo.png" alt="Logo CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="brand-center">
+                    <h1 class="ciij-title">CIIJ</h1>
+                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                </div>
+
+                <div class="logo-side right">
+                    <img src="mascota.png" alt="Mascota CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <div class="banner-contact">
+                <p>Naucalpan de Juárez, Estado de México</p>
+                <span class="dot">•</span>
+                <p>departamentodeinnovacioneducativa@juventud.edu.mx</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="container nav-scroll-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="quienes-somos.html" class="nav-item">Quiénes somos</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="revista-digital.html" class="nav-item active">Revista digital</a>
+                <a href="herraminetas-digitales.html" class="nav-item">Herramientas digitales</a>
+                <a href="IASapoyo.html" class="nav-item">IAs de apoyo</a>
+                <a href="Cursos de capacitación.html" class="nav-item">Capacitación</a>
+                <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
+                <a href="podcast.html" class="nav-item">Podcast</a>
+                <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-section text-center">
+        <div class="container">
+            <p class="hero-tagline">Divulgación Científica</p>
+            <h2 class="blog-main-title">Revista <span>Digital</span></h2>
+            <p class="hero-desc mx-auto">Un espacio dedicado a la investigación, la innovación pedagógica y el conocimiento compartido.</p>
+        </div>
+    </section>
+
+    <section class="revista-showcase">
+        <div class="container text-center">
+            <div class="portada-wrapper glass-card">
+                <div class="magazine-frame">
+                    <img src="portada-1.png" alt="Portada Revista CIIJ" class="magazine-img">
+                </div>
+                
+                <div class="magazine-info">
+                    <span class="date-tag">Edición No. 1</span>
+                    <h3>Próximamente disponible</h3>
+                    <p>Estamos curando los mejores artículos de investigación y entrevistas exclusivas para nuestro gran lanzamiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coming-soon">
+        <div class="container hero-grid">
+            <div class="card glass-card">
+                <div class="card-num">01</div>
+                <h3>Investigación</h3>
+                <p>Artículos arbitrados sobre el uso de IA en entornos de aprendizaje.</p>
+            </div>
+            <div class="card glass-card">
+                <div class="card-num">02</div>
+                <h3>Entrevistas</h3>
+                <p>Charlas con expertos en tecnología y transformación educativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container text-center" style="margin: 60px 0 100px;">
+        <a href="index.html" class="btn-back-home">
+            <span class="arrow">←</span> Regresar al inicio
+        </a>
+    </div>
+</main>
+
+<div class="afiliaciones-banner">
+    <div class="container">
+        <div class="afiliaciones-grid">
+            <span>Red Nacional de Innovación Juvenil</span>
+            <span class="divider"></span>
+            <span>Observatorio de Tecnología Educativa</span>
+            <span class="divider"></span>
+            <span>Alianza por el Conocimiento Abierto</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-brand">
+            <h3>CIIJ</h3>
+            <p>Innovación • Investigación • Juventud</p>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Naucalpan, Estado de México.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .magazine-frame {
+        width: 100%;
+        max-width: 400px;
+        height: 550px;
+        margin: 0 auto 30px;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        border: 1px solid var(--border);
+    }
+    .magazine-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .portada-wrapper:hover .magazine-img {
+        transform: scale(1.05);
+    }
+    .portada-wrapper {
+        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .date-tag {
+        color: var(--tech);
+        font-weight: 800;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+        .magazine-frame { height: 400px; }
+        .portada-wrapper { padding: 20px; }
+    }
+</style>
+
+<script src="main.js"></script>
+</body>
+</html>
