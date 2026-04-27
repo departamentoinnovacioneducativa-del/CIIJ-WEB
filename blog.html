@@ -1,295 +1,124 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>CIIJ | La escritura del águila - Blog</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .blog-header {
-      text-align: center;
-      padding: 40px 0 20px;
-      background: linear-gradient(135deg, #E6F3EF 0%, #FFFFFF 100%);
-      margin-bottom: 40px;
-    }
-    
-    .blog-header h1 {
-      font-size: 2.2rem;
-      color: #0A2E25;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    
-    .blog-header h1 img {
-      height: 96px;
-      width: auto;
-      vertical-align: middle;
-    }
-    
-    .blog-header h1 span {
-      color: #1B5E3F;
-    }
-    
-    .blog-header p {
-      color: #6B8A7A;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .blog-grid {
-      display: flex;
-      justify-content: center;
-      margin: 40px 0;
-    }
-    
-    .noticia-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid #EDF2F0;
-      max-width: 500px;
-      width: 100%;
-    }
-    
-    .noticia-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .noticia-imagen {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      background: #E6F3EF;
-    }
-    
-    .noticia-categoria {
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin: 20px 20px 0 20px;
-    }
-    
-    .categoria-filosofia { background: #EDE7F6; color: #4527A0; }
-    
-    .noticia-fecha {
-      float: right;
-      font-size: 0.7rem;
-      color: #6B8A7A;
-      margin: 20px 20px 0 0;
-    }
-    
-    .noticia-titulo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #0A2E25;
-      margin: 15px 20px 10px;
-      line-height: 1.4;
-    }
-    
-    .noticia-autor {
-      font-size: 0.7rem;
-      color: #1B5E3F;
-      margin: 0 20px 8px;
-      font-weight: 500;
-    }
-    
-    .noticia-resumen {
-      font-size: 0.85rem;
-      color: #2C3E35;
-      margin: 0 20px 20px;
-      line-height: 1.5;
-    }
-    
-    .btn-leer-mas {
-      display: inline-block;
-      margin: 0 20px 20px;
-      padding: 8px 20px;
-      background: transparent;
-      border: 1px solid #1B5E3F;
-      color: #1B5E3F;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    
-    .btn-leer-mas:hover {
-      background: #1B5E3F;
-      color: #FFFFFF;
-    }
-    
-    @media (max-width: 768px) {
-      .blog-grid {
-        margin: 20px;
-      }
-      
-      .noticia-card {
-        max-width: 100%;
-      }
-      
-      .blog-header h1 {
-        font-size: 1.6rem;
-      }
-      
-      .blog-header h1 img {
-        height: 70px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .blog-header h1 img {
-        height: 55px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La escritura del águila | CIIJ Blog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="container">
-    <div class="top-left">
-      <img src="logo.png" alt="Logo CIIJ" class="logo-img">
-      <div class="contact-info">
-        <span>Calzada San Agustín 61, Rincón Echegaray</span>
-        <span>Naucalpan de Juárez, Estado de México, C.P. 53309</span>
-        <span>Tel: (55) 1234 5678</span>
-        <span>departamentodeinnovacioneducativa@juventud.edu.mx</span>
-      </div>
+<header class="main-header">
+    <div class="top-brand-banner">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="logo-side left">
+                    <img src="logo.png" alt="Logo" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="brand-center">
+                    <h1 class="ciij-title">CIIJ</h1>
+                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                </div>
+
+                <div class="logo-side right">
+                    <img src="mascota.png" alt="Mascota" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <div class="banner-contact">
+                <p>Naucalpan de Juárez, Estado de México</p>
+                <span class="dot">•</span>
+                <p>departamentodeinnovacioneducativa@juventud.edu.mx</p>
+            </div>
+        </div>
     </div>
-    <div class="top-right">
-      <img src="mascota.png" alt="Mascota CIIJ" class="mascota-img">
-      <div class="social-badge">
-        <a href="#">IG</a>
-        <a href="#">FB</a>
-        <a href="#">X</a>
-        <a href="#">LI</a>
-      </div>
+
+    <nav class="main-nav">
+        <div class="container nav-scroll-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="quienes-somos.html" class="nav-item">Quiénes somos</a>
+                <a href="blog.html" class="nav-item active">Blog</a>
+                <a href="revista-digital.html" class="nav-item">Revista digital</a>
+                <a href="herraminetas-digitales.html" class="nav-item">Herramientas digitales</a>
+                <a href="IASapoyo.html" class="nav-item">IAs de apoyo</a>
+                <a href="Cursos de capacitación.html" class="nav-item">Capacitación</a>
+                <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
+                <a href="podcast.html" class="nav-item">Podcast</a>
+                <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-section blog-intro">
+        <div class="container text-center">
+            <div class="blog-brand-wrapper">
+                <img src="escribir.png" alt="Águila" class="blog-icon-main">
+                <p class="hero-tagline">Pensamiento e Investigación</p>
+                <h2 class="blog-main-title">La escritura del <span>águila</span></h2>
+                <p class="hero-desc mx-auto">Artículos, reflexiones y conocimientos para volar más alto en la frontera de la educación y la tecnología.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <div class="blog-single-grid">
+                <article class="card article-card glass-card">
+                    <div class="article-img-wrapper">
+                        <img src="Leer.png" alt="Lectura" class="article-featured-img">
+                        <span class="category-tag">💭 Filosofía</span>
+                    </div>
+                    
+                    <div class="article-content">
+                        <span class="date-meta">Abril 2025</span>
+                        <h3>¿Qué leemos cuando leemos?</h3>
+                        <p class="author-meta">Por: Pablo Adrián Rivera Juvenal</p>
+                        <p class="article-excerpt">Una exploración sobre los diferentes tipos de conocimientos que se pueden encontrar en un texto y cómo la lectura transforma nuestra manera de entender el mundo.</p>
+                        
+                        <div class="article-footer">
+                            <a href="Queleemos.html" class="btn-read">Leer artículo completo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="container text-center" style="margin-bottom: 80px;">
+        <a href="index.html" class="btn-back-home">
+            <span class="arrow">←</span> Regresar al inicio
+        </a>
     </div>
-  </div>
-</div>
+</main>
 
-<!-- BRAND -->
-<div class="brand">
-  <div class="container">
-    <div class="logo-text">Centro de innovación e investigación <span>Juventud CIIJ</span></div>
-    <div class="lema-principal">"Si puedes imaginarlo, puedes construirlo"</div>
-    <div class="lema-autor">— Pablo Adrián Rivera Juvenal</div>
-  </div>
-</div>
-
-<!-- NAVEGACIÓN -->
-<div class="nav-buttons">
-  <div class="container buttons-grid">
-    <a href="index.html" class="btn-ciij">Inicio</a>
-    <a href="quienes-somos.html" class="btn-ciij">Quienes somos</a>
-    <a href="blog.html" class="btn-ciij btn-active">La escritura del águila</a>
-    <a href="revista.html" class="btn-ciij">Revista digital</a>
-    <a href="herramientas-digitales.html" class="btn-ciij">Herramientas digitales</a>
-    <a href="aplicaciones-apoyo.html" class="btn-ciij">Aplicaciones de apoyo</a>
-    <a href="Cursos de capacitación.html" class="btn-ciij">Cursos de capacitación</a>
-    <a href="canal-CREA.html" class="btn-ciij">Canal CREA</a>
-    <a href="podcast.html" class="btn-ciij">Podcast</a>
-    <a href="IASapoyo.html" class="btn-ciij">IAs de apoyo</a>
-    <a href="Entrena-mente.html" class="btn-ciij">Entrena tu mente</a>
-  </div>
-</div>
-
-<!-- HEADER DEL BLOG -->
-<div class="blog-header">
-  <div class="container">
-    <h1>
-      <img src="escribir.png" alt="Escribir">
-      La escritura del <span>águila</span>
-    </h1>
-    <p>Artículos, reflexiones y conocimientos para volar más alto</p>
-  </div>
-</div>
-
-<div class="container">
-  <!-- GRID DE NOTICIAS - SOLO EL ARTÍCULO PUBLICADO -->
-  <div class="blog-grid">
-    
-    <!-- NOTICIA: FILOSOFÍA - ¿Qué leemos cuando leemos? -->
-    <div class="noticia-card">
-      <img src="Leer.png" alt="Leer" class="noticia-imagen">
-      <span class="noticia-categoria categoria-filosofia">💭 Filosofía</span>
-      <span class="noticia-fecha">📅 Abril 2025</span>
-      <div class="noticia-titulo">¿Qué leemos cuando leemos?</div>
-      <div class="noticia-autor">Por: Pablo Adrián Rivera Juvenal</div>
-      <div class="noticia-resumen">Una exploración sobre los diferentes tipos de conocimientos que se pueden encontrar en un texto y cómo la lectura transforma nuestra manera de entender el mundo.</div>
-      <!-- ✅ ENLACE CORREGIDO: apunta a la raíz donde está Queleemos.html -->
-      <a href="Queleemos.html" class="btn-leer-mas" target="_blank">Leer artículo →</a>
+<div class="afiliaciones-banner">
+    <div class="container">
+        <div class="afiliaciones-grid">
+            <span>Red Nacional de Innovación Juvenil</span>
+            <span class="divider"></span>
+            <span>Observatorio de Tecnología Educativa</span>
+            <span class="divider"></span>
+            <span>Alianza por el Conocimiento Abierto</span>
+        </div>
     </div>
-    
-  </div>
 </div>
 
-<!-- BOTÓN DE REGRESAR -->
-<div class="container" style="text-align: center; margin: 40px 0;">
-  <a href="index.html" class="btn-regresar" style="display: inline-flex; align-items: center; gap: 10px; background: #1B5E3F; color: white; padding: 12px 32px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
-    ← Regresar al inicio
-  </a>
-</div>
-
-<style>
-  .btn-regresar:hover {
-    background: #0A2E25;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-</style>
-
-<!-- AFILIACIONES -->
-<div class="container">
-  <div class="afiliaciones">
-    Afiliaciones: Red Nacional de Innovación Juvenil | Observatorio de Tecnología Educativa | Alianza por el Conocimiento Abierto
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-col">
-      <h3>CIIJ</h3>
-      <p>Centro de innovación e investigación Juventud</p>
-      <p>"Si puedes imaginarlo, puedes construirlo"</p>
-      <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">X</a>
-        <a href="#">LinkedIn</a>
-      </div>
+    <div class="container footer-flex">
+        <div class="footer-brand">
+            <h3>CIIJ</h3>
+            <p>Innovación • Investigación • Juventud</p>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
+        </div>
     </div>
-    <div class="footer-col">
-      <h3>Contacto</h3>
-      <p>Calzada San Agustín 61</p>
-      <p>Rincón Echegaray, Naucalpan</p>
-      <p>Estado de México, C.P. 53309</p>
-      <p>contacto@ciij.mx</p>
-    </div>
-    <div class="footer-col">
-      <h3>Accesos rápidos</h3>
-      <p><a href="revista.html">Revista digital</a></p>
-      <p><a href="podcast.html">Podcast</a></p>
-      <p><a href="IASapoyo.html">IAs de apoyo</a></p>
-      <p><a href="canal-CREA.html">Canal CREA</a></p>
-    </div>
-  </div>
-  <div class="container copy">
-    2025 Centro de innovación e investigación Juventud CIIJ — "Si puedes imaginarlo, puedes construirlo"
-  </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
