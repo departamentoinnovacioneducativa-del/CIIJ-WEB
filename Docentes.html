@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docentes | CIIJ</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .docentes-hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .docentes-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .docentes-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            color: #f8fafc;
+        }
+
+        .docentes-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #38bdf8; /* Azul cielo tecnológico */
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .docentes-grid-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .docentes-grid-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Estilo de los botones */
+        .btn-docente {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-manus {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn-manus:hover {
+            background-color: #0ea5e9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-examenes {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border: 2px solid #334155;
+        }
+
+        .btn-examenes:hover {
+            background-color: #334155;
+            border-color: #475569;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="top-brand-banner">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="logo-side left">
+                    <img src="logo.png" alt="Logo" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="brand-center">
+                    <h1 class="ciij-title">CIIJ</h1>
+                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                </div>
+
+                <div class="logo-side right">
+                    <img src="mascota.png" alt="Mascota" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <div class="banner-contact">
+                <p>Naucalpan de Juárez, Estado de México</p>
+                <span class="dot">•</span>
+                <p>departamentodeinnovacioneducativa@juventud.edu.mx</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="container nav-scroll-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="quienes-somos.html" class="nav-item">Quiénes somos</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="revista-digital.html" class="nav-item">Revista digital</a>
+                <a href="herraminetas-digitales.html" class="nav-item">Herramientas digitales</a>
+                <a href="IASapoyo.html" class="nav-item">IAs de apoyo</a>
+                <a href="Cursos de capacitación.html" class="nav-item">Capacitación</a>
+                <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
+                <a href="podcast.html" class="nav-item">Podcast</a>
+                <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
+                <a href="Docentes.html" class="nav-item active">Docentes</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="docentes-hero">
+        <div class="docentes-content">
+            <h1 class="docentes-title">Docentes</h1>
+            <p class="docentes-subtitle">Transformando la educación</p>
+            
+            <div class="docentes-grid-buttons">
+                <a href="https://manus.im/?utm_source=google&utm_medium=&utm_campaign=23266830180&utm_content=197292501788&utm_term=manus&cid=7296735399&adgroupid=197292501788&matchtype=e&placement=&device=c&devicemodel=&network=g&gclid=Cj0KCQjw2YDQBhD_ARIsAE1qeSdXvKG3r79zxQ0uNJNxTF4uKXLKqFY9YoSgSBR2Ss-HlNSmtXhphTQaAu5VEALw_wcB&gbraid=0AAAABB8nEWNaOliNCAxnEffeqDn_SHZfE&wbraid=CkEKCQjwtvvPBhCNARIwAAfKpusgwqjKNyoWTbmqxWknPDGkZ23D1J8e7Pd8nD6Mtznaq6_JjNgOlTO0uJ-0GgIzHQ&creative=784509224576&adid=&gad_source=1&gad_campaignid=23266830180&gbraid=0AAAABB8nEWNaOliNCAxnEffeqDn_SHZfE&gclid=Cj0KCQjw2YDQBhD_ARIsAE1qeSdXvKG3r79zxQ0uNJNxTF4uKXLKqFY9YoSgSBR2Ss-HlNSmtXhphTQaAu5VEALw_wcB" 
+                   class="btn-docente btn-manus" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Acceso a Manus
+                </a>
+
+                <a href="https://drive.google.com/file/d/1f0jK4XDIL5jWuHsz9e6MgeSBIF5EAylr/view?usp=sharing" 
+                   class="btn-docente btn-examenes" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Herramienta versiones de exámenes
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-brand"><h3>CIIJ</h3><p>Innovación • Investigación • Juventud</p></div>
+        <div class="footer-copy"><p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal.</p></div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
