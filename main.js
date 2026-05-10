@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const frases = [
         { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
-        { t: "Hacer siempre y en todo lo mejor.", a: "Lema CIIJ" },
-        { t: "Si puedes imaginarlo, puedes construirlo.", a: "Pablo Adrián Rivera Juvenal" }
+        { t: "Hacer siempre y en todo lo mejor.", a: "Principio Vilasecano" },
+        { t: "Si puedes imaginarlo, puedes construirlo.", a: "Walt Disney" }
+        { t: "Construirse es construir el mundo.", a: "Pabo Adrian Rivera Juvenal" }
     ];
 
     let i = 0;
