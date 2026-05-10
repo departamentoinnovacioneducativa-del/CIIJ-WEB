@@ -47,6 +47,7 @@
                 <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
                 <a href="podcast.html" class="nav-item">Podcast</a>
                 <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
+                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)">Docentes</a>
             </div>
         </div>
     </nav>
@@ -91,6 +92,22 @@
         <div class="footer-copy"><p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal.</p></div>
     </div>
 </footer>
+
+<script>
+function validarAccesoDocentes(event) {
+    event.preventDefault(); // Evita que la página intente recargarse al hacer clic en '#'
+    
+    const claveCorrecta = "SanJose";
+    const claveIngresada = prompt("Por favor, ingresa la clave de acceso para Docentes:");
+
+    if (claveIngresada === claveCorrecta) {
+        window.location.href = "Docentes.html";
+    } else if (claveIngresada !== null) { 
+        // Si el usuario no presionó "Cancelar" pero la clave es incorrecta
+        alert("Clave incorrecta. Acceso denegado.");
+    }
+}
+</script>
 
 <script src="main.js"></script>
 </body>
