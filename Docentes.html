@@ -15,7 +15,7 @@
         }
 
         .docentes-content {
-            max-width: 800px;
+            max-width: 1000px; /* Un poco más ancho para acomodar 3 botones */
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -31,7 +31,7 @@
         .docentes-subtitle {
             font-size: 1.5rem;
             font-weight: 400;
-            color: #38bdf8; /* Azul cielo tecnológico */
+            color: #38bdf8;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -49,21 +49,22 @@
         @media (min-width: 768px) {
             .docentes-grid-buttons {
                 flex-direction: row;
+                flex-wrap: wrap; /* Permite que bajen si no caben */
             }
         }
 
         /* Estilo de los botones */
         .btn-docente {
             display: inline-block;
-            padding: 16px 32px;
-            font-size: 1rem;
+            padding: 16px 24px;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s ease;
             text-align: center;
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
@@ -78,13 +79,13 @@
             box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
         }
 
-        .btn-examenes {
+        .btn-herramienta {
             background-color: #1e293b;
             color: #f8fafc;
             border: 2px solid #334155;
         }
 
-        .btn-examenes:hover {
+        .btn-herramienta:hover {
             background-color: #334155;
             border-color: #475569;
             transform: translateY(-2px);
@@ -146,18 +147,28 @@
             <p class="docentes-subtitle">Transformando la educación</p>
             
             <div class="docentes-grid-buttons">
-                <a href="https://manus.im/?utm_source=google&utm_medium=&utm_campaign=23266830180&utm_content=197292501788&utm_term=manus&cid=7296735399&adgroupid=197292501788&matchtype=e&placement=&device=c&devicemodel=&network=g&gclid=Cj0KCQjw2YDQBhD_ARIsAE1qeSdXvKG3r79zxQ0uNJNxTF4uKXLKqFY9YoSgSBR2Ss-HlNSmtXhphTQaAu5VEALw_wcB&gbraid=0AAAABB8nEWNaOliNCAxnEffeqDn_SHZfE&wbraid=CkEKCQjwtvvPBhCNARIwAAfKpusgwqjKNyoWTbmqxWknPDGkZ23D1J8e7Pd8nD6Mtznaq6_JjNgOlTO0uJ-0GgIzHQ&creative=784509224576&adid=&gad_source=1&gad_campaignid=23266830180&gbraid=0AAAABB8nEWNaOliNCAxnEffeqDn_SHZfE&gclid=Cj0KCQjw2YDQBhD_ARIsAE1qeSdXvKG3r79zxQ0uNJNxTF4uKXLKqFY9YoSgSBR2Ss-HlNSmtXhphTQaAu5VEALw_wcB" 
+                <!-- Botón 1 -->
+                <a href="https://manus.im/?utm_source=google&utm_medium=&utm_campaign=23266830180&utm_content=197292501788&utm_term=manus&cid=7296735399&adgroupid=197292501788&matchtype=e&placement=&device=c&devicemodel=&network=g&gclid=Cj0KCQjw2YDQBhD_ARIsAE1qeSdXvKG3r79zxQ0uNJNxTF4uKXLKqFY9YoSgSBR2Ss-HlNSmtXhphTQaAu5VEALw_wcB" 
                    class="btn-docente btn-manus" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     Acceso a Manus
                 </a>
 
+                <!-- Botón 2 -->
                 <a href="https://drive.google.com/file/d/1f0jK4XDIL5jWuHsz9e6MgeSBIF5EAylr/view?usp=sharing" 
-                   class="btn-docente btn-examenes" 
+                   class="btn-docente btn-herramienta" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     Herramienta versiones de exámenes
+                </a>
+
+                <!-- Botón 3 (Nuevo) -->
+                <a href="https://drive.google.com/file/d/1r4IbCmNv5uCo4GeJomAdALkJEZyfQd1Y/view?usp=drive_link" 
+                   class="btn-docente btn-herramienta" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    Herramienta adecuación
                 </a>
             </div>
         </div>
