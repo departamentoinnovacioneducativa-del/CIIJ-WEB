@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Explicada Paso a Paso - Matemáticas IV</title>
+    <style>
+        /* ==========================================================================
+           CIIJ - SISTEMA DE DISEÑO TECNOLÓGICO DE ALTA GAMA (2026)
+           ========================================================================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;700&display=swap');
+
+        :root {
+            --deep: #010403;        /* Fondo base ultra oscuro */
+            --emerald: #0A2E25;     /* Verde institucional profundo */
+            --tech: #00FF9D;        /* Verde neón técnico para acentos */
+            --silver: #E0E2E1;      /* Gris mercurio para textos */
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 20px rgba(0, 255, 157, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--deep); 
+            color: var(--silver); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        
+        /* Header Principal */
+        .top-brand-banner { 
+            background: radial-gradient(circle at center, #08241D 0%, #010403 100%);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ciij-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            color: #fff;
+            text-shadow: var(--shadow-glow);
+        }
+
+        .institutional-badge {
+            color: var(--tech);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Navegación Fija */
+        .main-nav { 
+            background: rgba(1, 4, 3, 0.9); 
+            backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-links { display: flex; justify-content: center; gap: 10px; padding: 12px 0; overflow-x: auto; }
+        .nav-item {
+            padding: 8px 15px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover, .nav-item.active { 
+            color: var(--tech); 
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: 4px;
+        }
+
+        /* Secciones de Unidad */
+        .unidad-section { padding: 50px 0; display: none; }
+        .unidad-section.active { display: block; }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: #fff;
+            border-bottom: 2px solid var(--emerald);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .section-title span { color: var(--tech); }
+
+        /* Estructura de Acordeones Dinámicos */
+        .ejercicio-box {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .ejercicio-header {
+            background: rgba(255,255,255,0.01);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .ejercicio-header:hover {
+            background: rgba(0, 255, 157, 0.02);
+            color: var(--tech);
+        }
+
+        .ejercicio-header .num-badge {
+            color: var(--tech);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-right: 10px;
+        }
+
+        .ejercicio-content {
+            display: none;
+            padding: 25px;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Micro-pasos Cognitivos */
+        .paso-box {
+            margin-bottom: 20px;
+            border-left: 2px solid var(--emerald);
+            padding-left: 15px;
+        }
+
+        .paso-box:last-child { margin-bottom: 0; border-left-color: var(--tech); }
+
+        .paso-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--tech);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Notación Matemática en Bloque */
+        .math-block {
+            font-family: 'Courier New', Courier, monospace;
+            background: #040a08;
+            padding: 12px 18px;
+            border-radius: 4px;
+            color: #d1f4e6;
+            margin: 10px 0;
+            border: 1px solid rgba(0, 255, 157, 0.05);
+            overflow-x: auto;
+        }
+
+        /* Tarjeta de Clave Teórica */
+        .tech-badge-panel {
+            background: rgba(0, 255, 157, 0.01);
+            border: 1px dashed var(--tech);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .ejercicio-box.open .ejercicio-content { display: block; }
+        .ejercicio-box.open .arrow-icon { transform: rotate(180deg); color: var(--tech); }
+
+        footer { padding: 40px 0; background: #000; border-top: 1px solid var(--border); margin-top: 50px; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    </style>
+</head>
+<body>
+
+    <div class="top-brand-banner text-center">
+        <div class="container">
+            <div class="ciij-title">MATEMÁGICAS</div>
+            <div class="institutional-badge">Guía Integradora Explicada Paso a Paso — Plan IV</div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="container nav-links">
+            <a href="#" class="nav-item active" onclick="switchUnidad(event, 'u1')">Unidad 1</a>
+            <a href="#" class="nav-item" onclick="switchUnidad(event, 'u2')">Unidad 2</a>
+            <a href="#" class="nav-item" onclick="switchUnidad(event, 'u3')">Unidad 3</a>
+            <a href="#" class="nav-item" onclick="switchUnidad(event, 'u4')">Unidad 4</a>
+            <a href="#" class="nav-item" onclick="switchUnidad(event, 'u5')">Unidad 5</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="u1" class="unidad-section active">
+            <h2 class="section-title">Unidad 1: <span>Estadística descriptiva y exponentes</span></h2>
+            
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">01.</span> Promedio Final de Calificaciones</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 1: Identificación de Datos</div>
+                        <p>Datos proporcionados: $5$ exámenes con notas de $8.5, 9.0, 7.5, 8.0, 9.5$.</p>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 2: Formulación y Algoritmo</div>
+                        <p>Se calcula sumando todos los valores de las muestras y dividiendo el resultado entre el número total de datos ($n = 5$):</p>
+                        <div class="math-block">Media (x̄) = (8.5 + 9.0 + 7.5 + 8.0 + 9.5) / 5</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 3: Resolución Final</div>
+                        <div class="math-block">Suma = 42.5 -> x̄ = 42.5 / 5 = 8.5</div>
+                        <p>El promedio final obtenido por Ana es <strong>8.5</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">02.</span> Mediana de Libros Leídos</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 1: Ordenamiento de Muestras</div>
+                        <p>Muestra original: $3, 1, 4, 2, 5, 1, 6$. Ordenamos de forma estrictamente creciente:</p>
+                        <div class="math-block">Datos ordenados: 1, 1, 2, 3, 4, 5, 6</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 2: Localización de la Posición</div>
+                        <p>Como el número de datos es impar ($n = 7$), la mediana se ubica exactamente en la posición intermedia $(n+1)/2 = 4$.</p>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 3: Resultado</div>
+                        <p>El cuarto dato de la serie ordenada corresponde a: <strong>2</strong> libros.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">03.</span> Transporte más Utilizado (Moda)</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 1: Mapeo de Frecuencias</div>
+                        <p>Contabilizamos el número de repeticiones de cada categoría dentro de la muestra de $15$ alumnos:</p>
+                        <div class="math-block">Metro: 8 | Camión: 4 | Bicicleta: 2 | Auto: 1</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 2: Determinación del Máximo</div>
+                        <p>La moda es el valor o categoría que cuenta con la frecuencia absoluta más alta de la muestra.</p>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Paso 3: Resultado</div>
+                        <p>El medio de transporte modal es el <strong>Metro</strong> con un total de $8$ registros.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">04.</span> Análisis Estadístico de Tiempos de Resolución</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">a) Media Aritmética</div>
+                        <div class="math-block">x̄ = (12+15+10+18+12+20+12+25) / 8 = 144 / 8 = 18 minutos</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">b) Mediana</div>
+                        <p>Ordenamos los $8$ datos (número par): $10, 12, 12, 12, 15, 18, 20, 25$. Promediamos las posiciones centrales $4$ y $5$:</p>
+                        <div class="math-block">Mediana = (12 + 15) / 2 = 13.5 minutos</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">c) Medida Representativa</div>
+                        <p>La <strong>mediana (13.5)</strong> o la moda representan mejor el tiempo típico, ya que la media aritmética ($18$) se ve afectada y sesgada hacia arriba por el valor atípico extremo de $25$ minutos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">05.</span> Gasto en Cooperativa e Impacto Atípico</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">a) Cálculo Base (Datos: 30, 30, 30, 45, 50, 60, 75)</div>
+                        <p><strong>Media:</strong> $320 / 7 = 45.71$ pesos. <strong>Mediana:</strong> $45$ pesos. <strong>Moda:</strong> $30$ pesos.</p>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">b) Alteración por nuevo dato ($100)</div>
+                        <p>El nuevo total de elementos es $8$. Sumamos el valor atípico:</p>
+                        <div class="math-block">Nueva Media = (320 + 100) / 8 = 420 / 8 = 52.5 pesos</div>
+                        <p>La media incrementa significativamente de $45.71$ a <strong>52.5 pesos</strong> debido a la introducción de un sesgo positivo alto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">06.</span> Medidas con 25 Datos Distribuidos</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <p>Datos ordenados en secuencia analítica:</p>
+                    <div class="math-block">1, 1, 2, 3, 3, 4, 5, 5, 5, 7, 7, 8, 9, 10, 10, 11, 13, 13, 14, 15, 15, 17, 18, 18, 20</div>
+                    <div class="paso-box" style="margin-top:15px;">
+                        <p><strong>Media:</strong> Suma total de $224 / 25 = 8.96$.</p>
+                        <p><strong>Mediana:</strong> Posición 13 de la serie ordenada = <strong>9</strong>.</p>
+                        <p><strong>Moda:</strong> El valor que más se repite = <strong>5</strong> (registra 3 frecuencias absolutas).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">07.</span> Leyes de Exponentes y Notación Científica</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Resolución de Operaciones Algebraicas y Notación</div>
+                        <div class="math-block">
+a^-9 = 1 / a^9 <br>
+(y^2)^4 = y^(2*4) = y^8 <br>
+x^-5 * x^-2 = x^(-5-2) = x^-7 = 1 / x^7 <br>
+(z^3)(z^2) = z^(3+2) = z^5 <br>
+a^6 * b^-8 = a^6 / b^8 <br>
+(a^2)^7 = a^14 <br>
+(z^-5)^2 = z^-10 = 1 / z^10 <br>
+y^2 * (x^0) = y^2 * 1 = y^2 <br>
+(3^2)^-6 = 3^-12 = 1 / 3^12 <br>
+x^0 = 1 | a^1 = a | (234)^0 = 1 <br>
+x^7 / x^2 = x^(7-2) = x^5 <br>
+2^9 / 2^5 = 2^(9-5) = 2^4 = 16 <br>
+(5^-2)^3 = 5^-6 = 1 / 5^6
+                        </div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Productos Complejos</div>
+                        <div class="math-block">
+(3x^2y^2)(2xy^2)(5x^4y^6) = (3*2*5)x^(2+1+4)y^(2+2+6) = 30x^7y^10
+                        </div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Notación Científica Avanzada</div>
+                        <div class="math-block">
+((1.5x10^8) * 3) / ((1.0x10^-10)*(5.0x10^5)) = 4.5x10^8 / 5.0x10^-5 = 0.9x10^13 = 9.0x10^12 <br>
+(3.2x10^4) + (1.5x10^3) = 32000 + 1500 = 33500 = 3.35x10^4
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="u2" class="unidad-section">
+            <h2 class="section-title">Unidad 2: <span>Operaciones algebraicas y factorización</span></h2>
+            
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">08.</span> Suma y Reducción de Polinomios</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Ejercicio a) Agrupación por Términos Semejantes</div>
+                        <p>Agrupamos los componentes cuadráticos y los términos mixtos $xy$:</p>
+                        <div class="math-block">
+x^2: 4x^2 - 7x^2 - x^2 = -4x^2 <br>
+xy: 3xy + 6xy - xy = 8xy <br>
+y^2: -5y^2 + 8y^2 - 2y^2 = y^2
+                        </div>
+                        <p><strong>Resultado Simplificado:</strong> $-4x^2 + 8xy + y^2$</p>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Ejercicio g) División de Polinomios</div>
+                        <div class="math-block">(-36x^2y^3 + 48x^4y^3 - 60x^3y^4 + 72x^4y^4) ÷ (-12x^2y^3)</div>
+                        <p>Dividimos cada término de forma independiente respetando las leyes de los signos y restando los exponentes:</p>
+                        <div class="math-block">Resultado = 3 - 4x^2 + 5xy - 6x^2y</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">09.</span> Productos Notables: Binomio al Cuadrado</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="tech-badge-panel">
+                        <strong>Regla de Oro:</strong> $(a + b)^2 = a^2 + 2ab + b^2$
+                    </div>
+                    <div class="paso-box" style="margin-top:15px;">
+                        <div class="math-block">
+a) (2x + 3y)^2 = (2x)^2 + 2(2x)(3y) + (3y)^2 = 4x^2 + 12xy + 9y^2 <br><br>
+c) (3b^3 - 4b^4)^2 = (3b^3)^2 - 2(3b^3)(4b^4) + (4b^4)^2 = 9b^6 - 24b^7 + 16b^8 <br><br>
+f) (a^(x+1) + b^(x-1))^2 = a^(2x+2) + 2a^(x+1)b^(x-1) + b^(2x-2)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">10-13.</span> Casos Avanzados de Factorización</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Factor Común (Extracción de Máximo Común Divisor)</div>
+                        <div class="math-block">9a^2 - 12ab + 15a^3b^2 - 24ab^3 = 3a(3a - 4b + 5a^2b^2 - 8b^3)</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Diferencia de Cuadrados (Binomios Conjugados)</div>
+                        <div class="math-block">25 - 36x^8 = (5 - 6x^4)(5 + 6x^4)</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Trinomio Cuadrado Perfecto</div>
+                        <div class="math-block">49a^2 - 14a + 1 = (7a - 1)^2</div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">Trinomio de la forma x^2 + bx + c</div>
+                        <p>Buscamos dos números que multiplicados den $c$ y sumados den $b$:</p>
+                        <div class="math-block">x^2 - 5x - 36 = (x - 9)(x + 4)  [-9 * 4 = -36 y -9 + 4 = -5]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="u3" class="unidad-section">
+            <h2 class="section-title">Unidad 3: <span>Ecuaciones algebraicas</span></h2>
+            
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">14.</span> Ecuaciones Lineales de Primer Grado</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Caso h) Despeje con Agrupación y Paréntesis</div>
+                        <div class="math-block">3(2x - 5) + 1 = -4x - (4 - 5x) + 5</div>
+                        <p>Multiplicamos los términos internos y eliminamos signos de agrupación:</p>
+                        <div class="math-block">
+6x - 15 + 1 = -4x - 4 + 5x + 5 <br>
+6x - 14 = x + 1 <br>
+6x - x = 1 + 14 <br>
+5x = 15 -> x = 3
+                        </div>
+                        <p><strong>Resultado:</strong> $x = 3$</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">15.</span> Modelado Matemático de Problemas Reales</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Problema c) Cerdos (c) y Gallinas (g)</div>
+                        <p>Planteamiento del sistema de ecuaciones lineales por conteo de cabezas y extremidades:</p>
+                        <div class="math-block">
+Cabezas: c + g = 35 <br>
+Patas: 4c + 2g = 116
+                        </div>
+                        <p>Multiplicamos la ecuación de cabezas por $-2$ para eliminar la variable $g$:</p>
+                        <div class="math-block">
+-2c - 2g = -70 <br>
+4c + 2g = 116 <br>
+------------------ <br>
+2c = 46 -> c = 23 cerdos
+                        </div>
+                        <p>Sustituyendo: $23 + g = 35 \rightarrow g = 12$ gallinas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">16.</span> Ecuaciones Cuadráticas: Fórmula General</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="tech-badge-panel">
+                        <strong>Fórmula General:</strong> $x = (-b ± √(b^2 - 4ac)) / 2a$
+                    </div>
+                    <div class="paso-box" style="margin-top:15px;">
+                        <div class="paso-title">Resolución de: 2x^2 - 7x + 3 = 0</div>
+                        <p>Identificamos constantes: $a = 2, b = -7, c = 3$. Sustituimos valores en la fórmula:</p>
+                        <div class="math-block">
+x = (-(-7) ± √((-7)^2 - 4(2)(3))) / 2(2) <br>
+x = (7 ± √ (49 - 24)) / 4 <br>
+x = (7 ± √25) / 4 <br>
+x = (7 ± 5) / 4
+                        </div>
+                        <p><strong>Raíces Obtenidas:</strong> $x_1 = (7+5)/4 = 3$ y $x_2 = (7-5)/4 = 0.5$</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="u4" class="unidad-section">
+            <h2 class="section-title">Unidad 4: <span>Sistemas de ecuaciones lineales</span></h2>
+            
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">18.</span> Métodos de Solución de Sistemas 2x2</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">1. Método por Determinantes (Regla de Cramer)</div>
+                        <p>Para un sistema genérico ordenado, calculamos los determinantes de la matriz del sistema ($\Delta_s$), de la variable $x$ ($\Delta_x$) y de la variable $y$ ($\Delta_y$):</p>
+                        <div class="math-block">
+Δs = | a  b | = a*d - b*c <br>
+     | c  d | <br><br>
+x = Δx / Δs  |  y = Δy / Δs
+                        </div>
+                    </div>
+                    <div class="paso-box">
+                        <div class="paso-title">2. Método de Suma y Resta (Reducción)</div>
+                        <p>Consiste en multiplicar las ecuaciones lineales por factores numéricos convenientes para que los coeficientes de una de las incógnitas sean iguales pero de signo contrario, permitiendo su eliminación directa al sumar las ecuaciones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="u5" class="unidad-section">
+            <h2 class="section-title">Unidad 5: <span>Desigualdades e Inecuaciones</span></h2>
+            
+            <div class="ejercicio-box">
+                <div class="ejercicio-header" onclick="toggleAcordeon(this)">
+                    <span><span class="num-badge">19.</span> Resolución Analítica de Desigualdades</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <div class="ejercicio-content">
+                    <div class="paso-box">
+                        <div class="paso-title">Ejercicio a) Desarrollo de la Inecuación Lineal</div>
+                        <div class="math-block">3(x - 1) ≥ 5(x + 2) - 5</div>
+                        <p>Desarrollamos los productos y agrupamos términos con variables del lado izquierdo:</p>
+                        <div class="math-block">
+3x - 3 ≥ 5x + 10 - 5 <br>
+3x - 3 ≥ 5x + 5 <br>
+3x - 5x ≥ 5 + 3 <br>
+-2x ≥ 8
+                        </div>
+                    </div>
+                    <div class="tech-badge-panel" style="border-color: #ff5555; background: rgba(255,85,85,0.02);">
+                        <strong>ALERTA TÉCNICA DE ALTA GAMA:</strong> Al dividir ambos lados de una inecuación entre un coeficiente negativo, el sentido de la desigualdad SE INVIERTE obligatoriamente.
+                    </div>
+                    <div class="paso-box" style="margin-top:15px;">
+                        <div class="math-block">
+x ≤ 8 / (-2) <br>
+x ≤ -4
+                        </div>
+                        <p><strong>Intervalo Solución:</strong> Los valores válidos pertenecen al conjunto $(-\infty, -4]$.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            &copy; 2026 Ecosistema Avanzado Matemágicas. Desarrollo pedagógico enfocado en la optimización del rendimiento en Matemáticas IV.
+        </div>
+    </footer>
+
+    <script>
+        // Cambiar dinámicamente de unidad mediante las pestañas
+        function switchUnidad(e, unidadId) {
+            e.preventDefault();
+            
+            // Desactivar pestañas anteriores
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            // Ocultar secciones anteriores
+            document.querySelectorAll('.unidad-section').forEach(sec => sec.classList.remove('active'));
+            
+            // Activar la pestaña y la sección seleccionada
+            e.target.classList.add('active');
+            document.getElementById(unidadId).classList.add('active');
+        }
+
+        // Controlar la apertura y cierre de acordeones
+        function toggleAcordeon(header) {
+            const box = header.parentElement;
+            box.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
