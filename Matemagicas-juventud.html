@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matemágicas - Tu Guía Definitiva</title>
+    <title>Matemágicas - Tu Guía Definativa</title>
     <style>
         /* ==========================================================================
            CIIJ - SISTEMA DE DISEÑO TECNOLÓGICO DE ALTA GAMA (2026)
@@ -37,7 +37,7 @@
         .mx-auto { margin-left: auto; margin-right: auto; }
 
         /* ==========================================================================
-           CONTROL DE IMÁGENES (RESPONSIVO Y FIJO)
+           CONTROL DE IMÁGENES Y VIDEO (RESPONSIVO Y FIJO)
            ========================================================================== */
 
         /* Logos del Header */
@@ -51,12 +51,46 @@
 
         .img-fluid:hover { transform: scale(1.1) rotate(2deg); }
 
-        /* Icono del Blog (Águila / Mascota) */
-        .blog-icon-main {
-            height: 100px;          /* Altura controlada en PC */
-            width: auto;
+        /* Contenedor del video en el Header para mantener proporciones fijas */
+        .video-wrapper-main {
+            width: 100%;
+            max-width: 200px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: drop-shadow(0 0 15px rgba(0, 255, 157, 0.25));
+        }
+
+        .video-wrapper-main iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Botón de redirección directa al video */
+        .btn-video-direct {
+            display: inline-block;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 157, 0.25));
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--deep);
+            background-color: var(--tech);
+            border: 1px solid var(--tech);
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+        }
+
+        .btn-video-direct:hover {
+            background-color: transparent;
+            color: var(--tech);
+            transform: translateY(-2px);
         }
 
         /* Portadas de Artículos (Marco Fijo) */
@@ -78,7 +112,7 @@
         /* Ajustes para Celular */
         @media (max-width: 768px) {
             .img-fluid { height: 45px; }
-            .blog-icon-main { height: 75px; }
+            .video-wrapper-main { max-width: 160px; }
             .article-img-wrapper { height: 180px; }
         }
 
@@ -257,7 +291,13 @@
         <div class="container banner-grid text-center">
             <div></div> 
             <div class="brand-center">
-                <img src="Mikey.jpeg" alt="Mickey 17 Portada" class="blog-icon-main">
+                <!-- Reemplazo de Imagen por Video en Loop Autónomo -->
+                <div class="video-wrapper-main">
+                    <iframe src="https://www.youtube.com/embed/pDaFh9pFGj8?autoplay=1&loop=1&playlist=pDaFh9pFGj8&mute=1&controls=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <!-- Botón de redirección directa solicitado -->
+                <a href="https://www.youtube.com/watch?v=pDaFh9pFGj8" target="_blank" class="btn-video-direct">Ver Video Directo</a>
+                
                 <div class="ciij-title">MATEMÁGICAS</div>
                 <div class="institutional-badge">Tu Guía del Instituto Juventud del Estado de México — Sistema de Aprendizaje IV</div>
             </div>
