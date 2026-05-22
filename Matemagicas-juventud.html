@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matemágicas - Tu Guía Definativa</title>
+    <title>Matemágicas - Tu Guía Definitiva</title>
     <style>
         /* ==========================================================================
            CIIJ - SISTEMA DE DISEÑO TECNOLÓGICO DE ALTA GAMA (2026)
@@ -51,40 +51,56 @@
 
         .img-fluid:hover { transform: scale(1.1) rotate(2deg); }
 
-        /* Contenedor del video en el Header para mantener proporciones fijas */
+        /* Contenedor del video ampliado (3 veces más grande) */
         .video-wrapper-main {
             width: 100%;
-            max-width: 200px;
+            max-width: 600px; /* Escalado a 3x de la versión anterior */
             aspect-ratio: 16 / 9;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border);
-            box-shadow: drop-shadow(0 0 15px rgba(0, 255, 157, 0.25));
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.15);
+            position: relative;
         }
 
-        .video-wrapper-main iframe {
+        .video-wrapper-main iframe, .video-wrapper-main div {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* Botón de redirección directa al video */
-        .btn-video-direct {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 8px 16px;
+        /* Contenedor para la botonera tecnológica */
+        .video-controls-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Botón base con estilo tecnológico */
+        .btn-tech-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        /* Botón Principal (Redirección) */
+        .btn-video-direct {
             color: var(--deep);
             background-color: var(--tech);
             border: 1px solid var(--tech);
-            border-radius: 4px;
-            text-decoration: none;
             box-shadow: var(--shadow-glow);
-            transition: all 0.3s ease;
         }
 
         .btn-video-direct:hover {
@@ -93,10 +109,24 @@
             transform: translateY(-2px);
         }
 
+        /* Botón de Control de Audio (Mute/Unmute) */
+        .btn-audio-control {
+            color: var(--silver);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .btn-audio-control:hover {
+            border-color: var(--tech);
+            color: var(--tech);
+            background-color: rgba(0, 255, 157, 0.02);
+            transform: translateY(-2px);
+        }
+
         /* Portadas de Artículos (Marco Fijo) */
         .article-img-wrapper {
             width: 100%;
-            height: 220px;          /* Marco fijo para uniformidad */
+            height: 220px;
             overflow: hidden;
             position: relative;
             border-bottom: 1px solid var(--border);
@@ -105,15 +135,17 @@
         .article-featured-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;     /* La imagen llena el espacio sin deformarse */
+            object-fit: cover;
             object-position: center;
         }
 
         /* Ajustes para Celular */
         @media (max-width: 768px) {
             .img-fluid { height: 45px; }
-            .video-wrapper-main { max-width: 160px; }
+            .video-wrapper-main { max-width: 100%; }
             .article-img-wrapper { height: 180px; }
+            .video-controls-container { flex-direction: column; align-items: center; gap: 10px; }
+            .btn-tech-action { width: 100%; max-width: 280px; }
         }
 
         /* ==========================================================================
@@ -291,12 +323,16 @@
         <div class="container banner-grid text-center">
             <div></div> 
             <div class="brand-center">
-                <!-- Reemplazo de Imagen por Video en Loop Autónomo -->
+                <!-- Contenedor del reproductor de video controlado por API (3 veces más grande) -->
                 <div class="video-wrapper-main">
-                    <iframe src="https://www.youtube.com/embed/pDaFh9pFGj8?autoplay=1&loop=1&playlist=pDaFh9pFGj8&mute=1&controls=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div id="yt-reproductor"></div>
                 </div>
-                <!-- Botón de redirección directa solicitado -->
-                <a href="https://www.youtube.com/watch?v=pDaFh9pFGj8" target="_blank" class="btn-video-direct">Ver Video Directo</a>
+
+                <!-- Bloque de acciones integradas -->
+                <div class="video-controls-container">
+                    <button id="btnAudioToggle" class="btn-tech-action btn-audio-control">Activar Sonido</button>
+                    <a href="https://www.youtube.com/watch?v=pDaFh9pFGj8" target="_blank" class="btn-tech-action btn-video-direct">Ir al Video</a>
+                </div>
                 
                 <div class="ciij-title">MATEMÁGICAS</div>
                 <div class="institutional-badge">Tu Guía del Instituto Juventud del Estado de México — Sistema de Aprendizaje IV</div>
@@ -399,7 +435,48 @@
         </div>
     </footer>
 
+    <!-- Carga de la API de Iframe de YouTube oficial -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
+        let player;
+        
+        // Esta función es llamada automáticamente por la API de YouTube al cargar el script
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-reproductor', {
+                videoId: 'pDaFh9pFGj8',
+                playerVars: {
+                    'autoplay': 1,
+                    'loop': 1,
+                    'playlist': 'pDaFh9pFGj8', // Necesario para que el loop de YT funcione
+                    'mute': 1,                 // Obligatorio para permitir autoplay en navegadores modernos
+                    'controls': 0,
+                    'modestbranding': 1,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            
+            const audioBtn = document.getElementById('btnAudioToggle');
+            if (audioBtn) {
+                audioBtn.addEventListener('click', () => {
+                    if (player.isMuted()) {
+                        player.unMute();
+                        audioBtn.textContent = "Desactivar Sonido";
+                    } else {
+                        player.mute();
+                        audioBtn.textContent = "Activar Sonido";
+                    }
+                });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const frases = [
                 { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
