@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Completo de Ejercicios - Matemáticas IV</title>
+    <style>
+        /* ==========================================================================
+           CIIJ - SISTEMA DE DISEÑO TECNOLÓGICO DE ALTA GAMA (2026)
+           ========================================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;700&display=swap');
+
+        :root {
+            --deep: #010403;        /* Fondo base ultra oscuro */
+            --emerald: #0A2E25;     /* Verde institucional profundo */
+            --tech: #00FF9D;        /* Verde neón técnico para acentos */
+            --silver: #E0E2E1;      /* Gris mercurio para textos */
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 20px rgba(0, 255, 157, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--deep); 
+            color: var(--silver); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        .top-brand-banner { 
+            background: radial-gradient(circle at center, #08241D 0%, #010403 100%);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .ciij-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            color: #fff;
+            text-shadow: var(--shadow-glow);
+        }
+        .institutional-badge {
+            color: var(--tech);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .main-nav { 
+            background: rgba(1, 4, 3, 0.9); 
+            backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-links { display: flex; justify-content: center; gap: 10px; padding: 12px 0; overflow-x: auto; }
+        .nav-item {
+            padding: 8px 15px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-item:hover, .nav-item.active { 
+            color: var(--tech); 
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: 4px;
+        }
+
+        .workspace { padding: 40px 0; }
+        .u-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 40px 0 20px 0;
+            border-left: 4px solid var(--tech);
+            padding-left: 15px;
+        }
+
+        .grid-ejercicios {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .ejercicio-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 25px;
+            transition: 0.3s ease;
+        }
+        .ejercicio-card:hover {
+            border-color: rgba(0, 255, 157, 0.2);
+            background: rgba(255,255,255,0.01);
+        }
+        .card-tag { color: var(--tech); font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; }
+        .problema-enunciado { color: #fff; font-size: 1rem; font-weight: 600; margin: 15px 0; }
+
+        .action-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+        .btn-action {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-action.btn-resp:hover { border-color: var(--tech); color: var(--tech); }
+        .btn-action.btn-proc:hover { border-color: #fff; color: #fff; }
+
+        .output-box { display: none; margin-top: 15px; padding: 15px; border-radius: 4px; font-size: 0.85rem; }
+        .output-box.respuesta-directa { background: rgba(0, 255, 157, 0.02); border: 1px solid rgba(0, 255, 157, 0.1); color: var(--tech); font-family: 'Space Grotesk', sans-serif; font-weight: bold; }
+        .output-box.procedimiento-desglose { background: #040a08; border: 1px solid var(--border); color: #cbd5e1; }
+        
+        .math-render { font-family: 'Courier New', Courier, monospace; color: #d1f4e6; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; margin: 10px 0; border-left: 2px solid var(--tech); overflow-x: auto; white-space: pre; }
+
+        footer { padding: 40px 0; background: #000; border-top: 1px solid var(--border); font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-brand-banner text-center">
+        <div class="container">
+            <div class="ciij-title">MATEMÁGICAS</div>
+            <div class="institutional-badge">Catálogo de Reactivos Íntrego de la Guía — Plan IV</div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="container nav-links">
+            <a href="index.html" class="nav-item">Inicio</a>
+            <a href="Guia explicada paso a paso.html" class="nav-item">Guía</a>
+            <a href="tutoriales.html" class="nav-item">Tutoriales</a>
+            <a href="ejercicios.html" class="nav-item active">Ejercicios</a>
+            <a href="IA de apoyo.html" class="nav-item">IA de Apoyo</a>
+        </div>
+    </nav>
+
+    <div class="container workspace">
+
+        <h2 class="u-title">Unidad 1: Estadística descriptiva y exponentes</h2>
+        <div class="grid-ejercicios">
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 01</span>
+                <div class="problema-enunciado">1. Durante el primer parcial de Matemáticas, Ana obtuvo las siguientes calificaciones en 5 exámenes: 8.5, 9.0, 7.5, 8.0 y 9.5. ¿Cuál es el promedio final?</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(1, 'Promedio Final = 8.5')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(1)">Explica procedimiento</button>
+                </div>
+                <div id="resp-1" class="output-box respuesta-directa"></div>
+                <div id="proc-1" class="output-box procedimiento-desglose">
+                    <p>Suma de muestras dividida entre n=5:</p>
+                    <div class="math-render">Suma = 8.5 + 9.0 + 7.5 + 8.0 + 9.5 = 42.5&#10;Promedio = 42.5 / 5 = 8.5</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 02</span>
+                <div class="problema-enunciado">2. El número de libros que leyeron 7 estudiantes de primer semestre durante las vacaciones fue: 3, 1, 4, 2, 5, 1, 6. ¿Cuál es la mediana de libros leídos?</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(2, 'Mediana = 2')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(2)">Explica procedimiento</button>
+                </div>
+                <div id="resp-2" class="output-box respuesta-directa"></div>
+                <div id="proc-2" class="output-box procedimiento-desglose">
+                    <p>Se ordenan los datos: 1, 1, 2, 3, 4, 5, 6. Como n=7 (impar), el valor central en la posición (7+1)/2 = 4 es el resultado.</p>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 03</span>
+                <div class="problema-enunciado">3. En una encuesta sobre el medio de transporte que usan 15 estudiantes: Metro, Metro, Camión, Bicicleta, Metro, Camión, Metro, Auto, Camión, Metro, Bicicleta, Metro, Camión, Auto, Metro. ¿Cuál es el transporte más utilizado (moda)?</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(3, 'Moda = Metro')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(3)">Explica procedimiento</button>
+                </div>
+                <div id="resp-3" class="output-box respuesta-directa"></div>
+                <div id="proc-3" class="output-box procedimiento-desglose">
+                    <p>Frecuencias absolutas: Metro (8 repeticiones), Camión (4), Bicicleta (2), Auto (2). La categoría con mayor frecuencia es el Metro.</p>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 04</span>
+                <div class="problema-enunciado">4. Los tiempos (en minutos) que tardan 8 estudiantes en resolver un ejercicio de álgebra son: 12, 15, 10, 18, 12, 20, 12, 25. Calcula: a) Media, b) Mediana, c) Medida óptima.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(4, 'a) Media = 18 min | b) Mediana = 13.5 min | c) Mediana o Moda')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(4)">Explica procedimiento</button>
+                </div>
+                <div id="resp-4" class="output-box respuesta-directa"></div>
+                <div id="proc-4" class="output-box procedimiento-desglose">
+                    <div class="math-render">a) Media = (12+15+10+18+12+20+12+25) / 8 = 144 / 8 = 18 min&#10;b) Datos ordenados: 10, 12, 12, 12, 15, 18, 20, 25. Mediana = (12+15)/2 = 13.5 min&#10;c) La mediana describe mejor el conjunto debido a que la media está sesgada por el valor extremo de 25.</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 05</span>
+                <div class="problema-enunciado">5. Gastos escolares: $45, $30, $50, $30, $60, $30, $75. a) Calcula media, mediana y moda. b) Si un nuevo estudiante gasta $100, ¿cómo cambia la media?</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(5, 'a) Media=45.71, Mediana=45, Moda=30 | b) Nueva Media=52.5')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(5)">Explica procedimiento</button>
+                </div>
+                <div id="resp-5" class="output-box respuesta-directa"></div>
+                <div id="proc-5" class="output-box procedimiento-desglose">
+                    <div class="math-render">a) Media base = 320 / 7 = 45.71. Ordenados: 30,30,30,45,50,60,75 (Mediana=45, Moda=30)&#10;b) Con el valor 100: Nueva suma = 420. Nuevo promedio = 420 / 8 = 52.5</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 06</span>
+                <div class="problema-enunciado">6. Calcula las medidas de tendencia central de los siguientes 25 datos: 1,4,7,11,15, 1, 5, 8,13, 17, 2, 5, 9, 13, 18, 3, 5,10, 14, 18, 3, 7, 10, 15, 20.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(6, 'Media = 8.96 | Mediana = 9 | Moda = 5')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(6)">Explica procedimiento</button>
+                </div>
+                <div id="resp-6" class="output-box respuesta-directa"></div>
+                <div id="proc-6" class="output-box procedimiento-desglose">
+                    <div class="math-render">Suma total = 224 -> Media = 224 / 25 = 8.96&#10;Datos ordenados: El valor de la posición central (13) es 9 (Mediana)&#10;El número con mayor frecuencia absoluta es el 5 (Moda).</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 07</span>
+                <div class="problema-enunciado">7. Aplica leyes de exponentes para simplificar las operaciones (Bloque completo de incisos).</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(7, 'Ver desglose en procedimiento')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(7)">Explica procedimiento</button>
+                </div>
+                <div id="resp-7" class="output-box respuesta-directa"></div>
+                <div id="proc-7" class="output-box procedimiento-desglose">
+                    <div class="math-render">a^-9 = 1/a^9  |  (y^2)^4 = y^8  |  x^-5 * x^-2 = x^-7 = 1/x^7&#10;(z^3)(z^2) = z^5  |  a^6 * b^-8 = a^6 / b^8  |  (a^2)^7 = a^14&#10;(z^-5)^2 = z^-10 = 1/z^10  |  y^2(x^0) = y^2(1) = y^2  |  (3^2)^-6 = 3^-12&#10;x^-3 = 1/x^3  |  2(x^0) = 2(1) = 2  |  x^0 = 1  |  a^1 = a  |  (234)^0 = 1&#10;x^7/x^2 = x^5  |  2^9/2^5 = 2^4 = 16  |  (5^-2)^3 = 5^-6 = 1/5^6&#10;(3x^2y^2)(2xy^2)(5x^4y^6) = 30x^7y^10&#10;[(4a^2)(-6ab^2)(-3a^8b^3)] ÷ [(4a^2)(3ab^2)(a^4b^7)] = 72a^11b^5 / 12a^7b^9 = 6a^4 / b^4&#10;-3a^4(5a^3y) = -15a^7y&#10;[(1.5x10^8)*3] / [(1.0x10^-10)*(5.0x10^5)] = 4.5x10^8 / 5.0x10^-5 = 9.0x10^12&#10;(9.1x10^-31) ÷ 2 = 4.55x10^-31&#10;3.2x10^4 + 1.5x10^3 = 32000 + 1500 = 33500 = 3.35x10^4&#10;[(3.0x10^8)*(2.5x10^2)] ÷ (5.0x10^3) = 7.5x10^10 / 5.0x10^3 = 1.5x10^7</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="u-title">Unidad 2: Operaciones algebraicas y productos notables</h2>
+        <div class="grid-ejercicios">
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 08 (Polinomios)</span>
+                <div class="problema-enunciado">8. Resuelve las operaciones algebraicas avanzadas (Reducción y división).</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(8, 'a) -4x² + 8xy + y² | g) 3 - 4x² + 5xy - 6x²y')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(8)">Explica procedimiento</button>
+                </div>
+                <div id="resp-8" class="output-box respuesta-directa"></div>
+                <div id="proc-8" class="output-box procedimiento-desglose">
+                    <div class="math-render">a) Sumar x²: (4-7-1)x²=-4x². Sumar xy: (3+6-1)xy=8xy. Sumar y²: (-5+8-2)y²=y²&#10;g) Dividir cada término entre -12x²y³:&#10;-36x²y³ / -12x²y³ = 3&#10;48x⁴y³ / -12x²y³ = -4x²&#10;-60x³y⁴ / -12x²y³ = 5xy&#10;72x⁴y⁴ / -12x²y³ = -6x²y</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 09 (Binomios)</span>
+                <div class="problema-enunciado">9. Productos notables: Desarrolla los binomios al cuadrado siguiendo la regla general.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(9, 'a) 4x² + 12xy + 9y² | c) 9b⁶ - 24b⁷ + 16b⁸')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(9)">Explica procedimiento</button>
+                </div>
+                <div id="resp-9" class="output-box respuesta-directa"></div>
+                <div id="proc-9" class="output-box procedimiento-desglose">
+                    <p>Aplicando: (a ± b)² = a² ± 2ab + b²</p>
+                    <div class="math-render">a) (2x + 3y)² = (2x)² + 2(2x)(3y) + (3y)² = 4x² + 12xy + 9y²&#10;c) (3b³ - 4b⁴)² = (3b³)² - 2(3b³)(4b⁴) + (4b⁴)² = 9b⁶ - 24b⁷ + 16b⁸&#10;f) (a^(x+1) + b^(x-1))² = a^(2x+2) + 2a^(x+1)b^(x-1) + b^(2x-2)</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 10-13 (Factorización)</span>
+                <div class="problema-enunciado">10-13. Resuelve los casos de Factor Común, Diferencia de Cuadrados, TCP y trinomios x²+bx+c.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(10, '10) 3a(3a-4b+5a²b²-8b³) | 11) (5-6x⁴)(5+6x⁴) | 12) (7a-1)² | 13) (x-9)(x+4)')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(10)">Explica procedimiento</button>
+                </div>
+                <div id="resp-10" class="output-box respuesta-directa"></div>
+                <div id="proc-10" class="output-box procedimiento-desglose">
+                    <div class="math-render">10. Factor Común: 9a² - 12ab + 15a³b² - 24ab³ = 3a(3a - 4b + 5a²b² - 8b³)&#10;11. Diferencia de Cuadrados: 25 - 36x8 = (5 - 6x⁴)(5 + 6x⁴)&#10;12. Trinomio Cuadrado Perfecto: 49a² - 14a + 1 = (7a - 1)²&#10;13. Trinomio x²+bx+c: x² - 5x - 36 = (x - 9)(x + 4)  [-9*4=-36, -9+4=-5]</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="u-title">Unidad 3: Ecuaciones de primer y segundo grado</h2>
+        <div class="grid-ejercicios">
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 14</span>
+                <div class="problema-enunciado">14. Resuelve las ecuaciones lineales de primer grado desglosadas (Inciso h).</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(14, 'Solución h): x = 3')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(14)">Explica procedimiento</button>
+                </div>
+                <div id="resp-14" class="output-box respuesta-directa"></div>
+                <div id="proc-14" class="output-box procedimiento-desglose">
+                    <div class="math-render">h) 3(2x - 5) + 1 = -4x - (4 - 5x) + 5&#10;6x - 15 + 1 = -4x - 4 + 5x + 5&#10;6x - 14 = x + 1&#10;5x = 15 -> x = 3</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 15</span>
+                <div class="problema-enunciado">15. Modelado lineal: c) Una granja tiene cerdos y gallinas, en total hay 35 cabezas y 116 patas. ¿Cuántos cerdos y gallinas hay?</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(15, 'Cerdos = 23 | Gallinas = 12')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(15)">Explica procedimiento</button>
+                </div>
+                <div id="resp-15" class="output-box respuesta-directa"></div>
+                <div id="proc-15" class="output-box procedimiento-desglose">
+                    <p>Ecuaciones: c + g = 35 y 4c + 2g = 116. Multiplicando la primera por -2:</p>
+                    <div class="math-render">-2c - 2g = -70&#10;4c + 2g = 116&#10;--------------&#10;2c = 46 -> c = 23 cerdos.  Sustituyendo: g = 35 - 23 = 12 gallinas.</div>
+                </div>
+            </div>
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 16</span>
+                <div class="problema-enunciado">16. Resuelve por Fórmula General la ecuación cuadrática: 2x² - 7x + 3 = 0.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(16, 'x₁ = 3, x₂ = 0.5')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(16)">Explica procedimiento</button>
+                </div>
+                <div id="resp-16" class="output-box respuesta-directa"></div>
+                <div id="proc-16" class="output-box procedimiento-desglose">
+                    <p>Fórmula: x = [-b ± √(b² - 4ac)] / 2a.  a=2, b=-7, c=3:</p>
+                    <div class="math-render">x = [7 ± √((-7)² - 4(2)(3))] / 4&#10;x = [7 ± √(49 - 24)] / 4 = [7 ± 5] / 4&#10;x₁ = 12/4 = 3  ||  x₂ = 2/4 = 0.5</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="u-title">Unidad 4: Sistemas de ecuaciones</h2>
+        <div class="grid-ejercicios">
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 18</span>
+                <div class="problema-enunciado">18. Métodos de resolución estructural para Sistemas de Ecuaciones Lineales 2x2.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(18, 'Métodos: Reducción, Sustitución, Igualación, Cramer')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(18)">Explica procedimiento</button>
+                </div>
+                <div id="resp-18" class="output-box respuesta-directa"></div>
+                <div id="proc-18" class="output-box procedimiento-desglose">
+                    <p><strong>Determinantes (Cramer):</strong> Se calculan las matrices determinantes cruzadas:</p>
+                    <div class="math-render">Δs = (a*d - b*c)&#10;x = Δx / Δs  ||  y = Δy / Δs</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="u-title">Unidad 5: Desigualdades</h2>
+        <div class="grid-ejercicios">
+            <div class="ejercicio-card">
+                <span class="card-tag">REACTIVO 19</span>
+                <div class="problema-enunciado">19. Resuelve la inecuación lineal determinando su intervalo: 3(x - 1) ≥ 5(x + 2) - 5.</div>
+                <div class="action-bar">
+                    <button class="btn-action btn-resp" onclick="toggleRespuesta(19, 'x ≤ -4  o  (-∞, -4]')">Respuesta</button>
+                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(19)">Explica procedimiento</button>
+                </div>
+                <div id="resp-19" class="output-box respuesta-directa"></div>
+                <div id="proc-19" class="output-box procedimiento-desglose">
+                    <div class="math-render">3x - 3 ≥ 5x + 10 - 5&#10;3x - 5x ≥ 5 + 3&#10;-2x ≥ 8&#10;Al dividir entre un número negativo, el sentido de la desigualdad cambia:&#10;x ≤ 8 / -2 -> x ≤ -4</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            &copy; 2026 Ecosistema Avanzado Matemágicas. Verificación y despliegue analítico controlado.
+        </div>
+    </footer>
+
+    <script>
+        function toggleRespuesta(id, texto) {
+            const r = document.getElementById(`resp-${id}`);
+            const p = document.getElementById(`proc-${id}`);
+            if (p) p.style.display = 'none';
+            r.style.display = (r.style.display === 'block') ? 'none' : 'block';
+            r.textContent = texto;
+        }
+
+        function toggleProcedimiento(id) {
+            const r = document.getElementById(`resp-${id}`);
+            const p = document.getElementById(`proc-${id}`);
+            if (r) r.style.display = 'none';
+            p.style.display = (p.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
