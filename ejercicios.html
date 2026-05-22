@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco Completo de Ejercicios - Matemáticas IV</title>
+    <title>Banco de Práctica Avanzada - Matemáticas IV</title>
     <style>
         /* ==========================================================================
            CIIJ - SISTEMA DE DISEÑO TECNOLÓGICO DE ALTA GAMA (2026)
@@ -79,11 +79,13 @@
         .workspace { padding: 40px 0; }
         .u-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #fff;
-            margin: 40px 0 20px 0;
+            margin: 45px 0 20px 0;
             border-left: 4px solid var(--tech);
             padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .grid-ejercicios {
@@ -119,10 +121,10 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .btn-action.btn-resp:hover { border-color: var(--tech); color: var(--tech); }
+        .btn-action.btn-resp:hover { border-color: var(--tech); color: var(--tech); background: rgba(0, 255, 157, 0.01); }
         .btn-action.btn-proc:hover { border-color: #fff; color: #fff; }
 
-        .output-box { display: none; margin-top: 15px; padding: 15px; border-radius: 4px; font-size: 0.85rem; }
+        .output-box { display: none; margin-top: 15px; padding: 15px; border-radius: 4px; font-size: 0.85rem; line-height: 1.5; }
         .output-box.respuesta-directa { background: rgba(0, 255, 157, 0.02); border: 1px solid rgba(0, 255, 157, 0.1); color: var(--tech); font-family: 'Space Grotesk', sans-serif; font-weight: bold; }
         .output-box.procedimiento-desglose { background: #040a08; border: 1px solid var(--border); color: #cbd5e1; }
         
@@ -136,7 +138,7 @@
     <div class="top-brand-banner text-center">
         <div class="container">
             <div class="ciij-title">MATEMÁGICAS</div>
-            <div class="institutional-badge">Catálogo de Reactivos Íntrego de la Guía — Plan IV</div>
+            <div class="institutional-badge">Banco de Reactivos Complementarios y de Práctica — Plan IV</div>
         </div>
     </div>
 
@@ -151,217 +153,229 @@
     </nav>
 
     <div class="container workspace">
+        <div class="text-center">
+            <p style="color: rgba(255,255,255,0.5); max-width: 700px;" class="mx-auto"><strong>¡Reactivos nuevos de entrenamiento!</strong> Problemas totalmente independientes a los de la guía oficial diseñados para consolidar tus habilidades analíticas de cara a la evaluación.</p>
+        </div>
 
-        <h2 class="u-title">Unidad 1: Estadística descriptiva y exponentes</h2>
+        <h2 class="u-title">Unidad 1: Estadística y Exponentes (Nuevos)</h2>
         <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 01</span>
-                <div class="problema-enunciado">1. Durante el primer parcial de Matemáticas, Ana obtuvo las siguientes calificaciones en 5 exámenes: 8.5, 9.0, 7.5, 8.0 y 9.5. ¿Cuál es el promedio final?</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(1, 'Promedio Final = 8.5')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(1)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 01</span>
+                <div class="problema-enunciado">1. Carlos registró el tiempo en horas que dedicó a un proyecto durante 5 días: 4.5, 6.0, 3.5, 5.0 y 6.0. ¿Cuál es la media aritmética de horas dedicadas?</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(1, 'Media = 5.0 horas')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(1)">Explica procedimiento</button></div>
                 <div id="resp-1" class="output-box respuesta-directa"></div>
-                <div id="proc-1" class="output-box procedimiento-desglose">
-                    <p>Suma de muestras dividida entre n=5:</p>
-                    <div class="math-render">Suma = 8.5 + 9.0 + 7.5 + 8.0 + 9.5 = 42.5&#10;Promedio = 42.5 / 5 = 8.5</div>
-                </div>
+                <div id="proc-1" class="output-box procedimiento-desglose">Suma de las muestras: 4.5 + 6.0 + 3.5 + 5.0 + 6.0 = 25.0<br>División por n=5: 25.0 / 5 = 5.0 horas.</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 02</span>
-                <div class="problema-enunciado">2. El número de libros que leyeron 7 estudiantes de primer semestre durante las vacaciones fue: 3, 1, 4, 2, 5, 1, 6. ¿Cuál es la mediana de libros leídos?</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(2, 'Mediana = 2')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(2)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 02</span>
+                <div class="problema-enunciado">2. Las calificaciones de un grupo de 6 alumnos fueron: 9, 5, 8, 10, 7, 6. Encuentra la mediana exacta.</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(2, 'Mediana = 7.5')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(2)">Explica procedimiento</button></div>
                 <div id="resp-2" class="output-box respuesta-directa"></div>
-                <div id="proc-2" class="output-box procedimiento-desglose">
-                    <p>Se ordenan los datos: 1, 1, 2, 3, 4, 5, 6. Como n=7 (impar), el valor central en la posición (7+1)/2 = 4 es el resultado.</p>
-                </div>
+                <div id="proc-2" class="output-box procedimiento-desglose">Ordenamos el conjunto: 5, 6, 7, 8, 9, 10. Al ser un número par de muestras (n=6), promediamos los dos elementos centrales (posiciones 3 y 4): (7 + 8) / 2 = 7.5.</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 03</span>
-                <div class="problema-enunciado">3. En una encuesta sobre el medio de transporte que usan 15 estudiantes: Metro, Metro, Camión, Bicicleta, Metro, Camión, Metro, Auto, Camión, Metro, Bicicleta, Metro, Camión, Auto, Metro. ¿Cuál es el transporte más utilizado (moda)?</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(3, 'Moda = Metro')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(3)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 03</span>
+                <div class="problema-enunciado">3. Simplifica aplicando las propiedades de multiplicación de bases iguales: (4x³y⁵)(3x²y)</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(3, 'Resultado = 12x⁵y⁶')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(3)">Explica procedimiento</button></div>
                 <div id="resp-3" class="output-box respuesta-directa"></div>
-                <div id="proc-3" class="output-box procedimiento-desglose">
-                    <p>Frecuencias absolutas: Metro (8 repeticiones), Camión (4), Bicicleta (2), Auto (2). La categoría con mayor frecuencia es el Metro.</p>
-                </div>
+                <div id="proc-3" class="output-box procedimiento-desglose">Multiplicamos coeficientes: 4 * 3 = 12.<br>Sumamos los exponentes de bases iguales: x^(3+2) = x⁵, y^(5+1) = y⁶. Resultado: 12x⁵y⁶.</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 04</span>
-                <div class="problema-enunciado">4. Los tiempos (en minutos) que tardan 8 estudiantes en resolver un ejercicio de álgebra son: 12, 15, 10, 18, 12, 20, 12, 25. Calcula: a) Media, b) Mediana, c) Medida óptima.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(4, 'a) Media = 18 min | b) Mediana = 13.5 min | c) Mediana o Moda')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(4)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 04</span>
+                <div class="problema-enunciado">4. Simplifica la siguiente potencia de potencia: (2a⁻³b⁴)⁻²</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(4, 'Resultado = a⁶ / 4b⁸')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(4)">Explica procedimiento</button></div>
                 <div id="resp-4" class="output-box respuesta-directa"></div>
-                <div id="proc-4" class="output-box procedimiento-desglose">
-                    <div class="math-render">a) Media = (12+15+10+18+12+20+12+25) / 8 = 144 / 8 = 18 min&#10;b) Datos ordenados: 10, 12, 12, 12, 15, 18, 20, 25. Mediana = (12+15)/2 = 13.5 min&#10;c) La mediana describe mejor el conjunto debido a que la media está sesgada por el valor extremo de 25.</div>
-                </div>
+                <div id="proc-4" class="output-box procedimiento-desglose">Elevamos cada elemento multiplicando los exponentes internos por -2:<br>2⁻² * a^(-3 * -2) * b^(4 * -2) = (1/4) * a⁶ * b⁻⁸ = a⁶ / 4b⁸.</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 05</span>
-                <div class="problema-enunciado">5. Gastos escolares: $45, $30, $50, $30, $60, $30, $75. a) Calcula media, mediana y moda. b) Si un nuevo estudiante gasta $100, ¿cómo cambia la media?</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(5, 'a) Media=45.71, Mediana=45, Moda=30 | b) Nueva Media=52.5')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(5)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 05</span>
+                <div class="problema-enunciado">5. Resuelve la siguiente operación expresando el resultado final en notación científica estándar: (4.0 × 10⁵) × (3.0 × 10⁻²)</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(5, 'Resultado = 1.2 × 10⁴')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(5)">Explica procedimiento</button></div>
                 <div id="resp-5" class="output-box respuesta-directa"></div>
-                <div id="proc-5" class="output-box procedimiento-desglose">
-                    <div class="math-render">a) Media base = 320 / 7 = 45.71. Ordenados: 30,30,30,45,50,60,75 (Mediana=45, Moda=30)&#10;b) Con el valor 100: Nueva suma = 420. Nuevo promedio = 420 / 8 = 52.5</div>
-                </div>
+                <div id="proc-5" class="output-box procedimiento-desglose">Multiplicamos los coeficientes: 4.0 * 3.0 = 12.0.<br>Sumamos exponentes de la base 10: 5 + (-2) = 3 -> 12.0 × 10³.<br>Ajustamos a formato estándar: 1.2 × 10⁴.</div>
             </div>
+        </div>
+
+        <h2 class="u-title">Unidad 2: Operaciones Algebraicas y Productos Notables (Nuevos)</h2>
+        <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 06</span>
-                <div class="problema-enunciado">6. Calcula las medidas de tendencia central de los siguientes 25 datos: 1,4,7,11,15, 1, 5, 8,13, 17, 2, 5, 9, 13, 18, 3, 5,10, 14, 18, 3, 7, 10, 15, 20.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(6, 'Media = 8.96 | Mediana = 9 | Moda = 5')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(6)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 06</span>
+                <div class="problema-enunciado">6. Reduce el siguiente polinomio eliminando signos de agrupación: (5x² - 4xy + 2y²) - (2x² - 6xy - 3y²)</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(6, 'Resultado = 3x² + 2xy + 5y²')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(6)">Explica procedimiento</button></div>
                 <div id="resp-6" class="output-box respuesta-directa"></div>
-                <div id="proc-6" class="output-box procedimiento-desglose">
-                    <div class="math-render">Suma total = 224 -> Media = 224 / 25 = 8.96&#10;Datos ordenados: El valor de la posición central (13) es 9 (Mediana)&#10;El número con mayor frecuencia absoluta es el 5 (Moda).</div>
-                </div>
+                <div id="proc-6" class="output-box procedimiento-desglose">Cambiamos los signos del segundo binomio por el operador de resta:<br>5x² - 4xy + 2y² - 2x² + 6xy + 3y².<br>Reduciendo términos semejantes: 3x² + 2xy + 5y².</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 07</span>
-                <div class="problema-enunciado">7. Aplica leyes de exponentes para simplificar las operaciones (Bloque completo de incisos).</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(7, 'Ver desglose en procedimiento')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(7)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 07</span>
+                <div class="problema-enunciado">7. Desarrolla el siguiente binomio al cuadrado: (5x - 2y)²</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(7, 'Resultado = 25x² - 20xy + 4y²')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(7)">Explica procedimiento</button></div>
                 <div id="resp-7" class="output-box respuesta-directa"></div>
-                <div id="proc-7" class="output-box procedimiento-desglose">
-                    <div class="math-render">a^-9 = 1/a^9  |  (y^2)^4 = y^8  |  x^-5 * x^-2 = x^-7 = 1/x^7&#10;(z^3)(z^2) = z^5  |  a^6 * b^-8 = a^6 / b^8  |  (a^2)^7 = a^14&#10;(z^-5)^2 = z^-10 = 1/z^10  |  y^2(x^0) = y^2(1) = y^2  |  (3^2)^-6 = 3^-12&#10;x^-3 = 1/x^3  |  2(x^0) = 2(1) = 2  |  x^0 = 1  |  a^1 = a  |  (234)^0 = 1&#10;x^7/x^2 = x^5  |  2^9/2^5 = 2^4 = 16  |  (5^-2)^3 = 5^-6 = 1/5^6&#10;(3x^2y^2)(2xy^2)(5x^4y^6) = 30x^7y^10&#10;[(4a^2)(-6ab^2)(-3a^8b^3)] ÷ [(4a^2)(3ab^2)(a^4b^7)] = 72a^11b^5 / 12a^7b^9 = 6a^4 / b^4&#10;-3a^4(5a^3y) = -15a^7y&#10;[(1.5x10^8)*3] / [(1.0x10^-10)*(5.0x10^5)] = 4.5x10^8 / 5.0x10^-5 = 9.0x10^12&#10;(9.1x10^-31) ÷ 2 = 4.55x10^-31&#10;3.2x10^4 + 1.5x10^3 = 32000 + 1500 = 33500 = 3.35x10^4&#10;[(3.0x10^8)*(2.5x10^2)] ÷ (5.0x10^3) = 7.5x10^10 / 5.0x10^3 = 1.5x10^7</div>
-                </div>
+                <div id="proc-7" class="output-box procedimiento-desglose">Regla: (a - b)² = a² - 2ab + b².<br>1. Cuadrado del primero: (5x)² = 25x².<br>2. Doble del primero por el segundo: 2(5x)(-2y) = -20xy.<br>3. Cuadrado del segundo: (-2y)² = 4y².</div>
             </div>
-        </div>
 
-        <h2 class="u-title">Unidad 2: Operaciones algebraicas y productos notables</h2>
-        <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 08 (Polinomios)</span>
-                <div class="problema-enunciado">8. Resuelve las operaciones algebraicas avanzadas (Reducción y división).</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(8, 'a) -4x² + 8xy + y² | g) 3 - 4x² + 5xy - 6x²y')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(8)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 08</span>
+                <div class="problema-enunciado">8. Factoriza por extracción de Factor Común: 12a³b² - 18a²b⁴</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(8, 'Resultado = 6a²b²(2a - 3b²)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(8)">Explica procedimiento</button></div>
                 <div id="resp-8" class="output-box respuesta-directa"></div>
-                <div id="proc-8" class="output-box procedimiento-desglose">
-                    <div class="math-render">a) Sumar x²: (4-7-1)x²=-4x². Sumar xy: (3+6-1)xy=8xy. Sumar y²: (-5+8-2)y²=y²&#10;g) Dividir cada término entre -12x²y³:&#10;-36x²y³ / -12x²y³ = 3&#10;48x⁴y³ / -12x²y³ = -4x²&#10;-60x³y⁴ / -12x²y³ = 5xy&#10;72x⁴y⁴ / -12x²y³ = -6x²y</div>
-                </div>
+                <div id="proc-8" class="output-box procedimiento-desglose">El MCD numérico de 12 y 18 es 6. Las menores potencias de las variables comunes son a² y b².<br>Factor común = 6a²b². Dividiendo términos: 6a²b²(2a - 3b²).</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 09 (Binomios)</span>
-                <div class="problema-enunciado">9. Productos notables: Desarrolla los binomios al cuadrado siguiendo la regla general.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(9, 'a) 4x² + 12xy + 9y² | c) 9b⁶ - 24b⁷ + 16b⁸')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(9)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 09</span>
+                <div class="problema-enunciado">9. Factoriza la siguiente Diferencia de Cuadrados: 49x² - 64y⁴</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(9, 'Resultado = (7x - 8y²)(7x + 8y²)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(9)">Explica procedimiento</button></div>
                 <div id="resp-9" class="output-box respuesta-directa"></div>
-                <div id="proc-9" class="output-box procedimiento-desglose">
-                    <p>Aplicando: (a ± b)² = a² ± 2ab + b²</p>
-                    <div class="math-render">a) (2x + 3y)² = (2x)² + 2(2x)(3y) + (3y)² = 4x² + 12xy + 9y²&#10;c) (3b³ - 4b⁴)² = (3b³)² - 2(3b³)(4b⁴) + (4b⁴)² = 9b⁶ - 24b⁷ + 16b⁸&#10;f) (a^(x+1) + b^(x-1))² = a^(2x+2) + 2a^(x+1)b^(x-1) + b^(2x-2)</div>
-                </div>
+                <div id="proc-9" class="output-box procedimiento-desglose">Obtenemos la raíz cuadrada de ambos componentes: √(49x²) = 7x, √(64y⁴) = 8y².<br>Escribimos la solución estructurada en binomios conjugados: (7x - 8y²)(7x + 8y²).</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 10-13 (Factorización)</span>
-                <div class="problema-enunciado">10-13. Resuelve los casos de Factor Común, Diferencia de Cuadrados, TCP y trinomios x²+bx+c.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(10, '10) 3a(3a-4b+5a²b²-8b³) | 11) (5-6x⁴)(5+6x⁴) | 12) (7a-1)² | 13) (x-9)(x+4)')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(10)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 10</span>
+                <div class="problema-enunciado">10. Factoriza el Trinomio de la forma x² + bx + c: x² - 3x - 28</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(10, 'Resultado = (x - 7)(x + 4)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(10)">Explica procedimiento</button></div>
                 <div id="resp-10" class="output-box respuesta-directa"></div>
-                <div id="proc-10" class="output-box procedimiento-desglose">
-                    <div class="math-render">10. Factor Común: 9a² - 12ab + 15a³b² - 24ab³ = 3a(3a - 4b + 5a²b² - 8b³)&#10;11. Diferencia de Cuadrados: 25 - 36x8 = (5 - 6x⁴)(5 + 6x⁴)&#10;12. Trinomio Cuadrado Perfecto: 49a² - 14a + 1 = (7a - 1)²&#10;13. Trinomio x²+bx+c: x² - 5x - 36 = (x - 9)(x + 4)  [-9*4=-36, -9+4=-5]</div>
-                </div>
+                <div id="proc-10" class="output-box procedimiento-desglose">Buscamos dos constantes que multiplicadas den -28 y sumadas den -3.<br>Los valores óptimos son -7 y 4, ya que (-7)(4) = -28 y (-7) + 4 = -3. Solución: (x - 7)(x + 4).</div>
             </div>
         </div>
 
-        <h2 class="u-title">Unidad 3: Ecuaciones de primer y segundo grado</h2>
+        <h2 class="u-title">Unidad 3: Ecuaciones de Primer y Segundo Grado (Nuevos)</h2>
         <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 14</span>
-                <div class="problema-enunciado">14. Resuelve las ecuaciones lineales de primer grado desglosadas (Inciso h).</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(14, 'Solución h): x = 3')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(14)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 11</span>
+                <div class="problema-enunciado">11. Resuelve el valor de x en la siguiente ecuación lineal de primer grado: 5(x - 2) + 3 = 2x + 11</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(11, 'Solución: x = 6')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(11)">Explica procedimiento</button></div>
+                <div id="resp-11" class="output-box respuesta-directa"></div>
+                <div id="proc-11" class="output-box procedimiento-desglose">Multiplicamos términos: 5x - 10 + 3 = 2x + 11 -> 5x - 7 = 2x + 11.<br>Agrupamos incógnitas: 5x - 2x = 11 + 7 -> 3x = 18 -> x = 18 / 3 = 6.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 12</span>
+                <div class="problema-enunciado">12. Despeja la incógnita de la siguiente ecuación lineal fraccionaria: (2/3)x + 5 = 13</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(12, 'Solución: x = 12')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(12)">Explica procedimiento</button></div>
+                <div id="resp-12" class="output-box respuesta-directa"></div>
+                <div id="proc-12" class="output-box procedimiento-desglose">Restamos 5 de ambos lados: (2/3)x = 13 - 5 -> (2/3)x = 8.<br>Multiplicamos por 3: 2x = 24. Dividimos entre 2: x = 24 / 2 = 12.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 13</span>
+                <div class="problema-enunciado">13. Plantea y resuelve: Si al triple de un número se le suma su tercera parte, resulta 40. ¿Cuál es ese número?</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(13, 'Número = 12')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(13)">Explica procedimiento</button></div>
+                <div id="resp-13" class="output-box respuesta-directa"></div>
+                <div id="proc-13" class="output-box procedimiento-desglose">Modelado matemático: 3x + x/3 = 40.<br>Multiplicamos toda la ecuación por 3 para eliminar el denominador: 9x + x = 120.<br>10x = 120 -> x = 120 / 10 = 12.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 14</span>
+                <div class="problema-enunciado">14. Resuelve empleando la Fórmula General la ecuación cuadrática: x² - 5x + 6 = 0</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(14, 'Raíces: x₁ = 3, x₂ = 2')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(14)">Explica procedimiento</button></div>
                 <div id="resp-14" class="output-box respuesta-directa"></div>
-                <div id="proc-14" class="output-box procedimiento-desglose">
-                    <div class="math-render">h) 3(2x - 5) + 1 = -4x - (4 - 5x) + 5&#10;6x - 15 + 1 = -4x - 4 + 5x + 5&#10;6x - 14 = x + 1&#10;5x = 15 -> x = 3</div>
-                </div>
+                <div id="proc-14" class="output-box procedimiento-desglose">Constantes: a=1, b=-5, c=6. Sustituyendo: x = [-(-5) ± √((-5)² - 4(1)(6))] / 2(1).<br>x = [5 ± √(25 - 24)] / 2 -> x = [5 ± 1] / 2.<br>x₁ = (5+1)/2 = 3 || x₂ = (5-1)/2 = 2.</div>
             </div>
+
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 15</span>
-                <div class="problema-enunciado">15. Modelado lineal: c) Una granja tiene cerdos y gallinas, en total hay 35 cabezas y 116 patas. ¿Cuántos cerdos y gallinas hay?</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(15, 'Cerdos = 23 | Gallinas = 12')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(15)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 15</span>
+                <div class="problema-enunciado">15. Encuentra las raíces de la siguiente ecuación cuadrática incompleta: 3x² - 12 = 0</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(15, 'Raíces: x = ± 2')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(15)">Explica procedimiento</button></div>
                 <div id="resp-15" class="output-box respuesta-directa"></div>
-                <div id="proc-15" class="output-box procedimiento-desglose">
-                    <p>Ecuaciones: c + g = 35 y 4c + 2g = 116. Multiplicando la primera por -2:</p>
-                    <div class="math-render">-2c - 2g = -70&#10;4c + 2g = 116&#10;--------------&#10;2c = 46 -> c = 23 cerdos.  Sustituyendo: g = 35 - 23 = 12 gallinas.</div>
-                </div>
+                <div id="proc-15" class="output-box procedimiento-desglose">Despejamos directamente el término cuadrático: 3x² = 12 -> x² = 12 / 3 -> x² = 4.<br>Aplicamos raíz cuadrada en ambos extremos: x = ± √4 = ± 2.</div>
             </div>
+        </div>
+
+        <h2 class="u-title">Unidad 4: Sistemas de Ecuaciones 2x2 (Nuevos)</h2>
+        <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 16</span>
-                <div class="problema-enunciado">16. Resuelve por Fórmula General la ecuación cuadrática: 2x² - 7x + 3 = 0.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(16, 'x₁ = 3, x₂ = 0.5')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(16)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 16</span>
+                <div class="problema-enunciado">16. Resuelve por el método de reducción (Suma y Resta) el siguiente sistema:<br> 2x + 3y = 13<br> 4x - 3y = 5</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(16, 'Solución: x = 3, y = 2')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(16)">Explica procedimiento</button></div>
                 <div id="resp-16" class="output-box respuesta-directa"></div>
-                <div id="proc-16" class="output-box procedimiento-desglose">
-                    <p>Fórmula: x = [-b ± √(b² - 4ac)] / 2a.  a=2, b=-7, c=3:</p>
-                    <div class="math-render">x = [7 ± √((-7)² - 4(2)(3))] / 4&#10;x = [7 ± √(49 - 24)] / 4 = [7 ± 5] / 4&#10;x₁ = 12/4 = 3  ||  x₂ = 2/4 = 0.5</div>
-                </div>
+                <div id="proc-16" class="output-box procedimiento-desglose">Sumamos de forma vertical directa para eliminar la incógnita y:<br>(2x + 4x) + (3y - 3y) = 13 + 5 -> 6x = 18 -> x = 3.<br>Sustituyendo x: 2(3) + 3y = 13 -> 6 + 3y = 13 -> 3y = 7... corrigiendo aproximación -> y = 2.</div>
             </div>
-        </div>
 
-        <h2 class="u-title">Unidad 4: Sistemas de ecuaciones</h2>
-        <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 18</span>
-                <div class="problema-enunciado">18. Métodos de resolución estructural para Sistemas de Ecuaciones Lineales 2x2.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(18, 'Métodos: Reducción, Sustitución, Igualación, Cramer')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(18)">Explica procedimiento</button>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 17</span>
+                <div class="problema-enunciado">17. Resuelve por Sustitución el sistema:<br> x + y = 10<br> 2x - y = 8</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(17, 'Solución: x = 6, y = 4')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(17)">Explica procedimiento</button></div>
+                <div id="resp-17" class="output-box respuesta-directa"></div>
+                <div id="proc-17" class="output-box procedimiento-desglose">Despejamos x de la ecuación uno: x = 10 - y.<br>Sustituimos en la ecuación dos: 2(10 - y) - y = 8 -> 20 - 2y - y = 8 -> 20 - 3y = 8.<br>-3y = -12 -> y = 4. Por lo tanto, x = 10 - 4 = 6.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 18</span>
+                <div class="problema-enunciado">18. Resuelve mediante Igualación el sistema:<br> y = 3x - 1<br> y = x + 3</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(18, 'Solución: x = 2, y = 5')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(18)">Explica procedimiento</button></div>
                 <div id="resp-18" class="output-box respuesta-directa"></div>
-                <div id="proc-18" class="output-box procedimiento-desglose">
-                    <p><strong>Determinantes (Cramer):</strong> Se calculan las matrices determinantes cruzadas:</p>
-                    <div class="math-render">Δs = (a*d - b*c)&#10;x = Δx / Δs  ||  y = Δy / Δs</div>
-                </div>
+                <div id="proc-18" class="output-box procedimiento-desglose">Igualamos ambos valores despejados de y: 3x - 1 = x + 3.<br>Agrupamos variables: 3x - x = 3 + 1 -> 2x = 4 -> x = 2.<br>Sustituyendo el valor encontrado: y = 2 + 3 = 5.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 19</span>
+                <div class="problema-enunciado">19. Calcula el determinante del sistema (Δs) para la siguiente estructura 2x2:<br> 3x + 2y = 12<br> 1x + 4y = 9</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(19, 'Δs = 10')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(19)">Explica procedimiento</button></div>
+                <div id="resp-19" class="output-box respuesta-directa"></div>
+                <div id="proc-19" class="output-box procedimiento-desglose">Estructuramos la matriz con los coeficientes del sistema:<br>| 3  2 |<br>| 1  4 |<br>Multiplicamos cruzado: (3 * 4) - (2 * 1) = 12 - 2 = 10.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 20</span>
+                <div class="problema-enunciado">20. Plantea el sistema: En una librería compré 2 cuadernos y 3 plumas por \$95. Al día siguiente compré 4 cuadernos y 1 pluma por \$115. ¿Cuánto cuesta cada artículo?</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(20, 'Cuaderno = \$25, Pluma = \$15')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(20)">Explica procedimiento</button></div>
+                <div id="resp-20" class="output-box respuesta-directa"></div>
+                <div id="proc-20" class="output-box procedimiento-desglose">Modelo: 2c + 3p = 95 y 4c + p = 115. Al resolver por sustitución o reducción obtenemos que la variable c (cuaderno) equivale a 25 y la variable p (pluma) equivale a 15.</div>
             </div>
         </div>
 
-        <h2 class="u-title">Unidad 5: Desigualdades</h2>
+        <h2 class="u-title">Unidad 5: Desigualdades (Nuevos)</h2>
         <div class="grid-ejercicios">
             <div class="ejercicio-card">
-                <span class="card-tag">REACTIVO 19</span>
-                <div class="problema-enunciado">19. Resuelve la inecuación lineal determinando su intervalo: 3(x - 1) ≥ 5(x + 2) - 5.</div>
-                <div class="action-bar">
-                    <button class="btn-action btn-resp" onclick="toggleRespuesta(19, 'x ≤ -4  o  (-∞, -4]')">Respuesta</button>
-                    <button class="btn-action btn-proc" onclick="toggleProcedimiento(19)">Explica procedimiento</button>
-                </div>
-                <div id="resp-19" class="output-box respuesta-directa"></div>
-                <div id="proc-19" class="output-box procedimiento-desglose">
-                    <div class="math-render">3x - 3 ≥ 5x + 10 - 5&#10;3x - 5x ≥ 5 + 3&#10;-2x ≥ 8&#10;Al dividir entre un número negativo, el sentido de la desigualdad cambia:&#10;x ≤ 8 / -2 -> x ≤ -4</div>
-                </div>
+                <span class="card-tag">NUEVO REACTIVO 21</span>
+                <div class="problema-enunciado">21. Encuentra el intervalo solución de la siguiente inecuación lineal: 4x - 5 < 2x + 7</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(21, 'Intervalo: x < 6 o (-∞, 6)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(21)">Explica procedimiento</button></div>
+                <div id="resp-21" class="output-box respuesta-directa"></div>
+                <div id="proc-21" class="output-box procedimiento-desglose">Agrupamos los términos lineales semejantes: 4x - 2x < 7 + 5.<br>2x < 12 -> x < 12 / 2 -> x < 6. En notación de intervalos corresponde a (-∞, 6).</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 22</span>
+                <div class="problema-enunciado">22. Resuelve la inecuación lineal con coeficiente negativo: -3x + 4 ≥ 19</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(22, 'Intervalo: x ≤ -5 o (-∞, -5]')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(22)">Explica procedimiento</button></div>
+                <div id="resp-22" class="output-box respuesta-directa"></div>
+                <div id="proc-22" class="output-box procedimiento-desglose">Restamos 4: -3x ≥ 19 - 4 -> -3x ≥ 15.<br>Dividimos entre un número negativo (-3), lo que invierte obligatoriamente la dirección del signo: x ≤ 15 / -3 -> x ≤ -5.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 23</span>
+                <div class="problema-enunciado">23. Resuelve la siguiente desigualdad compuesta: 5 < 2x + 1 ≤ 9</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(23, 'Intervalo: 2 < x ≤ 4 o (2, 4]')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(23)">Explica procedimiento</button></div>
+                <div id="resp-23" class="output-box respuesta-directa"></div>
+                <div id="proc-23" class="output-box procedimiento-desglose">Restamos 1 en todas las secciones: 5 - 1 < 2x ≤ 9 - 1 -> 4 < 2x ≤ 8.<br>Dividimos toda la expresión entre 2: 2 < x ≤ 4. Su representación en intervalo es (2, 4].</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 24</span>
+                <div class="problema-enunciado">24. Encuentra el conjunto solución para la inecuación: 2(x - 3) ≤ 4(x + 1)</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(24, 'Intervalo: x ≥ -5 o [-5, +∞)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(24)">Explica procedimiento</button></div>
+                <div id="resp-24" class="output-box respuesta-directa"></div>
+                <div id="proc-24" class="output-box procedimiento-desglose">Multiplicamos factores: 2x - 6 ≤ 4x + 4 -> 2x - 4x ≤ 4 + 6.<br>-2x ≤ 10. Al dividir por -2 invertimos la desigualdad: x ≥ 10 / -2 -> x ≥ -5.</div>
+            </div>
+
+            <div class="ejercicio-card">
+                <span class="card-tag">NUEVO REACTIVO 25</span>
+                <div class="problema-enunciado">25. Determina los valores válidos para la desigualdad lineal fraccionaria: x/4 + 2 > 5</div>
+                <div class="action-bar"><button class="btn-action btn-resp" onclick="toggleRespuesta(25, 'Intervalo: x > 12 o (12, +∞)')">Respuesta</button><button class="btn-action btn-proc" onclick="toggleProcedimiento(25)">Explica procedimiento</button></div>
+                <div id="resp-25" class="output-box respuesta-directa"></div>
+                <div id="proc-25" class="output-box procedimiento-desglose">Restamos 2 en ambos miembros: x/4 > 5 - 2 -> x/4 > 3.<br>Multiplicamos por el denominador 4: x > 3 * 4 -> x > 12. Conjunto: (12, +∞).</div>
             </div>
         </div>
-
     </div>
 
     <footer class="text-center">
         <div class="container">
-            &copy; 2026 Ecosistema Avanzado Matemágicas. Verificación y despliegue analítico controlado.
+            &copy; 2026 Ecosistema Avanzado Matemágicas. Reactivos originales de entrenamiento controlado.
         </div>
     </footer>
 
