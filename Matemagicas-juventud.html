@@ -255,7 +255,8 @@
 
     <div class="top-brand-banner">
         <div class="container banner-grid text-center">
-            <div></div> <div class="brand-center">
+            <div></div> 
+            <div class="brand-center">
                 <img src="Mikey.jpeg" alt="Mickey 17 Portada" class="blog-icon-main">
                 <div class="ciij-title">MATEMÁGICAS</div>
                 <div class="institutional-badge">Tu Guía Definitiva — Sistema de Aprendizaje IV</div>
@@ -278,7 +279,7 @@
                 <a href="Guia explicada paso a paso.html" class="nav-item">Guía</a>
                 <a href="tutoriales.html" class="nav-item">Tutoriales</a>
                 <a href="ejercicios.html" class="nav-item">Ejercicios</a>
-                <a href="IA de apoyo.html" class="https://mrnakekekz7dppjraeekby.streamlit.app/o"</a>
+                <a href="https://ru3nfhv4qqwawprvydw9j2.streamlit.app/" target="_blank" class="nav-item">IA de apoyo</a>
             </div>
         </div>
     </nav>
@@ -316,7 +317,7 @@
                     </div>
                 </a>
 
-                <a href="IA de apoyo.html" class="glass-card">
+                <a href="https://ru3nfhv4qqwawprvydw9j2.streamlit.app/" target="_blank" class="glass-card">
                     <div class="card">
                         <div class="card-num">MÓDULO 04</div>
                         <h3>IA de apoyo</h3>
@@ -360,7 +361,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lista de frases corregida y sincronizada con el sistema
             const frases = [
                 { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
                 { t: "Hacer siempre y en todo lo mejor.", a: "Principio Vilasecano" },
@@ -388,7 +388,7 @@
                     
                     bProgreso.style.transition = 'none';
                     bProgreso.style.width = '0%';
-                    void bProgreso.offsetWidth; // Truco de reflujo para reiniciar animación CSS
+                    void bProgreso.offsetWidth; 
                     bProgreso.style.transition = 'width 10000ms linear';
                     bProgreso.style.width = '100%';
 
@@ -396,7 +396,6 @@
                 }, 500);
             }
 
-            // Detección automática para asignar la clase activa al menú de navegación
             const path = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.nav-item').forEach(link => {
                 if (link.getAttribute('href') === path) link.classList.add('active');
