@@ -1,1 +1,86 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAs de apoyo - Jubits | CIIJ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ias-container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .hero-section { text-align: center; margin-bottom: 40px; }
+        
+        /* Video Container */
+        .video-wrapper { position: relative; width: 100%; max-width: 800px; margin: 30px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-wrapper iframe { width: 100%; height: 450px; border: none; }
+        .btn-audio { position: absolute; bottom: 20px; right: 20px; background: rgba(27, 94, 63, 0.9); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; z-index: 10; }
+        
+        /* Grid de Jubits */
+        .jubits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+        .jubit-card { background: white; padding: 25px; border-radius: 16px; border: 1px solid #E0E0E0; text-align: center; transition: transform 0.3s ease; }
+        .jubit-card:hover { transform: translateY(-5px); border-color: #1B5E3F; }
+        .jubit-card h3 { color: #1B5E3F; margin-bottom: 15px; }
+        .btn-jubit { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #1B5E3F; color: white; border-radius: 25px; text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container text-center" style="padding: 20px 0;">
+        <h1 class="ciij-title">CIIJ</h1>
+        <p>Centro de Innovación e Investigación Juventud</p>
+    </div>
+</header>
+
+<main class="ias-container">
+    <section class="hero-section">
+        <h2>IAs de apoyo</h2>
+        <p>Este es un espacio con una muestra de nuestros Jubits, herramientas inteligentes diseñadas para transformar tu aprendizaje.</p>
+    </section>
+
+    <!-- Video con reproducción automática -->
+    <div class="video-wrapper" id="video-container">
+        <iframe id="vid-frame" src="https://www.youtube.com/embed/4y3pC_ryGhI?autoplay=1&mute=1&loop=1&playlist=4y3pC_ryGhI" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <button class="btn-audio" onclick="toggleAudio()">Activar/Desactivar Audio</button>
+    </div>
+
+    <!-- Grid de Herramientas -->
+    <div class="jubits-grid">
+        <article class="jubit-card">
+            <h3>Mykey 17</h3>
+            <p>Apoyo especializado para matemáticas de cuarto de preparatoria.</p>
+            <a href="https://mrnakekekz7dppjraeekby.streamlit.app/" class="btn-jubit" target="_blank">Ir a Mykey 17</a>
+        </article>
+
+        <article class="jubit-card">
+            <h3>Apoyo psicológico</h3>
+            <p>Espacio seguro para orientación y bienestar emocional.</p>
+            <a href="https://juventus-rtceqzgrhhn8itdbpmgh9g.streamlit.app/" class="btn-jubit" target="_blank">Recibir apoyo</a>
+        </article>
+
+        <article class="jubit-card">
+            <h3>Max IA</h3>
+            <p>Muestra de apoyo especializado para el desarrollo infantil.</p>
+            <a href="https://bdfjri8lucrci2ju4mawcn.streamlit.app/" class="btn-jubit" target="_blank">Explorar Max IA</a>
+        </article>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="index.html" class="btn-back-home" style="padding: 12px 30px; background: #333; color: white; border-radius: 30px; text-decoration: none;">← Regresar al inicio</a>
+    </div>
+</main>
+
+<script>
+    let muted = true;
+    function toggleAudio() {
+        const iframe = document.getElementById('vid-frame');
+        // Simple toggle para el mute mediante cambio de URL
+        muted = !muted;
+        iframe.src = muted ? 
+            "https://www.youtube.com/embed/4y3pC_ryGhI?autoplay=1&mute=1&loop=1&playlist=4y3pC_ryGhI" : 
+            "https://www.youtube.com/embed/4y3pC_ryGhI?autoplay=1&mute=0&loop=1&playlist=4y3pC_ryGhI";
+    }
+</script>
+
+</body>
+</html>
