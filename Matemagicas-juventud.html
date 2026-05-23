@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matemágicas - Tu Guía Definitiva</title>
     <style>
-        /* ==========================================================================
-           ESTILOS Y DISEÑO
-           ========================================================================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;700&display=swap');
 
         :root {
@@ -30,6 +27,7 @@
             position: relative;
         }
 
+        /* Fondo Matrix */
         #matrixCanvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -40,24 +38,48 @@
         .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         .text-center { text-align: center; }
 
-        /* Estructura */
+        /* Banner y Video */
         .top-brand-banner { padding: 40px 0; border-bottom: 1px solid var(--border); background: rgba(1, 4, 3, 0.8); }
-        .video-wrapper-main { width: 100%; max-width: 600px; aspect-ratio: 16 / 9; margin: 0 auto 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-glow); }
-        .video-wrapper-main div { width: 100%; height: 100%; }
+        
+        .video-wrapper-main { 
+            width: 100%; max-width: 600px; margin: 0 auto 20px; 
+            position: relative; padding-bottom: 33.75%; height: 0; 
+            overflow: hidden; border-radius: 8px; border: 1px solid var(--border);
+            box-shadow: var(--shadow-glow);
+        }
+        .video-wrapper-main iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Botones y Cartas */
+        .grid-botones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 25px;
+            text-decoration: none;
+            display: block;
+            transition: 0.4s;
+            color: inherit;
+        }
+        .glass-card:hover { border-color: var(--tech); transform: translateY(-5px); box-shadow: var(--shadow-glow); }
+        .card-num { color: var(--tech); font-size: 0.7rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+        .glass-card h3 { color: #fff; font-family: 'Space Grotesk', sans-serif; }
 
         .btn-tech { 
             display: inline-block; padding: 12px 25px; margin: 10px;
-            text-transform: uppercase; font-weight: 700; letter-spacing: 2px;
-            cursor: pointer; border-radius: 4px; text-decoration: none;
-            transition: 0.3s; font-size: 0.8rem;
+            text-transform: uppercase; font-weight: 700; cursor: pointer; 
+            border-radius: 4px; text-decoration: none; transition: 0.3s; font-size: 0.8rem;
         }
         .btn-primary { background: var(--tech); color: var(--deep); border: none; }
         .btn-secondary { background: transparent; border: 1px solid var(--tech); color: var(--tech); }
         .btn-tech:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
 
-        .ciij-title { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: #fff; margin-top: 20px; text-shadow: var(--shadow-glow); }
-        .institutional-badge { color: var(--tech); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        
         footer { padding: 50px 0; text-align: center; }
     </style>
 </head>
@@ -65,7 +87,7 @@
 
     <canvas id="matrixCanvas"></canvas>
 
-    <div class="top-brand-banner text-center">
+    <header class="top-brand-banner text-center">
         <div class="container">
             <div class="video-wrapper-main">
                 <div id="yt-reproductor"></div>
@@ -74,23 +96,30 @@
                 <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
                 <a href="https://youtu.be/ehpMdEBZxLw?si=5rWNjLRDTX8bitI3" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
             </div>
-            <div class="ciij-title">MATEMÁGICAS</div>
-            <div class="institutional-badge">Tu Guía del Instituto Juventud del Estado de México</div>
         </div>
-    </div>
+    </header>
+
+    <main class="container">
+        <div class="grid-botones">
+            <a href="Guia explicada paso a paso.html" class="glass-card"><div class="card-num">MÓDULO 01</div><h3>Guía explicada paso a paso</h3></a>
+            <a href="ejercicios.html" class="glass-card"><div class="card-num">MÓDULO 02</div><h3>Ejercicios</h3></a>
+            <a href="https://mrnakekekz7dppjraeekby.streamlit.app/" target="_blank" class="glass-card"><div class="card-num">MÓDULO 03</div><h3>IA de apoyo</h3></a>
+            <a href="https://chat.z.ai/space/k1qbs4xb66k1-art" target="_blank" class="glass-card"><div class="card-num">MÓDULO 04</div><h3>Magic-matic Adventure</h3></a>
+            <a href="https://proyecto-aracknia.neocities.org/Matetflix" target="_blank" class="glass-card"><div class="card-num">MÓDULO 05</div><h3>Mateflix</h3></a>
+        </div>
+    </main>
 
     <footer>
         <a href="Cursos de capacitación.html" class="btn-tech btn-primary">Regresar</a>
     </footer>
 
     <script>
-        // 1. Efecto Matrix
+        // Efecto Matrix de fondo
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
+        canvas.width = window.innerWidth; 
         canvas.height = window.innerHeight;
-        const columns = canvas.width / 20;
-        const drops = Array(Math.floor(columns)).fill(1);
+        const drops = Array(Math.floor(canvas.width / 20)).fill(1);
         
         function draw() {
             ctx.fillStyle = 'rgba(1, 4, 3, 0.05)';
@@ -98,14 +127,13 @@
             ctx.fillStyle = '#00FF9D';
             ctx.font = '15px monospace';
             drops.forEach((y, i) => {
-                const text = String.fromCharCode(48 + Math.random() * 10);
-                ctx.fillText(text, i * 20, y);
+                ctx.fillText(String.fromCharCode(48 + Math.random() * 10), i * 20, y);
                 drops[i] = y > canvas.height ? 0 : y + 20;
             });
         }
         setInterval(draw, 50);
 
-        // 2. Reproductor de YouTube
+        // Reproductor YouTube API
         const tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         document.body.appendChild(tag);
@@ -114,23 +142,16 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-reproductor', {
                 videoId: 'pDaFh9pFGj8',
-                playerVars: { 
-                    'autoplay': 1, 
-                    'loop': 1, 
-                    'playlist': 'pDaFh9pFGj8', 
-                    'mute': 1, 
-                    'controls': 0 
-                },
+                playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': 'pDaFh9pFGj8', 'mute': 1, 'controls': 0 },
                 events: { 
-                    'onReady': (event) => {
-                        const btn = document.getElementById('btnAudioToggle');
-                        btn.onclick = () => {
+                    'onReady': (e) => {
+                        document.getElementById('btnAudioToggle').onclick = function() {
                             if (player.isMuted()) {
                                 player.unMute();
-                                btn.innerText = "Silenciar";
+                                this.innerText = "Silenciar";
                             } else {
                                 player.mute();
-                                btn.innerText = "Activar Sonido";
+                                this.innerText = "Activar Sonido";
                             }
                         };
                     }
@@ -140,5 +161,3 @@
     </script>
 </body>
 </html>
-
-```
