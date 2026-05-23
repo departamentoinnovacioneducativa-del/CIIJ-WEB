@@ -1,78 +1,82 @@
 ```html
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>CIIJ | Toda usted - Revista digital</title>
-  <style>
-    /* Estilos base y del artículo */
-    body { font-family: sans-serif; color: #2C3E35; line-height: 1.7; margin: 0; }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    .articulo-container { padding: 40px 24px; }
-    
-    .articulo-header { text-align: center; margin-bottom: 40px; }
-    .articulo-categoria { display: inline-block; padding: 6px 16px; background: #EDE7F6; color: #4527A0; border-radius: 30px; font-size: 0.75rem; font-weight: 600; margin-bottom: 20px; }
-    .articulo-titulo { font-size: 2.5rem; font-weight: 800; color: #0A2E25; line-height: 1.2; margin-bottom: 16px; }
-    .articulo-autor { font-size: 0.9rem; color: #1B5E3F; margin-bottom: 8px; }
-    .articulo-fecha { font-size: 0.8rem; color: #6B8A7A; }
-    
-    .articulo-imagen-principal { width: 100%; max-height: 400px; object-fit: cover; border-radius: 20px; margin: 30px 0; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-    
-    .articulo-contenido h2 { font-size: 1.6rem; color: #0A2E25; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 3px solid #1B5E3F; display: inline-block; }
-    
-    .recuadro-destacado { background: #E6F3EF; border-left: 5px solid #1B5E3F; padding: 20px 25px; margin: 25px 0; border-radius: 12px; font-style: italic; color: #0A2E25; }
-    .recuadro-frase { background: #EDE7F6; border-left: 5px solid #4527A0; padding: 20px 25px; margin: 25px 0; border-radius: 12px; font-weight: 500; text-align: center; }
-    .recuadro-concepto { background: #FFF8E1; border: 1px solid #F9A825; padding: 15px 20px; margin: 20px 0; border-radius: 12px; }
-    .badge-concepto { display: inline-block; background: #F9A825; color: #FFFFFF; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 10px; }
-    
-    .poema-section { margin: 50px 0; padding: 40px; background-color: #F8F9FA; border-radius: 20px; border: 1px solid #E0E0E0; }
-    .poema-texto { font-style: italic; line-height: 1.8; color: #333; font-size: 1.1rem; }
-    .poema-autor { text-align: right; font-weight: 600; color: #1B5E3F; margin-top: 20px; }
-    
-    .fuentes-apa { background: #F8F9FA; padding: 30px; border-radius: 16px; margin: 40px 0 30px; border: 1px solid #EDF2F0; }
-    .btn-blog { display: inline-flex; align-items: center; background: #1B5E3F; color: white; padding: 12px 32px; border-radius: 40px; text-decoration: none; font-weight: 600; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toda usted | La escritura del águila | CIIJ</title>
+    <!-- Importamos el mismo archivo de estilos global -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ajustes específicos para mantener la identidad visual del blog */
+        .articulo-container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        .poema-section { margin: 50px 0; padding: 40px; background-color: #F8F9FA; border-radius: 20px; border: 1px solid #E0E0E0; text-align: center; }
+        .poema-texto { font-style: italic; line-height: 2; color: #2C3E35; font-size: 1.25rem; }
+        .poema-autor { font-weight: 600; color: #1B5E3F; margin-top: 30px; font-size: 1.1rem; }
+        .btn-blog { display: inline-flex; align-items: center; background: #1B5E3F; color: white; padding: 12px 32px; border-radius: 40px; text-decoration: none; font-weight: 600; margin-top: 30px; }
+        .articulo-imagen-principal { width: 100%; height: auto; border-radius: 20px; margin-bottom: 30px; }
+    </style>
 </head>
 <body>
 
-<div class="articulo-container">
-  <div class="articulo-header">
-    <span class="articulo-categoria">💫Poesía </span>
-    <h1 class="articulo-titulo">Toda usted</h1>
-    <div class="articulo-autor">Por: Oscar Blancas Vargas</div>
-    <div class="Poema-Fecha">Mayo 2026</div>
-  </div>
-  
-  <!-- Imagen actualizada -->
-  <img src="1779555924071.png" alt="Imagen representativa" class="articulo-imagen-principal" onerror="this.src='https://via.placeholder.com/900x400?text=Imagen+CIIJ'">
-  
-  <div class="articulo-contenido">
-    <p>...Con mis ojos horizontes</p>
-    
-    <!-- Poema integrado -->
+<header class="main-header">
+    <div class="top-brand-banner">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="logo-side left">
+                    <img src="logo.png" alt="Logo CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+                <div class="brand-center">
+                    <h1 class="ciij-title">CIIJ</h1>
+                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                </div>
+                <div class="logo-side right">
+                    <img src="mascota.png" alt="Mascota CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="articulo-container">
+    <div class="articulo-header text-center">
+        <span class="category-tag" style="background:#EDE7F6; color:#4527A0; padding:5px 15px; border-radius:20px; font-size:0.8rem;">💫 Poesía</span>
+        <h1 style="font-size: 2.5rem; margin: 20px 0;">Toda usted</h1>
+        <p class="author-meta">Por: Oscar Blancas Vargas</p>
+        <span class="date-meta">Mayo 2026</span>
+    </div>
+
+    <img src="1779555924071.png" alt="Imagen representativa" class="articulo-imagen-principal" onerror="this.src='https://via.placeholder.com/900x400?text=CIIJ'">
+
     <div class="poema-section">
-      <h2 style="margin-top: 0; border-bottom: 2px solid #1B5E3F; display: inline-block; padding-bottom: 5px;">Toda usted</h2>
-      <p class="poema-texto">
-        Toda usted me ha instruido: Me enseñó así, a la emoción de verla.<br><br>
-        Presté atención a sus manos frescas y con ellas, mi respiración.<br><br>
-        Y la piel de mi pecho se elevó en su propio amor y con su propia naturaleza.<br><br>
-        Y con mis ojos horizontes, horizontes para siempre,<br>
-        y con mi panorama colmado del suyo:<br>
-        en habitar convertí el infinito.
-      </p>
-      <p class="poema-autor">— Oscar Blancas Vargas</p>
+        <h2 style="margin-top: 0; color: #1B5E3F;">Toda usted</h2>
+        <div class="poema-texto">
+            Toda usted me ha instruido: Me enseñó así, a la emoción de verla.<br><br>
+            Presté atención a sus manos frescas y con ellas, mi respiración.<br><br>
+            Y la piel de mi pecho se elevó en su propio amor y con su propia naturaleza.<br><br>
+            Y con mis ojos horizontes, horizontes para siempre,<br>
+            y con mi panorama colmado del suyo:<br>
+            en habitar convertí el infinito.
+        </div>
+        <p class="poema-autor">— Oscar Blancas Vargas</p>
     </div>
-    
-    <div class="fuentes-apa">
-      
-    </div>
-    
+
     <div style="text-align: center;">
-      <a href="blog.html" class="btn-blog">← Regresar a La escritura del águila</a>
+        <a href="blog.html" class="btn-blog">← Regresar a La escritura del águila</a>
     </div>
-  </div>
-</div>
+</main>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-brand">
+            <h3>CIIJ</h3>
+            <p>Innovación • Investigación • Juventud</p>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
