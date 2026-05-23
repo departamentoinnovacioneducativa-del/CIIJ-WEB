@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -66,8 +67,10 @@
 
     <section class="projects">
         <div class="container">
-            <div style="display: flex; justify-content: center; padding-bottom: 60px;">
+            <!-- Contenedor con alineación flexible para soportar múltiples artículos -->
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding-bottom: 60px;">
                 
+                <!-- Artículo 1 -->
                 <article class="card article-card glass-card" style="max-width: 500px; width: 100%;">
                     <div class="article-img-wrapper">
                         <img src="Leer.png" alt="¿Qué leemos cuando leemos?" class="article-featured-img">
@@ -82,6 +85,25 @@
                         
                         <div class="article-footer" style="margin-top: 20px;">
                             <a href="Queleemos.html" class="btn-read">Leer artículo completo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artículo 2: Toda usted -->
+                <article class="card article-card glass-card" style="max-width: 500px; width: 100%;">
+                    <div class="article-img-wrapper">
+                        <img src="poema.png" alt="Toda usted" class="article-featured-img" onerror="this.style.display='none'">
+                        <span class="category-tag">✒️ Poesía</span>
+                    </div>
+                    
+                    <div class="article-content">
+                        <span class="date-meta">Mayo 2026</span>
+                        <h3>Toda usted</h3>
+                        <p class="author-meta">Por: Maestro Oscar Blancas Vargas </p>
+                        <p class="article-excerpt">Un espacio dedicado a la expresión lírica y la profundidad del sentimiento hecho palabra.</p>
+                        
+                        <div class="article-footer" style="margin-top: 20px;">
+                            <a href="poema.usted.html" class="btn-read">Abrir poema</a>
                         </div>
                     </div>
                 </article>
