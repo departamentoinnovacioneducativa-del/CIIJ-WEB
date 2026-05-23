@@ -1,11 +1,39 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Esta etiqueta es la clave para que no se vea pequeño en celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso al Portal</title>
     <style>
-        body { background: #010403; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: white; font-family: sans-serif; }
-        .wrapper { width: 90%; max-width: 600px; text-align: center; }
+        body { 
+            background: #010403; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            color: white; 
+            font-family: 'Inter', sans-serif;
+            padding: 15px;
+        }
+        .wrapper { 
+            width: 100%; 
+            max-width: 500px; 
+            text-align: center; 
+        }
+        h2 { font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 10px; }
+        p { font-size: 0.9rem; margin-bottom: 20px; opacity: 0.8; }
+        
+        /* Aseguramos que el iframe sea fluido */
+        iframe { 
+            width: 100%; 
+            height: 70vh; /* Se adapta mejor al alto de la pantalla móvil */
+            border-radius: 12px; 
+            border: none;
+            background: #080d0b;
+        }
     </style>
 </head>
 <body>
@@ -15,17 +43,16 @@
         <p>Por favor completa el registro para acceder.</p>
         
         <!-- Chatbot -->
-        <iframe src="https://links.collect.chat/6a11c9eb85df382117d5ec34" width="100%" height="500" frameBorder="0"></iframe>
+        <iframe src="https://links.collect.chat/6a11c9eb85df382117d5ec34" frameBorder="0"></iframe>
     </div>
 
     <script>
-        // Escucha el evento de finalización del chat
         window.collectchat = window.collectchat || [];
         window.collectchat.push(['on', 'completed', function() {
-            alert("Registro completado. Redirigiendo...");
-            // Aquí puedes cambiar 'matematicas.html' por el nombre de tu archivo principal
             window.location.href = 'matematicas.html'; 
         }]);
     </script>
 </body>
 </html>
+
+```
