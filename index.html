@@ -1,156 +1,176 @@
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIIJ | Terminal de Innovación</title>
-    <style>
-        /* Estilos terminal: fondo negro, texto verde */
-        body { 
-            background-color: #000000; 
-            color: #00FF00; 
-            font-family: 'Courier New', Courier, monospace; 
-            margin: 0;
-            padding: 0;
-        }
-        
-        .main-header, footer { 
-            border-bottom: 1px solid #00FF00; 
-            border-top: 1px solid #00FF00; 
-            padding: 20px 0; 
-        }
-        
-        h1, h2, h3, .ciij-title { color: #00FF00; }
-        
-        a { color: #00FF00; text-decoration: none; cursor: pointer; }
-        a:hover { background: #00FF00; color: #000000; }
-        
-        /* Contenedores */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        
-        .quote-box { 
-            padding: 30px; 
-            background: #000000; 
-            border: 1px solid #00FF00; 
-            margin-top: 20px;
-        }
-        
-        .progress-fill { background: #00FF00; height: 100%; width: 0%; transition: width 0.1s linear; }
-        
-        .card { 
-            background: #000000; 
-            border: 1px solid #00FF00; 
-            color: #00FF00; 
-            padding: 20px;
-            width: 200px;
-        }
-        
-        .card-num { 
-            color: #00FF00; 
-            border: 1px solid #00FF00; 
-            display: inline-block; 
-            padding: 2px 8px; 
-            margin-bottom: 10px;
-        }
-        
-        .hero-tagline, .hero-desc { color: #00FF00; opacity: 0.9; }
-    </style>
+    <title>Inicio | CIIJ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="main-header">
-    <div class="container">
-        <div class="banner-grid" style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="logo-side left">CIIJ [ROOT]</div>
-            <div class="brand-center">
-                <h1 class="ciij-title">CIIJ TERMINAL</h1>
+    <div class="top-brand-banner">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="logo-side left">
+                    <img src="logo.png" alt="Logo CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="brand-center">
+                    <h1 class="ciij-title">CIIJ</h1>
+                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                </div>
+
+                <div class="logo-side right">
+                    <img src="mascota.png" alt="Mascota CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                </div>
             </div>
-            <div class="logo-side right">NAUCALPAN_EDOMEX</div>
+
+            <div class="banner-contact">
+                <p>Naucalpan de Juárez, Estado de México</p>
+                <span class="dot">•</span>
+                <p>departamentodeinnovacioneducativa@juventud.edu.mx</p>
+            </div>
         </div>
     </div>
 
-    <nav class="main-nav" style="margin-top: 20px;">
-        <div class="container">
-            <div class="nav-links" style="display: flex; gap: 20px;">
-                <a href="index.html" class="nav-item">~/inicio</a>
-                <a href="quienes-somos.html" class="nav-item">~/quienes-somos</a>
-                <a href="blog.html" class="nav-item">~/blog</a>
-                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)">~/login_docentes</a>
+    <nav class="main-nav">
+        <div class="container nav-scroll-container">
+            <div class="nav-links">
+                <a href="index.html" class="nav-item active">Inicio</a>
+                <a href="quienes-somos.html" class="nav-item">Quiénes somos</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="revista-digital.html" class="nav-item">Revista digital</a>
+                <a href="herraminetas-digitales.html" class="nav-item">Herramientas digitales</a>
+                <a href="IASapoyo.html" class="nav-item">IAs de apoyo</a>
+                <a href="Cursos de capacitación.html" class="nav-item">Capacitación</a>
+                <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
+                <a href="podcast.html" class="nav-item">Podcast</a>
+                <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
+                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)">Docentes</a>
             </div>
         </div>
     </nav>
 </header>
 
 <main>
-    <section class="hero-section" style="padding: 50px 0;">
+    <section class="hero-section text-center">
         <div class="container">
-            <div class="hero-text">
-                <p class="hero-tagline">> EXCELENCIA_EDUCATIVA_2026</p>
-                <h2>> HACER SIEMPRE Y EN TODO LO MEJOR</h2>
-                <p class="hero-desc">> SISTEMA DE INVESTIGACIÓN DE VANGUARDIA INICIADO.</p>
-            </div>
-            <div class="banner-rotatorio">
-                <div class="quote-box">
-                    <p class="frase-actual" id="fraseRotante">Cargando...</p>
-                    <p class="frase-autor-actual" id="autorRotante"></p>
-                    <div class="progress-container" style="width: 100%; height: 4px; background: #003300; margin-top: 15px;">
-                        <div class="progress-fill" id="progressBarFill"></div>
-                    </div>
+            <div class="blog-brand-wrapper">
+                <p class="hero-tagline">Excelencia Educativa 2026</p>
+                <h2 class="blog-main-title">Hacer siempre y en <span>todo lo mejor</span></h2>
+                <p class="hero-desc mx-auto">Compromiso con la actualización de procesos psicopedagógicos e investigación de vanguardia.</p>
+                
+                <!-- Contenedor del rotador de frases adaptado -->
+                <div class="banner-rotatorio mx-auto" style="max-width: 600px; margin-top: 40px; text-align: left;">
+                    <p class="frase-actual" id="fraseRotante" style="font-size: 1.1rem; font-style: italic; color: #fff;">Cargando...</p>
+                    <p class="frase-autor-actual" id="autorRotante" style="margin-top: 10px; font-weight: bold; color: var(--tech);"></p>
+                    <div class="progress-container"><div class="progress-fill" id="progressBarFill"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects">
-        <div class="container"><h2 class="section-heading">> ECOSISTEMA_DE_INNOVACION</h2></div>
-        <div class="container" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-            <div class="card"><div class="card-num">01</div><h3>KIOSKO</h3><p>ALTO RENDIMIENTO.</p></div>
-            <div class="card"><div class="card-num">02</div><h3>REVISTA</h3><p>DIVULGACIÓN CIENTÍFICA.</p></div>
-            <div class="card"><div class="card-num">03</div><h3>CREA</h3><p>FRONTERA TECNOLÓGICA.</p></div>
+    <section class="projects" style="padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-heading text-center" style="margin-bottom: 40px;">Ecosistema de Innovación</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                
+                <article class="card glass-card" style="max-width: 250px;">
+                    <div class="card-num">01</div>
+                    <h3>Kiosko</h3>
+                    <p>Productividad de alto rendimiento académico.</p>
+                </article>
+
+                <article class="card glass-card" style="max-width: 250px;">
+                    <div class="card-num">02</div>
+                    <h3>Revista</h3>
+                    <p>Divulgación científica contemporánea.</p>
+                </article>
+
+                <article class="card glass-card" style="max-width: 250px;">
+                    <div class="card-num">03</div>
+                    <h3>Canal CREA</h3>
+                    <p>Producción en la frontera tecnológica.</p>
+                </article>
+
+            </div>
         </div>
     </section>
 </main>
 
-<footer style="margin-top: 50px;">
+<div class="afiliaciones-banner">
     <div class="container">
-        <p>> &copy; 2026 MAESTRO PABLO ADRIÁN RIVERA JUVENAL. TODOS LOS DERECHOS RESERVADOS.</p>
+        <div class="afiliaciones-grid">
+            <span>Red Nacional de Innovación Juvenil</span>
+            <span class="divider"></span>
+            <span>Observatorio de Tecnología Educativa</span>
+            <span class="divider"></span>
+            <span>Alianza por el Conocimiento Abierto</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-brand">
+            <h3>CIIJ</h3>
+            <p>Innovación • Investigación • Juventud</p>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
+        </div>
     </div>
 </footer>
 
 <script>
-    const frases = [
-        { t: "La educación es el arma más poderosa para cambiar el mundo.", a: "Nelson Mandela" },
-        { t: "El aprendizaje nunca agota la mente.", a: "Leonardo da Vinci" }
-    ];
-    let idx = 0;
-    let progreso = 0;
+    // Lógica dinámica para la frase rotativa
+    document.addEventListener('DOMContentLoaded', () => {
+        const frases = [
+            { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
+            { t: "Hacer siempre y en todo lo mejor.", a: "Principio Vilasecano" },
+            { t: "Si puedes imaginarlo, puedes construirlo.", a: "Walt Disney" },
+            { t: "Construirse es construir el mundo.", a: "Pablo Adrián Rivera Juvenal" }
+        ];
 
-    function rotarFrase() {
-        document.getElementById('fraseRotante').innerText = `"${frases[idx].t}"`;
-        document.getElementById('autorRotante').innerText = `> ${frases[idx].a}`;
-        idx = (idx + 1) % frases.length;
-    }
+        let i = 0;
+        const fTexto = document.getElementById('fraseRotante');
+        const fAutor = document.getElementById('autorRotante');
+        const bProgreso = document.getElementById('progressBarFill');
 
-    setInterval(() => {
-        progreso += 2;
-        document.getElementById('progressBarFill').style.width = `${progreso}%`;
-        if (progreso >= 100) {
-            progreso = 0;
-            rotarFrase();
+        function rotar() {
+            if (!fTexto) return;
+            fTexto.style.opacity = 0;
+            setTimeout(() => {
+                fTexto.textContent = `"${frases[i].t}"`;
+                fAutor.textContent = `— ${frases[i].a}`;
+                fTexto.style.opacity = 1;
+                
+                bProgreso.style.transition = 'none';
+                bProgreso.style.width = '0%';
+                void bProgreso.offsetWidth;
+                bProgreso.style.transition = 'width 10000ms linear';
+                bProgreso.style.width = '100%';
+                i = (i + 1) % frases.length;
+            }, 500);
         }
-    }, 100);
 
-    rotarFrase();
+        rotar();
+        setInterval(rotar, 10000);
+    });
 
+    // Validador de acceso
     function validarAccesoDocentes(event) {
         event.preventDefault();
-        const claveIngresada = prompt("INGRESE_CLAVE_DE_ACCESO:");
-        if (claveIngresada === "SanJose") {
+        const clave = prompt("Ingresa la clave de acceso:");
+        if (clave === "SanJose") {
             window.location.href = "Docentes.html";
-        } else if (claveIngresada !== null) { 
-            alert("ERROR: ACCESO_DENEGADO");
+        } else if (clave !== null) {
+            alert("Acceso denegado.");
         }
     }
 </script>
+<script src="main.js"></script>
 </body>
 </html>
