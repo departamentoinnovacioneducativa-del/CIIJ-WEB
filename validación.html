@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso al Portal</title>
+    <style>
+        body { background: #010403; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: white; font-family: sans-serif; }
+        .wrapper { width: 90%; max-width: 600px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h2 style="color:#00FF9D;">Bienvenido al Portal</h2>
+        <p>Por favor completa el registro para acceder.</p>
+        
+        <!-- Chatbot -->
+        <iframe src="https://links.collect.chat/6a11c9eb85df382117d5ec34" width="100%" height="500" frameBorder="0"></iframe>
+    </div>
+
+    <script>
+        // Escucha el evento de finalización del chat
+        window.collectchat = window.collectchat || [];
+        window.collectchat.push(['on', 'completed', function() {
+            alert("Registro completado. Redirigiendo...");
+            // Aquí puedes cambiar 'matematicas.html' por el nombre de tu archivo principal
+            window.location.href = 'matematicas.html'; 
+        }]);
+    </script>
+</body>
+</html>
