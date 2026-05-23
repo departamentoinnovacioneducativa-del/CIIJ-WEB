@@ -32,7 +32,6 @@
         .container { width: 90%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding: 20px 0; }
         .text-center { text-align: center; }
 
-        /* Banner y Video */
         .top-brand-banner { padding: 40px 0; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, #08241D 0%, #010403 100%); }
         
         .video-wrapper-main { 
@@ -43,19 +42,16 @@
         }
         .video-wrapper-main iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Texto Institucional */
         .ciij-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 700; color: #fff; text-shadow: var(--shadow-glow); }
         .institutional-text { max-width: 700px; margin: 20px auto; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
         .hero-tagline { color: var(--tech); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; }
 
-        /* Tarjetas */
         .grid-botones { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 0; }
         .glass-card { background: var(--glass); border: 1px solid var(--border); border-radius: 8px; padding: 30px; transition: 0.4s; text-decoration: none; display: block; }
         .glass-card:hover { border-color: var(--tech); transform: translateY(-5px); box-shadow: var(--shadow-glow); }
         .card-num { color: var(--tech); font-size: 0.7rem; font-weight: 800; margin-bottom: 10px; }
         .glass-card h3 { color: #fff; font-family: 'Space Grotesk', sans-serif; }
 
-        /* Botones */
         .btn-tech { display: inline-block; padding: 12px 25px; margin: 10px 5px; text-transform: uppercase; font-weight: 700; cursor: pointer; border-radius: 4px; text-decoration: none; transition: 0.3s; font-size: 0.8rem; }
         .btn-primary { background: var(--tech); color: var(--deep); border: none; }
         .btn-secondary { background: transparent; border: 1px solid var(--tech); color: var(--tech); }
@@ -77,7 +73,7 @@
             <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
             <div>
                 <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
-                <a href="https://youtu.be/ehpMdEBZxLw?si=5rWNjLRDTX8bitI3" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
+                <a href="https://youtu.be/ehpMdEBZxLw?si=IFXvOo8qcgglckXo" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
             </div>
             <div style="margin-top: 40px;">
                 <div class="hero-tagline">Optimización Cognitiva</div>
@@ -123,8 +119,8 @@
         let player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-reproductor', {
-                videoId: 'pDaFh9pFGj8',
-                playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': 'pDaFh9pFGj8', 'mute': 1, 'controls': 0 },
+                videoId: 'ehpMdEBZxLw',
+                playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': 'ehpMdEBZxLw', 'mute': 1, 'controls': 0 },
                 events: { 'onReady': (e) => {
                     document.getElementById('btnAudioToggle').onclick = function() {
                         player.isMuted() ? (player.unMute(), this.innerText="Silenciar") : (player.mute(), this.innerText="Activar Sonido");
