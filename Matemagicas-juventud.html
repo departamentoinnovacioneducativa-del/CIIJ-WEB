@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,14 +19,16 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--deep); 
-            color: var(--silver); 
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
+        body { font-family: 'Inter', sans-serif; background-color: var(--deep); color: var(--silver); line-height: 1.6; overflow-x: hidden; }
+
+        /* Pantalla de bienvenida (Chatbot) */
+        #pantalla-bienvenida { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--deep); z-index: 9999; display: flex; 
+            flex-direction: column; align-items: center; justify-content: center;
         }
+
+        #contenido-principal { display: none; }
 
         #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
 
@@ -34,12 +37,7 @@
 
         .top-brand-banner { padding: 40px 0; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, #08241D 0%, #010403 100%); }
         
-        .video-wrapper-main { 
-            width: 100%; max-width: 600px; margin: 0 auto 20px; 
-            position: relative; padding-bottom: 56.25%; height: 0; 
-            overflow: hidden; border-radius: 8px; border: 1px solid var(--border);
-            box-shadow: var(--shadow-glow);
-        }
+        .video-wrapper-main { width: 100%; max-width: 600px; margin: 0 auto 20px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); box-shadow: var(--shadow-glow); }
         .video-wrapper-main iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         .ciij-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 700; color: #fff; text-shadow: var(--shadow-glow); }
@@ -58,62 +56,76 @@
 
         footer { padding: 40px 0; text-align: center; }
 
-        @media (max-width: 600px) {
-            .grid-botones { grid-template-columns: 1fr; }
-            .ciij-title { letter-spacing: 5px; }
-        }
+        @media (max-width: 600px) { .grid-botones { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <canvas id="matrixCanvas"></canvas>
-
-    <header class="top-brand-banner text-center">
-        <div class="container">
-            <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
-            <div>
-                <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
-                <a href="https://youtu.be/ehpMdEBZxLw?si=IFXvOo8qcgglckXo" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
-            </div>
-            <div style="margin-top: 40px;">
-                <div class="hero-tagline">Optimización Cognitiva</div>
-                <h1 class="ciij-title">MATEMÁGICAS</h1>
-                <p class="institutional-text">
-                    El Instituto Juventud del Estado de México y el Departamento de Innovación Educativa 
-                    te comparten este espacio para tu formación y preparación.
-                </p>
-            </div>
+    <div id="pantalla-bienvenida">
+        <h2 style="color:var(--tech); margin-bottom: 20px;">Bienvenido</h2>
+        <div style="width: 90%; max-width: 600px;">
+            <iframe src="https://links.collect.chat/6a11c9eb85df382117d5ec34" width="100%" height="450" frameBorder="0"></iframe>
         </div>
-    </header>
+        <button onclick="mostrarContenido()" class="btn-tech btn-primary" style="margin-top: 20px;">Entrar al portal</button>
+    </div>
 
-    <main class="container">
-        <div class="grid-botones">
-            <a href="Guia explicada paso a paso.html" class="glass-card"><div class="card-num">MÓDULO 01</div><h3>Guía explicada paso a paso</h3></a>
-            <a href="ejercicios.html" class="glass-card"><div class="card-num">MÓDULO 02</div><h3>Ejercicios</h3></a>
-            <a href="https://mrnakekekz7dppjraeekby.streamlit.app/" target="_blank" class="glass-card"><div class="card-num">MÓDULO 03</div><h3>IA de apoyo</h3></a>
-            <a href="https://chat.z.ai/space/k1qbs4xb66k1-art" target="_blank" class="glass-card"><div class="card-num">MÓDULO 04</div><h3>Magic-matic Adventure</h3></a>
-            <a href="https://proyecto-aracknia.neocities.org/Matetflix" target="_blank" class="glass-card"><div class="card-num">MÓDULO 05</div><h3>Mateflix</h3></a>
-        </div>
-    </main>
+    <div id="contenido-principal">
+        <canvas id="matrixCanvas"></canvas>
 
-    <footer>
-        <a href="Cursos de capacitación.html" class="btn-tech btn-primary">Regresar</a>
-    </footer>
+        <header class="top-brand-banner text-center">
+            <div class="container">
+                <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
+                <div>
+                    <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
+                    <a href="https://youtu.be/ehpMdEBZxLw?si=IFXvOo8qcgglckXo" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
+                </div>
+                <div style="margin-top: 40px;">
+                    <div class="hero-tagline">Optimización Cognitiva</div>
+                    <h1 class="ciij-title">MATEMÁGICAS</h1>
+                    <p class="institutional-text">
+                        El Instituto Juventud del Estado de México y el Departamento de Innovación Educativa 
+                        te comparten este espacio para tu formación y preparación.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="grid-botones">
+                <a href="Guia explicada paso a paso.html" class="glass-card"><div class="card-num">MÓDULO 01</div><h3>Guía explicada paso a paso</h3></a>
+                <a href="ejercicios.html" class="glass-card"><div class="card-num">MÓDULO 02</div><h3>Ejercicios</h3></a>
+                <a href="https://mrnakekekz7dppjraeekby.streamlit.app/" target="_blank" class="glass-card"><div class="card-num">MÓDULO 03</div><h3>IA de apoyo</h3></a>
+                <a href="https://chat.z.ai/space/k1qbs4xb66k1-art" target="_blank" class="glass-card"><div class="card-num">MÓDULO 04</div><h3>Magic-matic Adventure</h3></a>
+                <a href="https://proyecto-aracknia.neocities.org/Matetflix" target="_blank" class="glass-card"><div class="card-num">MÓDULO 05</div><h3>Mateflix</h3></a>
+            </div>
+        </main>
+
+        <footer>
+            <a href="Cursos de capacitación.html" class="btn-tech btn-primary">Regresar</a>
+        </footer>
+    </div>
 
     <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        const drops = Array(Math.floor(canvas.width / 20)).fill(1);
-        function draw() {
-            ctx.fillStyle = 'rgba(1, 4, 3, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#00FF9D'; ctx.font = '15px monospace';
-            drops.forEach((y, i) => {
-                ctx.fillText(String.fromCharCode(48 + Math.random() * 10), i * 20, y);
-                drops[i] = y > canvas.height ? 0 : y + 20;
-            });
+        function mostrarContenido() {
+            document.getElementById('pantalla-bienvenida').style.display = 'none';
+            document.getElementById('contenido-principal').style.display = 'block';
+            iniciarMatrix();
         }
-        setInterval(draw, 50);
+
+        function iniciarMatrix() {
+            const canvas = document.getElementById('matrixCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            const drops = Array(Math.floor(canvas.width / 20)).fill(1);
+            setInterval(() => {
+                ctx.fillStyle = 'rgba(1, 4, 3, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#00FF9D'; ctx.font = '15px monospace';
+                drops.forEach((y, i) => {
+                    ctx.fillText(String.fromCharCode(48 + Math.random() * 10), i * 20, y);
+                    drops[i] = y > canvas.height ? 0 : y + 20;
+                });
+            }, 50);
+        }
 
         const tag = document.createElement('script'); tag.src = "https://www.youtube.com/iframe_api"; document.body.appendChild(tag);
         let player;
@@ -131,3 +143,5 @@
     </script>
 </body>
 </html>
+
+```
