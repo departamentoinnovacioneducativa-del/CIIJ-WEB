@@ -1,6 +1,3 @@
-He verificado punto por punto la estructura original, los enlaces, el diseño de alta gama, el efecto Matrix y el reproductor de video. Todo está incluido en este bloque final. He corregido el padding-bottom del video para que sea **56.25%** (el estándar exacto para **16:9**), lo que garantiza que no se vea cortado en ninguna pantalla.
-Aquí tienes el código completo y final:
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,36 +27,45 @@ Aquí tienes el código completo y final:
             position: relative;
         }
 
-        #matrixCanvas {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-        }
+        #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
 
-        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; padding: 20px 0; }
         .text-center { text-align: center; }
 
-        .top-brand-banner { background: radial-gradient(circle at center, #08241D 0%, #010403 100%); padding: 40px 0; border-bottom: 1px solid var(--border); }
-        .ciij-title { font-family: 'Space Grotesk', sans-serif; font-size: 3.2rem; font-weight: 700; letter-spacing: 12px; color: #fff; text-shadow: var(--shadow-glow); margin-top: 10px; }
-        .institutional-badge { color: var(--tech); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .hero-tagline { color: var(--tech); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 10px; }
-
-        .video-wrapper-main { width: 100%; max-width: 600px; margin: 0 auto 20px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); box-shadow: var(--shadow-glow); }
+        /* Banner y Video */
+        .top-brand-banner { padding: 40px 0; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, #08241D 0%, #010403 100%); }
+        
+        .video-wrapper-main { 
+            width: 100%; max-width: 600px; margin: 0 auto 20px; 
+            position: relative; padding-bottom: 56.25%; height: 0; 
+            overflow: hidden; border-radius: 8px; border: 1px solid var(--border);
+            box-shadow: var(--shadow-glow);
+        }
         .video-wrapper-main iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        .grid-botones { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 40px 0; }
-        .glass-card { background: var(--glass); border: 1px solid var(--border); border-radius: 4px; padding: 35px; transition: 0.4s; text-decoration: none; display: block; }
-        .glass-card:hover { border-color: var(--tech); transform: translateY(-5px); box-shadow: var(--shadow-glow); }
-        .card-num { color: var(--tech); font-size: 0.7rem; font-weight: 800; margin-bottom: 15px; letter-spacing: 2px; }
-        .glass-card h3 { color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px; }
+        /* Texto Institucional */
+        .ciij-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 700; color: #fff; text-shadow: var(--shadow-glow); }
+        .institutional-text { max-width: 700px; margin: 20px auto; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+        .hero-tagline { color: var(--tech); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; }
 
-        .btn-tech { display: inline-block; padding: 12px 25px; margin: 10px; text-transform: uppercase; font-weight: 700; cursor: pointer; border-radius: 4px; text-decoration: none; transition: 0.3s; font-size: 0.8rem; }
+        /* Tarjetas */
+        .grid-botones { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 0; }
+        .glass-card { background: var(--glass); border: 1px solid var(--border); border-radius: 8px; padding: 30px; transition: 0.4s; text-decoration: none; display: block; }
+        .glass-card:hover { border-color: var(--tech); transform: translateY(-5px); box-shadow: var(--shadow-glow); }
+        .card-num { color: var(--tech); font-size: 0.7rem; font-weight: 800; margin-bottom: 10px; }
+        .glass-card h3 { color: #fff; font-family: 'Space Grotesk', sans-serif; }
+
+        /* Botones */
+        .btn-tech { display: inline-block; padding: 12px 25px; margin: 10px 5px; text-transform: uppercase; font-weight: 700; cursor: pointer; border-radius: 4px; text-decoration: none; transition: 0.3s; font-size: 0.8rem; }
         .btn-primary { background: var(--tech); color: var(--deep); border: none; }
         .btn-secondary { background: transparent; border: 1px solid var(--tech); color: var(--tech); }
-        .btn-tech:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
 
-        footer { padding: 50px 0; text-align: center; }
+        footer { padding: 40px 0; text-align: center; }
+
+        @media (max-width: 600px) {
+            .grid-botones { grid-template-columns: 1fr; }
+            .ciij-title { letter-spacing: 5px; }
+        }
     </style>
 </head>
 <body>
@@ -68,16 +74,19 @@ Aquí tienes el código completo y final:
 
     <header class="top-brand-banner text-center">
         <div class="container">
-            <div class="video-wrapper-main">
-                <div id="yt-reproductor"></div>
-            </div>
+            <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
             <div>
                 <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
                 <a href="https://youtu.be/ehpMdEBZxLw?si=5rWNjLRDTX8bitI3" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
             </div>
-            <div class="hero-tagline" style="margin-top: 30px;">Optimización Cognitiva</div>
-            <div class="ciij-title">MATEMÁGICAS</div>
-            <div class="institutional-badge">Tu Guía del Instituto Juventud del Estado de México</div>
+            <div style="margin-top: 40px;">
+                <div class="hero-tagline">Optimización Cognitiva</div>
+                <h1 class="ciij-title">MATEMÁGICAS</h1>
+                <p class="institutional-text">
+                    El Instituto Juventud del Estado de México y el Departamento de Innovación Educativa 
+                    te comparten este espacio para tu formación y preparación.
+                </p>
+            </div>
         </div>
     </header>
 
@@ -126,5 +135,3 @@ Aquí tienes el código completo y final:
     </script>
 </body>
 </html>
-
-```
