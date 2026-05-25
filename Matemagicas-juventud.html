@@ -63,6 +63,7 @@
         .btn-secondary { background: transparent; border: 1px solid var(--tech); color: var(--tech); }
 
         footer { padding: 40px 0; text-align: center; }
+        .credits { font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); margin-top: 20px; }
 
         @media (max-width: 600px) { .grid-botones { grid-template-columns: 1fr; } }
     </style>
@@ -76,7 +77,7 @@
             <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
             <div>
                 <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
-                <a href= "https://youtu.be/W2TsMjauQ7Y?si=61dEj-il3c1c-AdX" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
+                <a href= "https://youtu.be/W2TsMjauQ7Y?si=sujsw-UhjeAe7HiX" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
             </div>
             <div style="margin-top: 40px;">
                 <div class="hero-tagline">Optimización Cognitiva</div>
@@ -102,6 +103,7 @@
 
     <footer>
         <a href="Cursos de capacitación.html" class="btn-tech btn-primary">Regresar</a>
+        <div class="credits">Magimáticas es un proyecto del Departamento de Investigación e Innovación Juventud CIIJ.</div>
     </footer>
 
     <script>
@@ -124,7 +126,7 @@
         let player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-reproductor', {
-                videoId: 'ehpMdEBZxLw',
+                videoId: 'W2TsMjauQ7Y',
                 // Configuramos para reproducción única eliminando loop y playlist
                 playerVars: { 'autoplay': 1, 'mute': 1, 'controls': 0 },
                 events: { 'onReady': (e) => {
