@@ -76,7 +76,7 @@
             <div class="video-wrapper-main"><div id="yt-reproductor"></div></div>
             <div>
                 <button id="btnAudioToggle" class="btn-tech btn-secondary">Activar Sonido</button>
-                <a href= "https://youtu.be/W2TsMjauQ7Y?si=sujsw-UhjeAe7HiX" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
+                <a href="https://youtu.be/W2TsMjauQ7Y?si=sujsw-UhjeAe7HiX" target="_blank" class="btn-tech btn-primary">Ir al Video</a>
             </div>
             <div style="margin-top: 40px;">
                 <div class="hero-tagline">Optimización Cognitiva</div>
@@ -96,9 +96,7 @@
             <a href="https://mrnakekekz7dppjraeekby.streamlit.app/" target="_blank" class="glass-card"><div class="card-num">MÓDULO 03</div><h3>IA de apoyo</h3></a>
             <a href="https://chat.z.ai/space/k1qbs4xb66k1-art" target="_blank" class="glass-card"><div class="card-num">MÓDULO 04</div><h3>Magic-matic Adventure</h3></a>
             <a href="https://proyecto-aracknia.neocities.org/Matetflix" target="_blank" class="glass-card"><div class="card-num">MÓDULO 05</div><h3>Mateflix</h3></a>
-            <a href=https: "https://proyecto-aracknia.neocities.org/Matego"
-
- class="glass-card"><div class="card-num">MÓDULO 06</div><h3>Matego</h3></a>
+            <a href="https://proyecto-aracknia.neocities.org/Matego" target="_blank" class="glass-card"><div class="card-num">MÓDULO 06</div><h3>Matego</h3></a>
         </div>
     </main>
 
@@ -128,7 +126,6 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-reproductor', {
                 videoId: 'W2TsMjauQ7Y',
-                // Configuramos para reproducción única eliminando loop y playlist
                 playerVars: { 'autoplay': 1, 'mute': 1, 'controls': 0 },
                 events: { 'onReady': (e) => {
                     document.getElementById('btnAudioToggle').onclick = function() {
