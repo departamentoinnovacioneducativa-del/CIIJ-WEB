@@ -3,258 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | CIIJ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Departamento de Innovación Educativa</title>
+    <!-- Importando tipografías similares a Byington/Arno Pro y Futura -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Paleta de Colores Oficiales del Manual de Identidad */
-        :root {
-            --institucional-verde: #009944;  /* Pantone 347 Solid Coated */
-            --institucional-oro: #FFD100;    /* Pantone 109 Solid Coated */
-            --institucional-azul: #032A60;   /* Fondo azul obscuro institucional */
-            --institucional-rojo: #E2231A;   /* Pantone 485 Solid Coated */
-            --texto-obscuro: #210300;
-            --fuente-titulos: 'Byington', 'Georgia', serif;
-            --fuente-lema: 'Arno Pro', 'Times New Roman', serif;
-        }
-
-        /* Aplicación de fuentes y herencia visual */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: var(--texto-obscuro);
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .main-header {
-            background-color: var(--institucional-azul);
-            border-bottom: 5px solid var(--institucional-oro);
+        body {
+            /* Uso de tipografía san-serif para lectura clara (similar a Futura) */
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f9fa; /* Fondo neutro claro para resaltar las tarjetas */
+            color: #032A60; /* Azul institucional para los textos */
+            overflow-x: hidden;
         }
 
-        .ciij-title {
-            font-family: var(--fuente-titulos);
-            color: var(--institucional-oro);
+        /* Tipografía Serif (similar a Byington) para títulos */
+        h1, h2 {
+            font-family: 'Lora', serif;
         }
 
-        .institutional-badge {
-            color: #ffffff;
-            font-weight: bold;
-            letter-spacing: 1px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 80px; 
         }
 
-        .main-nav {
-            background-color: var(--institucional-verde);
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            /* Degradado con el Verde Institucional */
+            background: linear-gradient(135deg, #009944 0%, #006b2f 100%);
+            color: white;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0, 153, 68, 0.3);
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid #FFCA00; /* Detalle en Amarillo Oro */
         }
 
-        .nav-item {
-            color: #ffffff;
-            font-weight: 500;
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
-        .nav-item.active, .nav-item:hover {
-            color: var(--institucional-oro);
-            border-bottom: 2px solid var(--institucional-oro);
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        /* Sección Hero con colores de la identidad */
-        .hero-section {
-            background-linear-gradient: linear-gradient(135deg, var(--institucional-azul) 0%, #112244 100%);
-            color: #ffffff;
-            padding: 60px 0;
-            border-bottom: 4px solid var(--institucional-verde);
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
         }
 
-        .blog-main-title {
-            font-family: var(--fuente-titulos);
-            color: var(--institucional-oro);
+        .pulse-icon {
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            font-size: 1.2em;
         }
 
-        .blog-main-title span {
-            font-family: var(--fuente-lema);
-            font-style: italic;
-            color: #ffffff;
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
-        .hero-tagline {
-            color: var(--institucional-verde);
-            font-weight: bold;
-            text-transform: uppercase;
+        .section {
+            background: white;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(3, 42, 96, 0.08); /* Sombra azul oscuro suave */
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
         }
 
-        /* Tarjetas de ecosistema estilo manual */
-        .card.glass-card {
-            border-left: 4px solid var(--institucional-verde);
-            background: #f9f9f9;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .section:nth-child(2) { animation-delay: 0.3s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.9s; }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 153, 68, 0.15); /* Sombra verde al pasar el ratón */
         }
 
-        .card-num {
-            color: var(--institucional-oro);
-            font-family: var(--fuente-titulos);
-            font-weight: bold;
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            /* Línea superior animada con Verde y Amarillo Institucional */
+            background: linear-gradient(90deg, #009944, #FFCA00, #009944);
+            background-size: 200% 100%;
+            animation: gradient 3s linear infinite;
         }
 
-        .afiliaciones-banner {
-            background-color: var(--texto-obscuro);
-            color: #ffffff;
-            padding: 15px 0;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h2 {
+            color: #009944; /* Verde Institucional para los títulos */
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            font-size: 1.5em;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #032A60; /* Azul Institucional para textos largos */
+        }
+
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            /* Círculos con toques de amarillo y verde transparentes */
+            background: linear-gradient(135deg, rgba(255, 202, 0, 0.2), rgba(0, 153, 68, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 100px;
+            height: 100px;
+            top: 20px;
+            right: 20px;
+            animation-delay: 0s;
+        }
+
+        .circle2 {
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            left: 30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji-decoration {
+            font-size: 2em;
+            margin: 0 10px;
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            /* Azul Institucional para el pie de página */
+            background: #032A60;
+            color: white;
+            border-radius: 30px 30px 0 0;
+            margin-top: 60px;
+            border-top: 5px solid #FFCA00;
+        }
+
+        /* --- ESTILOS DEL CHATBOT FLOTANTE HASTA ABAJO --- */
+        .chatbot-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 380px;
+            height: 550px;
+            z-index: 9999;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(3, 42, 96, 0.2); /* Sombra azul oscuro */
+            overflow: hidden;
+            border: 2px solid #009944; /* Borde Verde Institucional */
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Ajuste para dispositivos móviles */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            .section { padding: 30px; }
+            .chatbot-flotante {
+                width: 90%;
+                height: 450px;
+                bottom: 15px;
+                right: 5%;
+                left: 5%;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Departamento de Innovación Educativa <span class="pulse-icon">💡</span></h1>
+        <p style="font-size: 1.3em; position: relative; z-index: 1;">Instituto Juventud</p>
+    </header>
 
-<header class="main-header">
-    <div class="top-brand-banner">
-        <div class="container">
-            <div class="banner-grid" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 0;">
-                <div class="logo-side left">
-                    <img src="escudo-institucional.png" alt="Instituto Juventud" class="img-fluid" style="max-height: 80px;" onerror="this.style.display='none'">
-                </div>
-                
-                <div class="brand-center" style="text-align: center;">
-                    <h1 class="ciij-title" style="margin: 0; font-size: 2.5rem;">CIIJ</h1>
-                    <div class="institutional-badge" style="font-size: 0.9rem;">Centro de Innovación e Investigación Juventud</div>
-                </div>
+    <div class="container">
+        <div class="section">
+            <div class="decorative-circle circle1"></div>
+            <div class="decorative-circle circle2"></div>
+            <h2><span class="icon">🎯</span> Misión</h2>
+            <p>
+                Ser un centro de apoyo integral para las personas en situación de calle, brindando 
+                servicios de alimentación, refugio, atención médica y acompañamiento emocional. 
+                Trabajamos cada día con dedicación para devolver la dignidad y esperanza 
+                a quienes más lo necesitan.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <span class="emoji-decoration">🤝</span>
+                <span class="emoji-decoration">🏠</span>
+                <span class="emoji-decoration">💡</span>
+            </div>
+        </div>
 
-                <div class="logo-side right">
-                    <img src="escudo-secundario.png" alt="CIIJ Innovación" class="img-fluid" style="max-height: 80px;" onerror="this.style.display='none'">
-                </div>
+        <div class="section">
+            <div class="decorative-circle circle1"></div>
+            <div class="decorative-circle circle2"></div>
+            <h2><span class="icon">🌟</span> Visión</h2>
+            <p>
+                Ser el mejor centro de apoyo a nivel nacional, reconocido por la excelencia en 
+                nuestros servicios, el impacto positivo en la comunidad y la transformación de 
+                vidas. Aspiramos a crear una sociedad más justa e inclusiva donde cada persona 
+                tenga la oportunidad de reconstruir su futuro.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <span class="emoji-decoration">🌈</span>
+                <span class="emoji-decoration">⭐</span>
+                <span class="emoji-decoration">🕊️</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="decorative-circle circle1"></div>
+            <div class="decorative-circle circle2"></div>
+            <h2><span class="icon">💼</span> Nuestros Servicios</h2>
+            <p>
+                Ofrecemos programas integrales que incluyen alimentación nutritiva diaria, 
+                refugio seguro y confortable, atención médica y psicológica, capacitación 
+                laboral, asesoría legal y acompañamiento en el proceso de reintegración social. 
+                Cada persona recibe atención personalizada según sus necesidades.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <span class="emoji-decoration">🍲</span>
+                <span class="emoji-decoration">🏥</span>
+                <span class="emoji-decoration">📚</span>
+                <span class="emoji-decoration">💪</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="decorative-circle circle1"></div>
+            <div class="decorative-circle circle2"></div>
+            <h2><span class="icon">🤲</span> Valores</h2>
+            <p>
+                Nos guían principios de respeto, dignidad, solidaridad y compromiso social. 
+                Creemos en el poder de la comunidad y en que todos merecen una segunda oportunidad. 
+                Trabajamos con empatía, transparencia y dedicación para construir un mundo mejor.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <span class="emoji-decoration">🌿</span>
+                <span class="emoji-decoration">🙏</span>
+                <span class="emoji-decoration">✨</span>
             </div>
         </div>
     </div>
 
-    <nav class="main-nav">
-        <div class="container nav-scroll-container">
-            <div class="nav-links" style="display: flex; gap: 20px; padding: 12px 0; justify-content: center; list-style: none;">
-                <a href="index.html" class="nav-item active" style="text-decoration: none;">Inicio</a>
-                <a href="quienes-somos.html" class="nav-item" style="text-decoration: none;">Quiénes somos</a>
-                <a href="blog.html" class="nav-item" style="text-decoration: none;">Blog</a>
-                <a href="revista-digital.html" class="nav-item" style="text-decoration: none;">Revista digital</a>
-                <a href="herraminetas-digitales.html" class="nav-item" style="text-decoration: none;">Herramientas digitales</a>
-                <a href="IASapoyo.html" class="nav-item" style="text-decoration: none;">IAs de apoyo</a>
-                <a href="Cursos de capacitación.html" class="nav-item" style="text-decoration: none;">Capacitación</a>
-                <a href="canal-CREA.html" class="nav-item" style="text-decoration: none;">Canal CREA</a>
-                <a href="podcast.html" class="nav-item" style="text-decoration: none;">Podcast</a>
-                <a href="Entrena-mente.html" class="nav-item" style="text-decoration: none;">Entrena tu mente</a>
-                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)" style="text-decoration: none;">Docentes</a>
-            </div>
-        </div>
-    </nav>
-</header>
+    <footer>
+        <p style="font-size: 1.5em; font-family: 'Lora', serif; font-style: italic;">Ad lucem</p>
+        <p style="margin-top: 15px; font-size: 1.1em;">© 2026 Departamento de Innovación Educativa - Instituto Juventud</p>
+    </footer>
 
-<main>
-    <section class="hero-section text-center">
-        <div class="container" style="text-align: center; padding: 40px 20px;">
-            <div class="blog-brand-wrapper">
-                <p class="hero-tagline">Excelencia Educativa 2026</p>
-                <h2 class="blog-main-title" style="font-size: 3rem; margin: 10px 0;">Instituto Juventud: <span>Ad lucem</span></h2>
-                <p class="hero-desc mx-auto" style="max-width: 600px; margin: 0 auto; color: #e0e0e0;">Compromiso con la formación de hombres y mujeres íntegros a través de la verdad, la innovación y la investigación de vanguardia.</p>
-                
-                <div class="banner-rotatorio mx-auto" style="max-width: 600px; margin: 40px auto 0 auto; text-align: left; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px;">
-                    <p class="frase-actual" id="fraseRotante" style="font-size: 1.1rem; font-style: italic; color: #fff; margin: 0;">Cargando...</p>
-                    <p class="frase-autor-actual" id="autorRotante" style="margin-top: 10px; font-weight: bold; color: var(--institucional-oro); text-align: right;"></p>
-                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 4px; width: 100%; margin-top: 15px;"><div class="progress-fill" id="progressBarFill" style="background: var(--institucional-oro); height: 100%; width: 0%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects" style="padding: 60px 0 80px 0;">
-        <div class="container">
-            <h2 class="section-heading text-center" style="margin-bottom: 40px; text-align: center; font-family: var(--fuente-titulos); font-size: 2.2rem;">Ecosistema de Innovación</h2>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                
-                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
-                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">01</div>
-                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Kiosko</h3>
-                    <p style="margin: 0; font-size: 0.95rem;">Productividad de alto rendimiento académico.</p>
-                </article>
-
-                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
-                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">02</div>
-                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Revista</h3>
-                    <p style="margin: 0; font-size: 0.95rem;">Divulgación científica contemporánea.</p>
-                </article>
-
-                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
-                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">03</div>
-                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Canal CREA</h3>
-                    <p style="margin: 0; font-size: 0.95rem;">Producción en la frontera tecnológica.</p>
-                </article>
-
-            </div>
-        </div>
-    </section>
-</main>
-
-<div class="afiliaciones-banner">
-    <div class="container" style="text-align: center;">
-        <div class="afiliaciones-grid" style="display: flex; justify-content: center; align-items: center; gap: 15px; font-size: 0.85rem; letter-spacing: 0.5px;">
-            <span>Red Nacional de Innovación Juvenil</span>
-            <span class="divider" style="width: 1px; height: 15px; background: rgba(255,255,255,0.3);"></span>
-            <span>Observatorio de Tecnología Educativa</span>
-            <span class="divider" style="width: 1px; height: 15px; background: rgba(255,255,255,0.3);"></span>
-            <span>Alianza por el Conocimiento Abierto</span>
-        </div>
+    <!-- CONTENEDOR DEL CHATBOT FLOTANTE HASTA ABAJO -->
+    <div class="chatbot-flotante">
+        <iframe src="https://links.collect.chat/6a34a63590fdff73bf05a829" width="100%" height="100%" frameBorder="0"></iframe>
     </div>
-</div>
 
-<footer style="background-color: var(--institucional-azul); color: #ffffff; padding: 40px 0; border-top: 4px solid var(--institucional-oro);">
-    <div class="container footer-flex" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <div class="footer-brand">
-            <h3 style="font-family: var(--fuente-titulos); margin: 0; font-size: 1.8rem; color: var(--institucional-oro);">CIIJ</h3>
-            <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #ccc;">Innovación • Investigación • Juventud</p>
-        </div>
-        <div class="footer-copy" style="font-size: 0.85rem; color: #e0e0e0;">
-            <p style="margin: 0;">&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Frases actualizadas alineadas al Manual de Identidad y Misión Institucional
-        const frases = [
-            { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
-            { t: "Ad lucem (Hacia la luz).", a: "Lema Oficial Instituto Juventud" },
-            { t: "Si puedes imaginarlo, puedes construirlo.", a: "Walt Disney" },
-            { t: "Formar a nuestros estudiantes en la verdad y el bien.", a: "Misión Educativa" }
-        ];
-
-        let i = 0;
-        const fTexto = document.getElementById('fraseRotante');
-        const fAutor = document.getElementById('autorRotante');
-        const bProgreso = document.getElementById('progressBarFill');
-
-        function rotar() {
-            if (!fTexto) return;
-            fTexto.style.opacity = 0;
-            setTimeout(() => {
-                fTexto.textContent = `"${frases[i].t}"`;
-                fAutor.textContent = `— ${frases[i].a}`;
-                fTexto.style.opacity = 1;
-                
-                bProgreso.style.transition = 'none';
-                bProgreso.style.width = '0%';
-                void bProgreso.offsetWidth;
-                bProgreso.style.transition = 'width 10000ms linear';
-                bProgreso.style.width = '100%';
-                i = (i + 1) % frases.length;
-            }, 500);
-        }
-
-        rotar();
-        setInterval(rotar, 10000);
-    });
-
-    function validarAccesoDocentes(event) {
-        event.preventDefault();
-        const clave = prompt("Ingresa la clave de acceso para Docentes:");
-        if (clave === "SanJose") {
-            window.location.href = "Docentes.html";
-        } else if (clave !== null) {
-            alert("Acceso denegado.");
-        }
-    }
-</script>
-<script src="main.js"></script>
+    <!-- SCRIPT DEL CHATBOT -->
+    <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
 </body>
 </html>
