@@ -5,24 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | CIIJ</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Paleta de Colores Oficiales del Manual de Identidad */
+        :root {
+            --institucional-verde: #009944;  /* Pantone 347 Solid Coated */
+            --institucional-oro: #FFD100;    /* Pantone 109 Solid Coated */
+            --institucional-azul: #032A60;   /* Fondo azul obscuro institucional */
+            --institucional-rojo: #E2231A;   /* Pantone 485 Solid Coated */
+            --texto-obscuro: #210300;
+            --fuente-titulos: 'Byington', 'Georgia', serif;
+            --fuente-lema: 'Arno Pro', 'Times New Roman', serif;
+        }
+
+        /* Aplicación de fuentes y herencia visual */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--texto-obscuro);
+            margin: 0;
+        }
+
+        .main-header {
+            background-color: var(--institucional-azul);
+            border-bottom: 5px solid var(--institucional-oro);
+        }
+
+        .ciij-title {
+            font-family: var(--fuente-titulos);
+            color: var(--institucional-oro);
+        }
+
+        .institutional-badge {
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .main-nav {
+            background-color: var(--institucional-verde);
+        }
+
+        .nav-item {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: var(--institucional-oro);
+            border-bottom: 2px solid var(--institucional-oro);
+        }
+
+        /* Sección Hero con colores de la identidad */
+        .hero-section {
+            background-linear-gradient: linear-gradient(135deg, var(--institucional-azul) 0%, #112244 100%);
+            color: #ffffff;
+            padding: 60px 0;
+            border-bottom: 4px solid var(--institucional-verde);
+        }
+
+        .blog-main-title {
+            font-family: var(--fuente-titulos);
+            color: var(--institucional-oro);
+        }
+
+        .blog-main-title span {
+            font-family: var(--fuente-lema);
+            font-style: italic;
+            color: #ffffff;
+        }
+
+        .hero-tagline {
+            color: var(--institucional-verde);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Tarjetas de ecosistema estilo manual */
+        .card.glass-card {
+            border-left: 4px solid var(--institucional-verde);
+            background: #f9f9f9;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card-num {
+            color: var(--institucional-oro);
+            font-family: var(--fuente-titulos);
+            font-weight: bold;
+        }
+
+        .afiliaciones-banner {
+            background-color: var(--texto-obscuro);
+            color: #ffffff;
+            padding: 15px 0;
+        }
+    </style>
 </head>
 <body>
 
 <header class="main-header">
     <div class="top-brand-banner">
         <div class="container">
-            <div class="banner-grid">
+            <div class="banner-grid" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 0;">
                 <div class="logo-side left">
-                    <img src="logo.png" alt="Logo CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                    <img src="escudo-institucional.png" alt="Instituto Juventud" class="img-fluid" style="max-height: 80px;" onerror="this.style.display='none'">
                 </div>
                 
-                <div class="brand-center">
-                    <h1 class="ciij-title">CIIJ</h1>
-                    <div class="institutional-badge">Centro de Innovación e Investigación Juventud</div>
+                <div class="brand-center" style="text-align: center;">
+                    <h1 class="ciij-title" style="margin: 0; font-size: 2.5rem;">CIIJ</h1>
+                    <div class="institutional-badge" style="font-size: 0.9rem;">Centro de Innovación e Investigación Juventud</div>
                 </div>
 
                 <div class="logo-side right">
-                    <img src="mascota.png" alt="Mascota CIIJ" class="img-fluid" onerror="this.style.display='none'">
+                    <img src="escudo-secundario.png" alt="CIIJ Innovación" class="img-fluid" style="max-height: 80px;" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
@@ -30,18 +123,18 @@
 
     <nav class="main-nav">
         <div class="container nav-scroll-container">
-            <div class="nav-links">
-                <a href="index.html" class="nav-item active">Inicio</a>
-                <a href="quienes-somos.html" class="nav-item">Quiénes somos</a>
-                <a href="blog.html" class="nav-item">Blog</a>
-                <a href="revista-digital.html" class="nav-item">Revista digital</a>
-                <a href="herraminetas-digitales.html" class="nav-item">Herramientas digitales</a>
-                <a href="IASapoyo.html" class="nav-item">IAs de apoyo</a>
-                <a href="Cursos de capacitación.html" class="nav-item">Capacitación</a>
-                <a href="canal-CREA.html" class="nav-item">Canal CREA</a>
-                <a href="podcast.html" class="nav-item">Podcast</a>
-                <a href="Entrena-mente.html" class="nav-item">Entrena tu mente</a>
-                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)">Docentes</a>
+            <div class="nav-links" style="display: flex; gap: 20px; padding: 12px 0; justify-content: center; list-style: none;">
+                <a href="index.html" class="nav-item active" style="text-decoration: none;">Inicio</a>
+                <a href="quienes-somos.html" class="nav-item" style="text-decoration: none;">Quiénes somos</a>
+                <a href="blog.html" class="nav-item" style="text-decoration: none;">Blog</a>
+                <a href="revista-digital.html" class="nav-item" style="text-decoration: none;">Revista digital</a>
+                <a href="herraminetas-digitales.html" class="nav-item" style="text-decoration: none;">Herramientas digitales</a>
+                <a href="IASapoyo.html" class="nav-item" style="text-decoration: none;">IAs de apoyo</a>
+                <a href="Cursos de capacitación.html" class="nav-item" style="text-decoration: none;">Capacitación</a>
+                <a href="canal-CREA.html" class="nav-item" style="text-decoration: none;">Canal CREA</a>
+                <a href="podcast.html" class="nav-item" style="text-decoration: none;">Podcast</a>
+                <a href="Entrena-mente.html" class="nav-item" style="text-decoration: none;">Entrena tu mente</a>
+                <a href="#" class="nav-item" onclick="validarAccesoDocentes(event)" style="text-decoration: none;">Docentes</a>
             </div>
         </div>
     </nav>
@@ -49,43 +142,42 @@
 
 <main>
     <section class="hero-section text-center">
-        <div class="container">
+        <div class="container" style="text-align: center; padding: 40px 20px;">
             <div class="blog-brand-wrapper">
                 <p class="hero-tagline">Excelencia Educativa 2026</p>
-                <h2 class="blog-main-title">Hacer siempre y en <span>todo lo mejor</span></h2>
-                <p class="hero-desc mx-auto">Compromiso con la actualización de procesos psicopedagógicos e investigación de vanguardia.</p>
+                <h2 class="blog-main-title" style="font-size: 3rem; margin: 10px 0;">Instituto Juventud: <span>Ad lucem</span></h2>
+                <p class="hero-desc mx-auto" style="max-width: 600px; margin: 0 auto; color: #e0e0e0;">Compromiso con la formación de hombres y mujeres íntegros a través de la verdad, la innovación y la investigación de vanguardia.</p>
                 
-                <!-- Contenedor del rotador de frases adaptado -->
-                <div class="banner-rotatorio mx-auto" style="max-width: 600px; margin-top: 40px; text-align: left;">
-                    <p class="frase-actual" id="fraseRotante" style="font-size: 1.1rem; font-style: italic; color: #fff;">Cargando...</p>
-                    <p class="frase-autor-actual" id="autorRotante" style="margin-top: 10px; font-weight: bold; color: var(--tech);"></p>
-                    <div class="progress-container"><div class="progress-fill" id="progressBarFill"></div></div>
+                <div class="banner-rotatorio mx-auto" style="max-width: 600px; margin: 40px auto 0 auto; text-align: left; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px;">
+                    <p class="frase-actual" id="fraseRotante" style="font-size: 1.1rem; font-style: italic; color: #fff; margin: 0;">Cargando...</p>
+                    <p class="frase-autor-actual" id="autorRotante" style="margin-top: 10px; font-weight: bold; color: var(--institucional-oro); text-align: right;"></p>
+                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 4px; width: 100%; margin-top: 15px;"><div class="progress-fill" id="progressBarFill" style="background: var(--institucional-oro); height: 100%; width: 0%;"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects" style="padding-bottom: 80px;">
+    <section class="projects" style="padding: 60px 0 80px 0;">
         <div class="container">
-            <h2 class="section-heading text-center" style="margin-bottom: 40px;">Ecosistema de Innovación</h2>
+            <h2 class="section-heading text-center" style="margin-bottom: 40px; text-align: center; font-family: var(--fuente-titulos); font-size: 2.2rem;">Ecosistema de Innovación</h2>
             <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                 
-                <article class="card glass-card" style="max-width: 250px;">
-                    <div class="card-num">01</div>
-                    <h3>Kiosko</h3>
-                    <p>Productividad de alto rendimiento académico.</p>
+                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
+                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">01</div>
+                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Kiosko</h3>
+                    <p style="margin: 0; font-size: 0.95rem;">Productividad de alto rendimiento académico.</p>
                 </article>
 
-                <article class="card glass-card" style="max-width: 250px;">
-                    <div class="card-num">02</div>
-                    <h3>Revista</h3>
-                    <p>Divulgación científica contemporánea.</p>
+                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
+                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">02</div>
+                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Revista</h3>
+                    <p style="margin: 0; font-size: 0.95rem;">Divulgación científica contemporánea.</p>
                 </article>
 
-                <article class="card glass-card" style="max-width: 250px;">
-                    <div class="card-num">03</div>
-                    <h3>Canal CREA</h3>
-                    <p>Producción en la frontera tecnológica.</p>
+                <article class="card glass-card" style="max-width: 250px; padding: 20px; border-radius: 4px;">
+                    <div class="card-num" style="font-size: 1.5rem; margin-bottom: 10px;">03</div>
+                    <h3 style="margin: 0 0 10px 0; font-family: var(--fuente-titulos);">Canal CREA</h3>
+                    <p style="margin: 0; font-size: 0.95rem;">Producción en la frontera tecnológica.</p>
                 </article>
 
             </div>
@@ -94,37 +186,37 @@
 </main>
 
 <div class="afiliaciones-banner">
-    <div class="container">
-        <div class="afiliaciones-grid">
+    <div class="container" style="text-align: center;">
+        <div class="afiliaciones-grid" style="display: flex; justify-content: center; align-items: center; gap: 15px; font-size: 0.85rem; letter-spacing: 0.5px;">
             <span>Red Nacional de Innovación Juvenil</span>
-            <span class="divider"></span>
+            <span class="divider" style="width: 1px; height: 15px; background: rgba(255,255,255,0.3);"></span>
             <span>Observatorio de Tecnología Educativa</span>
-            <span class="divider"></span>
+            <span class="divider" style="width: 1px; height: 15px; background: rgba(255,255,255,0.3);"></span>
             <span>Alianza por el Conocimiento Abierto</span>
         </div>
     </div>
 </div>
 
-<footer>
-    <div class="container footer-flex">
+<footer style="background-color: var(--institucional-azul); color: #ffffff; padding: 40px 0; border-top: 4px solid var(--institucional-oro);">
+    <div class="container footer-flex" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
         <div class="footer-brand">
-            <h3>CIIJ</h3>
-            <p>Innovación • Investigación • Juventud</p>
+            <h3 style="font-family: var(--fuente-titulos); margin: 0; font-size: 1.8rem; color: var(--institucional-oro);">CIIJ</h3>
+            <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #ccc;">Innovación • Investigación • Juventud</p>
         </div>
-        <div class="footer-copy">
-            <p>&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
+        <div class="footer-copy" style="font-size: 0.85rem; color: #e0e0e0;">
+            <p style="margin: 0;">&copy; 2026 Maestro Pablo Adrián Rivera Juvenal. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>
 
 <script>
-    // Lógica dinámica para la frase rotativa
     document.addEventListener('DOMContentLoaded', () => {
+        // Frases actualizadas alineadas al Manual de Identidad y Misión Institucional
         const frases = [
             { t: "La innovación distingue a los líderes de los seguidores.", a: "Steve Jobs" },
-            { t: "Hacer siempre y en todo lo mejor.", a: "Principio Vilasecano" },
+            { t: "Ad lucem (Hacia la luz).", a: "Lema Oficial Instituto Juventud" },
             { t: "Si puedes imaginarlo, puedes construirlo.", a: "Walt Disney" },
-            { t: "Construirse es construir el mundo.", a: "Pablo Adrián Rivera Juvenal" }
+            { t: "Formar a nuestros estudiantes en la verdad y el bien.", a: "Misión Educativa" }
         ];
 
         let i = 0;
@@ -153,10 +245,9 @@
         setInterval(rotar, 10000);
     });
 
-    // Validador de acceso
     function validarAccesoDocentes(event) {
         event.preventDefault();
-        const clave = prompt("Ingresa la clave de acceso:");
+        const clave = prompt("Ingresa la clave de acceso para Docentes:");
         if (clave === "SanJose") {
             window.location.href = "Docentes.html";
         } else if (clave !== null) {
